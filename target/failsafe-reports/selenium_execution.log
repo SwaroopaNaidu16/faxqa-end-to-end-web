@@ -1,0 +1,24 @@
+[INFO ] [2020-02-06 22:52:14,340] [org.j2.faxqa.efax.common.EnvironmentSetup.setupEnvironment()] - Current Environment = qa
+[INFO ] [2020-02-06 22:52:14,344] [org.j2.faxqa.efax.common.EnvironmentSetup.setupEnvironment()] - Setting-up environment specific configuration.
+[INFO ] [2020-02-06 22:52:14,344] [org.j2.faxqa.efax.common.EnvironmentSetup.setupEnvironment()] - Picking-up config values from '/environment.qa.properties'
+[INFO ] [2020-02-06 22:52:14,386] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - WebBrowser = chrome
+[INFO ] [2020-02-06 22:52:20,387] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Created ThreadLocal webdriver.
+[INFO ] [2020-02-06 22:52:24,413] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting  implicitlyWait to '10' seconds
+[INFO ] [2020-02-06 22:52:24,445] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting document.body.style.zoom='90%';
+[INFO ] [2020-02-06 22:52:24,445] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - WebBrowser = chrome
+[INFO ] [2020-02-06 22:52:29,780] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Created ThreadLocal webdriver.
+[INFO ] [2020-02-06 22:52:33,811] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting  implicitlyWait to '10' seconds
+[INFO ] [2020-02-06 22:52:33,819] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting document.body.style.zoom='90%';
+[INFO ] [2020-02-06 22:52:33,820] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - WebBrowser = chrome
+[INFO ] [2020-02-06 22:52:38,953] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Created ThreadLocal webdriver.
+[INFO ] [2020-02-06 22:52:42,974] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting  implicitlyWait to '10' seconds
+[INFO ] [2020-02-06 22:52:42,981] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting document.body.style.zoom='90%';
+[INFO ] [2020-02-06 22:52:42,981] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - WebBrowser = chrome
+[INFO ] [2020-02-06 22:52:48,124] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Created ThreadLocal webdriver.
+[INFO ] [2020-02-06 22:52:52,147] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting  implicitlyWait to '10' seconds
+[INFO ] [2020-02-06 22:52:52,154] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting document.body.style.zoom='90%';
+[INFO ] [2020-02-06 22:52:52,155] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - WebBrowser = chrome
+[INFO ] [2020-02-06 22:52:57,388] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Created ThreadLocal webdriver.
+[INFO ] [2020-02-06 22:52:59,405] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting  implicitlyWait to '10' seconds
+[INFO ] [2020-02-06 22:52:59,412] [org.j2.faxqa.efax.common.TestExecutionListener.setTLDriver()] - Setting document.body.style.zoom='90%';
+[INFO ] [2020-02-06 22:53:42,763] [org.j2.faxqa.efax.common.TestExecutionListener.onFinish()] - The flag 'uploadresults' should be set to 'true' to upload final results into TestRail.

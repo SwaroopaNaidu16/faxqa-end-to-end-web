@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="org.j2.faxqa.efax.common.TestExecutionListener"/>
+    <listener class-name="org.j2.faxqa.efax.common.TestNGReportListener"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="testrailprojectid" value="P8"/>
+    <parameter name="testrailsuiteid" value="S84"/>
+    <classes>
+      <class name="org.j2.faxqa.efax.corporate.admin.tests.AdminTests">
+        <methods>
+          <include name="testAssignFunctionality"/>
+        </methods>
+      </class> <!-- org.j2.faxqa.efax.corporate.admin.tests.AdminTests -->
+      <class name="org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests">
+        <methods>
+          <include name="testcase1" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests -->
+      <class name="org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests">
+        <methods>
+          <include name="testcase1" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests -->
+      <class name="org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests">
+        <methods>
+          <include name="ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

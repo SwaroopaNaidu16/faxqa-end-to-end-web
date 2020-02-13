@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppConfig Version="12.0.5542.1000" ExpireMinutes="10080" GraceMinutes="1440" Url="http://config.office.microsoft.com/config/Default.aspx" GenerationDate="10/5/2007" GenerationTime="10:19 AM">
+ <URLs>
+  <Research>http://office.microsoft.com/Research/query.asmx</Research>
+  <AwsTtp>http://office.microsoft.com/templates/ttp.aspx</AwsTtp>
+  <AwsTr>http://office.microsoft.com/templates/tr.aspx</AwsTr>
+  <AwsSrp>http://office.microsoft.com/search/srp.aspx</AwsSrp>
+  <AwsTdClient>http://office.microsoft.com/download/file.aspx?AssetID=|0&amp;ax=1&amp;ctt=71&amp;origin=|0</AwsTdClient>
+  <AwsDglx>http://office.microsoft.com/clipart/dglx.aspx</AwsDglx>
+  <AwsToc>http://office.microsoft.com/search/toc.aspx</AwsToc>
+  <AwsSpotlightCache>http://office.microsoft.com/assistance/slcache.aspx</AwsSpotlightCache>
+  <ORedir>http://r.office.microsoft.com/r</ORedir>
+  <SqmServer>http://sqm.msn.com:80/sqm/office/sqmserver.dll</SqmServer>
+  <AwsTcQuery>http://office.microsoft.com/search/tcquery.aspx</AwsTcQuery>
+  <ClViewClientHelpId>http://office.microsoft.com/client/helphome.aspx</ClViewClientHelpId>
+  <ClViewClientHome>http://office.microsoft.com/client/helphome.aspx</ClViewClientHome>
+  <ClViewClientPreview>http://office.microsoft.com/client/helppreview.aspx</ClViewClientPreview>
+  <ClViewClientTemplate>http://office.microsoft.com/client/helptemplate.aspx</ClViewClientTemplate>
+  <ClViewClientToc>http://office.microsoft.com/search/toc.aspx</ClViewClientToc>
+  <ClViewClientSearch>http://office.microsoft.com/client/searchresults.aspx</ClViewClientSearch>
+  <ClViewClientSearchRedir>http://office.microsoft.com/search/redir.aspx</ClViewClientSearchRedir>
+  <ClViewClientUpdate>http://office.microsoft.com/search/clvupd.aspx</ClViewClientUpdate>
+  <ClViewClientTocSync>http://office.microsoft.com/client/tocsync.aspx</ClViewClientTocSync>
+  <AwsFeaturedContentCache>http://office.microsoft.com/assistance/fccache.aspx</AwsFeaturedContentCache>
+  <AwsTcPreview>http://office.microsoft.com/search/tcpreview.aspx</AwsTcPreview>
+ </URLs>
+</AppConfig>

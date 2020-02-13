@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="4" parallel="methods">
+	<listeners>
+		<listener
+			class-name="org.j2.faxqa.efax.common.TestExecutionListener"></listener>
+		<listener
+			class-name="org.j2.faxqa.efax.common.TestNGReportListener"></listener>
+	</listeners>
+	<test name="Test">
+		<parameter name="testrailprojectid" value="2123" />
+		<parameter name="testrailsuiteid" value="12313" />
+		<classes>
+			<class name="org.j2.faxqa.efax.myaccount.tests.SendfaxTests" />
+		</classes>
+	</test>
+</suite>

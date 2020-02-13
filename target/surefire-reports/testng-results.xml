@@ -1,0 +1,1351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="4" ignored="0" total="10" passed="6">
+  <reporter-output>
+    <line>
+      <![CDATA[14:20:32.700 [main] INFO : Current Environment = qa]]>
+    </line>
+    <line>
+      <![CDATA[14:20:32.704 [main] INFO : Setting-up environment specific configuration.]]>
+    </line>
+    <line>
+      <![CDATA[14:20:32.704 [main] INFO : Picking-up config values from '/environment.qa.properties']]>
+    </line>
+    <line>
+      <![CDATA[14:20:32.736 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:20:35.697 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:20:35.711 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:20:41.045 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:20:45.073 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:20:45.081 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:20:45.083 [main] INFO : Navigating to - null]]>
+    </line>
+    <line>
+      <![CDATA[14:20:45.084 [main] INFO : java.lang.NullPointerException: null value in entry: url=null]]>
+    </line>
+    <line>
+      <![CDATA[<br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"]]>
+    </line>
+    <line>
+      <![CDATA[14:20:46.042 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:20:46.048 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:20:46.051 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:20:51.100 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:20:55.120 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:20:55.129 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:20:55.130 [main] INFO : java.lang.NullPointerException: null value in entry: url=null]]>
+    </line>
+    <line>
+      <![CDATA[<br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"]]>
+    </line>
+    <line>
+      <![CDATA[14:20:56.053 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:20:56.059 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:20:56.062 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:21:01.106 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:21:05.141 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:21:05.148 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:21:09.958 [main] INFO : Initializing page - Login]]>
+    </line>
+    <line>
+      <![CDATA[14:21:16.895 [main] INFO : Initializing page - Dashboard]]>
+    </line>
+    <line>
+      <![CDATA[14:21:16.923 [main] INFO : Initializing page - Dashboard]]>
+    </line>
+    <line>
+      <![CDATA[14:21:22.812 [main] INFO : Initializing page - Users | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:21:22.819 [main] INFO : Initializing page - Users | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:21:25.891 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:21:25.896 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:21:32.053 [main] INFO : Initializing page - eFax Corporate: Edit Group Admin]]>
+    </line>
+    <line>
+      <![CDATA[14:21:32.059 [main] INFO : Initializing page - eFax Corporate: Edit Group Admin]]>
+    </line>
+    <line>
+      <![CDATA[14:21:34.347 [main] INFO : Initializing page - Login]]>
+    </line>
+    <line>
+      <![CDATA[14:21:44.133 [main] INFO : Initializing page - eFax Corporate]]>
+    </line>
+    <line>
+      <![CDATA[14:21:44.139 [main] INFO : Initializing page - eFax Corporate]]>
+    </line>
+    <line>
+      <![CDATA[14:21:47.169 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:21:47.177 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:21:47.180 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:21:52.215 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:21:56.243 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:21:56.254 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:22:00.805 [main] INFO : Initializing page - Login]]>
+    </line>
+    <line>
+      <![CDATA[14:22:06.528 [main] INFO : Initializing page - Dashboard]]>
+    </line>
+    <line>
+      <![CDATA[14:22:06.536 [main] INFO : Initializing page - Dashboard]]>
+    </line>
+    <line>
+      <![CDATA[14:22:09.731 [main] INFO : Initializing page - Numbers | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:22:10.211 [main] INFO : Initializing page - Numbers | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:22:25.639 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:22:25.659 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:22:25.662 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:22:30.702 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:22:34.724 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:22:34.731 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:22:39.282 [main] INFO : Initializing page - Login]]>
+    </line>
+    <line>
+      <![CDATA[14:22:45.651 [main] INFO : Initializing page - Dashboard]]>
+    </line>
+    <line>
+      <![CDATA[14:22:45.656 [main] INFO : Initializing page - Dashboard]]>
+    </line>
+    <line>
+      <![CDATA[14:22:50.748 [main] INFO : Initializing page - Groups | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:22:50.752 [main] INFO : Initializing page - Groups | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:22:53.285 [main] INFO : Initializing page - Groups Settings | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:22:53.376 [main] INFO : Initializing page - Groups Settings | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:22:53.380 [main] INFO : Initializing page - Groups Settings | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:22:53.385 [main] INFO : Initializing page - Groups Settings | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:23:03.413 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:23:03.419 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:23:03.421 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:23:08.486 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:23:12.518 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:23:12.526 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:23:16.909 [main] INFO : Initializing page - Login]]>
+    </line>
+    <line>
+      <![CDATA[14:23:23.224 [main] INFO : Initializing page - Dashboard]]>
+    </line>
+    <line>
+      <![CDATA[14:23:23.227 [main] INFO : Initializing page - Dashboard]]>
+    </line>
+    <line>
+      <![CDATA[14:23:25.514 [main] INFO : Initializing page - Groups | eFax]]>
+    </line>
+    <line>
+      <![CDATA[14:23:30.458 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:23:30.463 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:23:30.466 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:23:35.544 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.576 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.593 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.599 [main] INFO : Initializing page - ]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.603 [main] INFO : Initializing page - ]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.607 [main] INFO : Initializing page - ]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.610 [main] INFO : Initializing page - ]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.613 [main] INFO : Initializing page - ]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.616 [main] INFO : Initializing page - ]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.619 [main] INFO : Initializing page - ]]>
+    </line>
+    <line>
+      <![CDATA[14:23:39.621 [main] INFO : Initializing page - ]]>
+    </line>
+    <line>
+      <![CDATA[14:24:29.984 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:24:29.991 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:24:29.993 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:24:35.320 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:24:39.349 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:24:39.369 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:24:43.795 [main] INFO : Initializing page - Login]]>
+    </line>
+    <line>
+      <![CDATA[14:24:52.358 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:24:52.364 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:24:59.057 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:24:59.061 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:25:05.949 [main] INFO : Initializing page - eFax Corporate: Edit User]]>
+    </line>
+    <line>
+      <![CDATA[14:25:26.668 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+    </line>
+    <line>
+      <![CDATA[14:26:43.033 [main] INFO : Initializing page - My Account - Account Details]]>
+    </line>
+    <line>
+      <![CDATA[14:26:43.038 [main] INFO : Initializing page - My Account - Account Details]]>
+    </line>
+    <line>
+      <![CDATA[14:26:53.271 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+    </line>
+    <line>
+      <![CDATA[14:27:18.870 [main] INFO : Initializing page - My Account]]>
+    </line>
+    <line>
+      <![CDATA[14:27:19.276 [main] INFO : Initializing page - My Account]]>
+    </line>
+    <line>
+      <![CDATA[14:27:19.562 [main] INFO : Recipient FirstName field set to QATomas]]>
+    </line>
+    <line>
+      <![CDATA[14:27:19.633 [main] INFO : Recipient LastName field set to Wisozk]]>
+    </line>
+    <line>
+      <![CDATA[14:27:19.779 [main] INFO : Receipent Company field set to McGlynn, Douglas and Stiedemann]]>
+    </line>
+    <line>
+      <![CDATA[14:27:19.899 [main] INFO : Fax Number field set to 15622868311]]>
+    </line>
+    <line>
+      <![CDATA[14:27:19.967 [main] INFO : Add contact button enabled.]]>
+    </line>
+    <line>
+      <![CDATA[14:27:20.103 [main] INFO : reference Id field set to REFxcvza917r]]>
+    </line>
+    <line>
+      <![CDATA[14:27:20.658 [main] INFO : Fax Quality field set to Standard]]>
+    </line>
+    <line>
+      <![CDATA[14:27:20.717 [main] INFO : Send Receipt field set to deafult first email.]]>
+    </line>
+    <line>
+      <![CDATA[14:27:20.734 [main] INFO : Coverage option enabled.]]>
+    </line>
+    <line>
+      <![CDATA[14:27:20.852 [main] INFO : Subject field set to Test Send Fax - 5886tdji]]>
+    </line>
+    <line>
+      <![CDATA[14:27:20.940 [main] INFO : Message body field set to Message Body - 5710gfgs]]>
+    </line>
+    <line>
+      <![CDATA[14:27:21.015 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\ANSII - Text - English.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:27:21.064 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - Big5.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:27:21.111 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - GB2312.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:27:21.160 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Japanese - Shift-Jis.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:27:21.203 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - Japanese - UTF16.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:27:21.252 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - SimplifiedChinese - UTF8.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:27:21.298 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - TraditionalChinese - UTF16.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:27:21.355 [main] INFO : Sending fax...]]>
+    </line>
+    <line>
+      <![CDATA[14:27:26.262 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:27:26.269 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:27:26.273 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:27:31.396 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:27:35.417 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:27:35.424 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:27:40.375 [main] INFO : Initializing page - Login]]>
+    </line>
+    <line>
+      <![CDATA[14:27:53.625 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:27:53.629 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:28:04.768 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:28:04.772 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:28:11.125 [main] INFO : Initializing page - eFax Corporate: Edit User]]>
+    </line>
+    <line>
+      <![CDATA[14:28:34.612 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+    </line>
+    <line>
+      <![CDATA[14:29:01.294 [main] INFO : Initializing page - My Account - Account Details]]>
+    </line>
+    <line>
+      <![CDATA[14:29:01.297 [main] INFO : Initializing page - My Account - Account Details]]>
+    </line>
+    <line>
+      <![CDATA[14:29:11.697 [main] INFO : WebBrowser = chrome]]>
+    </line>
+    <line>
+      <![CDATA[14:29:11.704 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+    </line>
+    <line>
+      <![CDATA[14:29:11.706 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+    </line>
+    <line>
+      <![CDATA[14:29:16.766 [main] INFO : Created ThreadLocal webdriver.]]>
+    </line>
+    <line>
+      <![CDATA[14:29:20.797 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+    </line>
+    <line>
+      <![CDATA[14:29:20.813 [main] INFO : Setting document.body.style.zoom='80%';]]>
+    </line>
+    <line>
+      <![CDATA[14:29:25.233 [main] INFO : Initializing page - Login]]>
+    </line>
+    <line>
+      <![CDATA[14:29:34.914 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:29:34.918 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:29:40.002 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:29:40.005 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+    </line>
+    <line>
+      <![CDATA[14:29:46.196 [main] INFO : Initializing page - eFax Corporate: Edit User]]>
+    </line>
+    <line>
+      <![CDATA[14:30:09.881 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+    </line>
+    <line>
+      <![CDATA[14:30:39.244 [main] INFO : Initializing page - My Account - Account Details]]>
+    </line>
+    <line>
+      <![CDATA[14:30:39.247 [main] INFO : Initializing page - My Account - Account Details]]>
+    </line>
+    <line>
+      <![CDATA[14:30:47.414 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+    </line>
+    <line>
+      <![CDATA[14:31:04.221 [main] INFO : Initializing page - My Account]]>
+    </line>
+    <line>
+      <![CDATA[14:31:05.158 [main] INFO : Initializing page - My Account]]>
+    </line>
+    <line>
+      <![CDATA[14:31:05.266 [main] INFO : Recipient FirstName field set to QARosanne]]>
+    </line>
+    <line>
+      <![CDATA[14:31:05.336 [main] INFO : Recipient LastName field set to Friesen]]>
+    </line>
+    <line>
+      <![CDATA[14:31:05.433 [main] INFO : Receipent Company field set to Lynch-Brekke]]>
+    </line>
+    <line>
+      <![CDATA[14:31:05.572 [main] INFO : Fax Number field set to 15622868219]]>
+    </line>
+    <line>
+      <![CDATA[14:31:05.639 [main] INFO : Add contact button enabled.]]>
+    </line>
+    <line>
+      <![CDATA[14:31:05.767 [main] INFO : reference Id field set to REFvnnkc750k]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.269 [main] INFO : Fax Quality field set to Standard]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.327 [main] INFO : Send Receipt field set to deafult first email.]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.343 [main] INFO : Coverage option enabled.]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.461 [main] INFO : Subject field set to Test Send Fax - 6147tfre]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.541 [main] INFO : Message body field set to Message Body - 6983oxra]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.609 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\ANSII - Text - English.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.656 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - Big5.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.705 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - GB2312.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.754 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Japanese - Shift-Jis.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.802 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - Japanese - UTF16.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.851 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - SimplifiedChinese - UTF8.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.913 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - TraditionalChinese - UTF16.txt]]>
+    </line>
+    <line>
+      <![CDATA[14:31:06.984 [main] INFO : Sending fax...]]>
+    </line>
+    <line>
+      <![CDATA[14:31:08.199 [main] INFO : Initializing page - My Account]]>
+    </line>
+    <line>
+      <![CDATA[14:31:32.342 [main] INFO : Initializing page - Main MessageCenter™ Page (View Faxes)]]>
+    </line>
+    <line>
+      <![CDATA[14:31:32.343 [main] INFO : Expected inbound fax Timeout set to 60 seconds.]]>
+    </line>
+    <line>
+      <![CDATA[14:31:32.343 [main] INFO : SenderID = 15622868219]]>
+    </line>
+    <line>
+      <![CDATA[14:31:52.011 [main] INFO : Waiting for the fax...]]>
+    </line>
+    <line>
+      <![CDATA[<br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="685468" started-at="2020-02-13T14:20:32 IST" finished-at="2020-02-13T14:31:58 IST">
+    <groups>
+      <group name="regression">
+        <method signature="SendfaxTests.testcase1(org.testng.ITestContext)[pri:1, instance:org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests@158a8276]" name="testcase1" class="org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests"/>
+        <method signature="SignUpTests.testcase1(org.testng.ITestContext)[pri:1, instance:org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests@13b6aecc]" name="testcase1" class="org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests"/>
+      </group> <!-- regression -->
+      <group name="smoke">
+        <method signature="SendfaxTests.testcase1(org.testng.ITestContext)[pri:1, instance:org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests@158a8276]" name="testcase1" class="org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests"/>
+        <method signature="SignUpTests.testcase1(org.testng.ITestContext)[pri:1, instance:org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests@13b6aecc]" name="testcase1" class="org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests"/>
+      </group> <!-- smoke -->
+    </groups>
+    <test name="Test" duration-ms="685468" started-at="2020-02-13T14:20:32 IST" finished-at="2020-02-13T14:31:58 IST">
+      <class name="org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests">
+        <test-method status="PASS" signature="verifySendOutboundReceiveInboundFaxFunctionality(org.testng.ITestContext)[pri:0, instance:org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests@79d8407f]" name="verifySendOutboundReceiveInboundFaxFunctionality" duration-ms="175692" started-at="2020-02-13T14:24:29 IST" description="Verify that Send outbound fax and Receive inbound fax functionality is working as expected" finished-at="2020-02-13T14:27:25 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@53976f5c]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[14:24:29.984 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:24:29.991 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:24:29.993 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:24:35.320 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:24:39.349 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:24:39.369 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:24:43.795 [main] INFO : Initializing page - Login]]>
+            </line>
+            <line>
+              <![CDATA[14:24:52.358 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:24:52.364 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:24:59.057 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:24:59.061 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:25:05.949 [main] INFO : Initializing page - eFax Corporate: Edit User]]>
+            </line>
+            <line>
+              <![CDATA[14:25:26.668 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+            </line>
+            <line>
+              <![CDATA[14:26:43.033 [main] INFO : Initializing page - My Account - Account Details]]>
+            </line>
+            <line>
+              <![CDATA[14:26:43.038 [main] INFO : Initializing page - My Account - Account Details]]>
+            </line>
+            <line>
+              <![CDATA[14:26:53.271 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+            </line>
+            <line>
+              <![CDATA[14:27:18.870 [main] INFO : Initializing page - My Account]]>
+            </line>
+            <line>
+              <![CDATA[14:27:19.276 [main] INFO : Initializing page - My Account]]>
+            </line>
+            <line>
+              <![CDATA[14:27:19.562 [main] INFO : Recipient FirstName field set to QATomas]]>
+            </line>
+            <line>
+              <![CDATA[14:27:19.633 [main] INFO : Recipient LastName field set to Wisozk]]>
+            </line>
+            <line>
+              <![CDATA[14:27:19.779 [main] INFO : Receipent Company field set to McGlynn, Douglas and Stiedemann]]>
+            </line>
+            <line>
+              <![CDATA[14:27:19.899 [main] INFO : Fax Number field set to 15622868311]]>
+            </line>
+            <line>
+              <![CDATA[14:27:19.967 [main] INFO : Add contact button enabled.]]>
+            </line>
+            <line>
+              <![CDATA[14:27:20.103 [main] INFO : reference Id field set to REFxcvza917r]]>
+            </line>
+            <line>
+              <![CDATA[14:27:20.658 [main] INFO : Fax Quality field set to Standard]]>
+            </line>
+            <line>
+              <![CDATA[14:27:20.717 [main] INFO : Send Receipt field set to deafult first email.]]>
+            </line>
+            <line>
+              <![CDATA[14:27:20.734 [main] INFO : Coverage option enabled.]]>
+            </line>
+            <line>
+              <![CDATA[14:27:20.852 [main] INFO : Subject field set to Test Send Fax - 5886tdji]]>
+            </line>
+            <line>
+              <![CDATA[14:27:20.940 [main] INFO : Message body field set to Message Body - 5710gfgs]]>
+            </line>
+            <line>
+              <![CDATA[14:27:21.015 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\ANSII - Text - English.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:27:21.064 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - Big5.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:27:21.111 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - GB2312.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:27:21.160 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Japanese - Shift-Jis.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:27:21.203 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - Japanese - UTF16.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:27:21.252 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - SimplifiedChinese - UTF8.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:27:21.298 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - TraditionalChinese - UTF16.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:27:21.355 [main] INFO : Sending fax...]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifySendOutboundReceiveInboundFaxFunctionality -->
+        <test-method status="PASS" signature="shouldBeAbleToCreateNewMyAccountUser(org.testng.ITestContext)[pri:1, instance:org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests@79d8407f]" name="shouldBeAbleToCreateNewMyAccountUser" duration-ms="104840" started-at="2020-02-13T14:27:26 IST" description="Verify that admin user should be able to create new MyAccount user" finished-at="2020-02-13T14:29:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@53976f5c]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[14:27:26.262 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:27:26.269 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:27:26.273 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:27:31.396 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:27:35.417 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:27:35.424 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:27:40.375 [main] INFO : Initializing page - Login]]>
+            </line>
+            <line>
+              <![CDATA[14:27:53.625 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:27:53.629 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:28:04.768 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:28:04.772 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:28:11.125 [main] INFO : Initializing page - eFax Corporate: Edit User]]>
+            </line>
+            <line>
+              <![CDATA[14:28:34.612 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+            </line>
+            <line>
+              <![CDATA[14:29:01.294 [main] INFO : Initializing page - My Account - Account Details]]>
+            </line>
+            <line>
+              <![CDATA[14:29:01.297 [main] INFO : Initializing page - My Account - Account Details]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- shouldBeAbleToCreateNewMyAccountUser -->
+        <test-method status="FAIL" signature="ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT(org.testng.ITestContext)[pri:17, instance:org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests@79d8407f]" name="ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT" duration-ms="165859" started-at="2020-02-13T14:29:11 IST" description="Verify that user should be able to send faxes, receive and view them in &#039;View faxes&#039; page" finished-at="2020-02-13T14:31:57 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@53976f5c]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: null
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.fail(Assert.java:102)
+at org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests.ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT(MyAccountTests.java:82)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[14:29:11.697 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:29:11.704 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:29:11.706 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:29:16.766 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:29:20.797 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:29:20.813 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:29:25.233 [main] INFO : Initializing page - Login]]>
+            </line>
+            <line>
+              <![CDATA[14:29:34.914 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:29:34.918 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:29:40.002 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:29:40.005 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:29:46.196 [main] INFO : Initializing page - eFax Corporate: Edit User]]>
+            </line>
+            <line>
+              <![CDATA[14:30:09.881 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+            </line>
+            <line>
+              <![CDATA[14:30:39.244 [main] INFO : Initializing page - My Account - Account Details]]>
+            </line>
+            <line>
+              <![CDATA[14:30:39.247 [main] INFO : Initializing page - My Account - Account Details]]>
+            </line>
+            <line>
+              <![CDATA[14:30:47.414 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login]]>
+            </line>
+            <line>
+              <![CDATA[14:31:04.221 [main] INFO : Initializing page - My Account]]>
+            </line>
+            <line>
+              <![CDATA[14:31:05.158 [main] INFO : Initializing page - My Account]]>
+            </line>
+            <line>
+              <![CDATA[14:31:05.266 [main] INFO : Recipient FirstName field set to QARosanne]]>
+            </line>
+            <line>
+              <![CDATA[14:31:05.336 [main] INFO : Recipient LastName field set to Friesen]]>
+            </line>
+            <line>
+              <![CDATA[14:31:05.433 [main] INFO : Receipent Company field set to Lynch-Brekke]]>
+            </line>
+            <line>
+              <![CDATA[14:31:05.572 [main] INFO : Fax Number field set to 15622868219]]>
+            </line>
+            <line>
+              <![CDATA[14:31:05.639 [main] INFO : Add contact button enabled.]]>
+            </line>
+            <line>
+              <![CDATA[14:31:05.767 [main] INFO : reference Id field set to REFvnnkc750k]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.269 [main] INFO : Fax Quality field set to Standard]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.327 [main] INFO : Send Receipt field set to deafult first email.]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.343 [main] INFO : Coverage option enabled.]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.461 [main] INFO : Subject field set to Test Send Fax - 6147tfre]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.541 [main] INFO : Message body field set to Message Body - 6983oxra]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.609 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\ANSII - Text - English.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.656 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - Big5.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.705 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - GB2312.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.754 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Japanese - Shift-Jis.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.802 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - Japanese - UTF16.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.851 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - SimplifiedChinese - UTF8.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.913 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - TraditionalChinese - UTF16.txt]]>
+            </line>
+            <line>
+              <![CDATA[14:31:06.984 [main] INFO : Sending fax...]]>
+            </line>
+            <line>
+              <![CDATA[14:31:08.199 [main] INFO : Initializing page - My Account]]>
+            </line>
+            <line>
+              <![CDATA[14:31:32.342 [main] INFO : Initializing page - Main MessageCenter™ Page (View Faxes)]]>
+            </line>
+            <line>
+              <![CDATA[14:31:32.343 [main] INFO : Expected inbound fax Timeout set to 60 seconds.]]>
+            </line>
+            <line>
+              <![CDATA[14:31:32.343 [main] INFO : SenderID = 15622868219]]>
+            </line>
+            <line>
+              <![CDATA[14:31:52.011 [main] INFO : Waiting for the fax...]]>
+            </line>
+            <line>
+              <![CDATA[<br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT -->
+      </class> <!-- org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests -->
+      <class name="org.j2.faxqa.efax.corporate.admin.tests.AdminTests">
+        <test-method status="PASS" signature="adminUserShouldBeCreatedSuccessfully()[pri:0, instance:org.j2.faxqa.efax.corporate.admin.tests.AdminTests@3c3d9b6b]" name="adminUserShouldBeCreatedSuccessfully" duration-ms="50519" started-at="2020-02-13T14:20:56 IST" description="Verify that new admin user should be created successfully" finished-at="2020-02-13T14:21:46 IST">
+          <reporter-output>
+            <line>
+              <![CDATA[14:20:56.053 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:20:56.059 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:20:56.062 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:21:01.106 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:21:05.141 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:21:05.148 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:21:09.958 [main] INFO : Initializing page - Login]]>
+            </line>
+            <line>
+              <![CDATA[14:21:16.895 [main] INFO : Initializing page - Dashboard]]>
+            </line>
+            <line>
+              <![CDATA[14:21:16.923 [main] INFO : Initializing page - Dashboard]]>
+            </line>
+            <line>
+              <![CDATA[14:21:22.812 [main] INFO : Initializing page - Users | eFax]]>
+            </line>
+            <line>
+              <![CDATA[14:21:22.819 [main] INFO : Initializing page - Users | eFax]]>
+            </line>
+            <line>
+              <![CDATA[14:21:25.891 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:21:25.896 [main] INFO : Initializing page - eFax Corporate: Create New User]]>
+            </line>
+            <line>
+              <![CDATA[14:21:32.053 [main] INFO : Initializing page - eFax Corporate: Edit Group Admin]]>
+            </line>
+            <line>
+              <![CDATA[14:21:32.059 [main] INFO : Initializing page - eFax Corporate: Edit Group Admin]]>
+            </line>
+            <line>
+              <![CDATA[14:21:34.347 [main] INFO : Initializing page - Login]]>
+            </line>
+            <line>
+              <![CDATA[14:21:44.133 [main] INFO : Initializing page - eFax Corporate]]>
+            </line>
+            <line>
+              <![CDATA[14:21:44.139 [main] INFO : Initializing page - eFax Corporate]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- adminUserShouldBeCreatedSuccessfully -->
+        <test-method status="PASS" signature="addFaxNumberUsingSearchByState()[pri:1, instance:org.j2.faxqa.efax.corporate.admin.tests.AdminTests@3c3d9b6b]" name="addFaxNumberUsingSearchByState" duration-ms="37863" started-at="2020-02-13T14:21:47 IST" description="Verify that new Fax Numbers should be added successfully to account using &#039;Search By - State&#039; option" finished-at="2020-02-13T14:22:25 IST">
+          <reporter-output>
+            <line>
+              <![CDATA[14:21:47.169 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:21:47.177 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:21:47.180 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:21:52.215 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:21:56.243 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:21:56.254 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:22:00.805 [main] INFO : Initializing page - Login]]>
+            </line>
+            <line>
+              <![CDATA[14:22:06.528 [main] INFO : Initializing page - Dashboard]]>
+            </line>
+            <line>
+              <![CDATA[14:22:06.536 [main] INFO : Initializing page - Dashboard]]>
+            </line>
+            <line>
+              <![CDATA[14:22:09.731 [main] INFO : Initializing page - Numbers | eFax]]>
+            </line>
+            <line>
+              <![CDATA[14:22:10.211 [main] INFO : Initializing page - Numbers | eFax]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- addFaxNumberUsingSearchByState -->
+        <test-method status="PASS" signature="newUserShouldBeCreatedAndSettingShouldBeInheritedFromTheGroup()[pri:1, instance:org.j2.faxqa.efax.corporate.admin.tests.AdminTests@3c3d9b6b]" name="newUserShouldBeCreatedAndSettingShouldBeInheritedFromTheGroup" duration-ms="37197" started-at="2020-02-13T14:22:25 IST" description="Verify that new user should be created from the Group Details page and setting of that user should be inherited from the Group" finished-at="2020-02-13T14:23:02 IST">
+          <reporter-output>
+            <line>
+              <![CDATA[14:22:25.639 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:22:25.659 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:22:25.662 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:22:30.702 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:22:34.724 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:22:34.731 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:22:39.282 [main] INFO : Initializing page - Login]]>
+            </line>
+            <line>
+              <![CDATA[14:22:45.651 [main] INFO : Initializing page - Dashboard]]>
+            </line>
+            <line>
+              <![CDATA[14:22:45.656 [main] INFO : Initializing page - Dashboard]]>
+            </line>
+            <line>
+              <![CDATA[14:22:50.748 [main] INFO : Initializing page - Groups | eFax]]>
+            </line>
+            <line>
+              <![CDATA[14:22:50.752 [main] INFO : Initializing page - Groups | eFax]]>
+            </line>
+            <line>
+              <![CDATA[14:22:53.285 [main] INFO : Initializing page - Groups Settings | eFax]]>
+            </line>
+            <line>
+              <![CDATA[14:22:53.376 [main] INFO : Initializing page - Groups Settings | eFax]]>
+            </line>
+            <line>
+              <![CDATA[14:22:53.380 [main] INFO : Initializing page - Groups Settings | eFax]]>
+            </line>
+            <line>
+              <![CDATA[14:22:53.385 [main] INFO : Initializing page - Groups Settings | eFax]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- newUserShouldBeCreatedAndSettingShouldBeInheritedFromTheGroup -->
+        <test-method status="PASS" signature="testAddGroupUsingGroupAdmin()[pri:1, instance:org.j2.faxqa.efax.corporate.admin.tests.AdminTests@3c3d9b6b]" name="testAddGroupUsingGroupAdmin" duration-ms="26442" started-at="2020-02-13T14:23:03 IST" description="Verify that new group should be created/added successfully" finished-at="2020-02-13T14:23:29 IST">
+          <reporter-output>
+            <line>
+              <![CDATA[14:23:03.413 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:23:03.419 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:23:03.421 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:23:08.486 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:23:12.518 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:23:12.526 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:23:16.909 [main] INFO : Initializing page - Login]]>
+            </line>
+            <line>
+              <![CDATA[14:23:23.224 [main] INFO : Initializing page - Dashboard]]>
+            </line>
+            <line>
+              <![CDATA[14:23:23.227 [main] INFO : Initializing page - Dashboard]]>
+            </line>
+            <line>
+              <![CDATA[14:23:25.514 [main] INFO : Initializing page - Groups | eFax]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testAddGroupUsingGroupAdmin -->
+        <test-method status="FAIL" signature="testAssignFunctionality()[pri:19, instance:org.j2.faxqa.efax.corporate.admin.tests.AdminTests@3c3d9b6b]" name="testAssignFunctionality" duration-ms="58917" started-at="2020-02-13T14:23:30 IST" description="Admin &gt; Test assigning fax numbers functionality to myaccount users" finished-at="2020-02-13T14:24:29 IST">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: null
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.fail(Assert.java:102)
+at org.j2.faxqa.efax.corporate.admin.tests.AdminTests.testAssignFunctionality(AdminTests.java:278)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[14:23:30.458 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:23:30.463 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:23:30.466 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:23:35.544 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.576 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.593 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.599 [main] INFO : Initializing page - ]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.603 [main] INFO : Initializing page - ]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.607 [main] INFO : Initializing page - ]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.610 [main] INFO : Initializing page - ]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.613 [main] INFO : Initializing page - ]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.616 [main] INFO : Initializing page - ]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.619 [main] INFO : Initializing page - ]]>
+            </line>
+            <line>
+              <![CDATA[14:23:39.621 [main] INFO : Initializing page - ]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testAssignFunctionality -->
+      </class> <!-- org.j2.faxqa.efax.corporate.admin.tests.AdminTests -->
+      <class name="org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests">
+        <test-method status="FAIL" signature="testcase1(org.testng.ITestContext)[pri:1, instance:org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests@158a8276]" name="testcase1" duration-ms="9430" started-at="2020-02-13T14:20:46 IST" description="US &gt; Send a fax to self and verify the received fax" finished-at="2020-02-13T14:20:55 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@53976f5c]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: null
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.fail(Assert.java:102)
+at org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests.testcase1(SendfaxTests.java:83)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[14:20:46.042 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:20:46.048 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:20:46.051 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:20:51.100 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:20:55.120 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:20:55.129 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:20:55.130 [main] INFO : java.lang.NullPointerException: null value in entry: url=null]]>
+            </line>
+            <line>
+              <![CDATA[<br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testcase1 -->
+      </class> <!-- org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests -->
+      <class name="org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests">
+        <test-method status="FAIL" signature="testcase1(org.testng.ITestContext)[pri:1, instance:org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests@13b6aecc]" name="testcase1" duration-ms="12703" started-at="2020-02-13T14:20:32 IST" description="US &gt; SignUp for a new user account" finished-at="2020-02-13T14:20:45 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@53976f5c]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: null
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.fail(Assert.java:102)
+at org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests.testcase1(SignUpTests.java:100)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:766)
+at org.testng.TestRunner.run(TestRunner.java:587)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1109)
+at org.testng.TestNG.runSuites(TestNG.java:1039)
+at org.testng.TestNG.run(TestNG.java:1007)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+            <line>
+              <![CDATA[14:20:32.736 [main] INFO : WebBrowser = chrome]]>
+            </line>
+            <line>
+              <![CDATA[14:20:35.697 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)]]>
+            </line>
+            <line>
+              <![CDATA[14:20:35.711 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe]]>
+            </line>
+            <line>
+              <![CDATA[14:20:41.045 [main] INFO : Created ThreadLocal webdriver.]]>
+            </line>
+            <line>
+              <![CDATA[14:20:45.073 [main] INFO : Setting  implicitlyWait to '10' seconds]]>
+            </line>
+            <line>
+              <![CDATA[14:20:45.081 [main] INFO : Setting document.body.style.zoom='80%';]]>
+            </line>
+            <line>
+              <![CDATA[14:20:45.083 [main] INFO : Navigating to - null]]>
+            </line>
+            <line>
+              <![CDATA[14:20:45.084 [main] INFO : java.lang.NullPointerException: null value in entry: url=null]]>
+            </line>
+            <line>
+              <![CDATA[<br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testcase1 -->
+      </class> <!-- org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

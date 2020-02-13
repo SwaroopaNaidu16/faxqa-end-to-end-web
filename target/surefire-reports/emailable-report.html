@@ -1,0 +1,355 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #B33}.failedeven td,.stripe .attn {background-color: #A00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="8">Suite</th></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">6</td><td class="num">0</td><td class="num">0</td><td class="num attn">4</td><td class="num">685,468</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">org.j2.faxqa.efax.corporate.admin.tests.AdminTests</td><td><a href="#m0">testAssignFunctionality</a></td><td rowspan="1">1581584010457</td><td rowspan="1">58917</td></tr><tr class="failedodd"><td rowspan="1">org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests</td><td><a href="#m1">ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT</a></td><td rowspan="1">1581584351695</td><td rowspan="1">165859</td></tr><tr class="failedeven"><td rowspan="1">org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests</td><td><a href="#m2">testcase1</a></td><td rowspan="1">1581583832732</td><td rowspan="1">12703</td></tr><tr class="failedodd"><td rowspan="1">org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests</td><td><a href="#m3">testcase1</a></td><td rowspan="1">1581583846041</td><td rowspan="1">9430</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">org.j2.faxqa.efax.corporate.admin.tests.AdminTests</td><td><a href="#m4">addFaxNumberUsingSearchByState</a></td><td rowspan="1">1581583907168</td><td rowspan="1">37863</td></tr><tr class="passedeven"><td><a href="#m5">adminUserShouldBeCreatedSuccessfully</a></td><td rowspan="1">1581583856052</td><td rowspan="1">50519</td></tr><tr class="passedeven"><td><a href="#m6">newUserShouldBeCreatedAndSettingShouldBeInheritedFromTheGroup</a></td><td rowspan="1">1581583945635</td><td rowspan="1">37197</td></tr><tr class="passedeven"><td><a href="#m7">testAddGroupUsingGroupAdmin</a></td><td rowspan="1">1581583983412</td><td rowspan="1">26442</td></tr><tr class="passedodd"><td rowspan="2">org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests</td><td><a href="#m8">shouldBeAbleToCreateNewMyAccountUser</a></td><td rowspan="1">1581584246262</td><td rowspan="1">104840</td></tr><tr class="passedodd"><td><a href="#m9">verifySendOutboundReceiveInboundFaxFunctionality</a></td><td rowspan="1">1581584069982</td><td rowspan="1">175692</td></tr></tbody>
+</table>
+<h2>Test</h2><h3 id="m0">org.j2.faxqa.efax.corporate.admin.tests.AdminTests#testAssignFunctionality</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">14:23:30.458 [main] INFO : WebBrowser = chrome<br/>14:23:30.463 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:23:30.466 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:23:35.544 [main] INFO : Created ThreadLocal webdriver.<br/>14:23:39.576 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:23:39.593 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:23:39.599 [main] INFO : Initializing page - <br/>14:23:39.603 [main] INFO : Initializing page - <br/>14:23:39.607 [main] INFO : Initializing page - <br/>14:23:39.610 [main] INFO : Initializing page - <br/>14:23:39.613 [main] INFO : Initializing page - <br/>14:23:39.616 [main] INFO : Initializing page - <br/>14:23:39.619 [main] INFO : Initializing page - <br/>14:23:39.621 [main] INFO : Initializing page - </div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at org.j2.faxqa.efax.corporate.admin.tests.AdminTests.testAssignFunctionality(AdminTests.java:278)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests#ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>org.testng.TestRunner@53976f5c</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages">14:29:11.697 [main] INFO : WebBrowser = chrome<br/>14:29:11.704 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:29:11.706 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:29:16.766 [main] INFO : Created ThreadLocal webdriver.<br/>14:29:20.797 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:29:20.813 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:29:25.233 [main] INFO : Initializing page - Login<br/>14:29:34.914 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:29:34.918 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:29:40.002 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:29:40.005 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:29:46.196 [main] INFO : Initializing page - eFax Corporate: Edit User<br/>14:30:09.881 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login<br/>14:30:39.244 [main] INFO : Initializing page - My Account - Account Details<br/>14:30:39.247 [main] INFO : Initializing page - My Account - Account Details<br/>14:30:47.414 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login<br/>14:31:04.221 [main] INFO : Initializing page - My Account<br/>14:31:05.158 [main] INFO : Initializing page - My Account<br/>14:31:05.266 [main] INFO : Recipient FirstName field set to QARosanne<br/>14:31:05.336 [main] INFO : Recipient LastName field set to Friesen<br/>14:31:05.433 [main] INFO : Receipent Company field set to Lynch-Brekke<br/>14:31:05.572 [main] INFO : Fax Number field set to 15622868219<br/>14:31:05.639 [main] INFO : Add contact button enabled.<br/>14:31:05.767 [main] INFO : reference Id field set to REFvnnkc750k<br/>14:31:06.269 [main] INFO : Fax Quality field set to Standard<br/>14:31:06.327 [main] INFO : Send Receipt field set to deafult first email.<br/>14:31:06.343 [main] INFO : Coverage option enabled.<br/>14:31:06.461 [main] INFO : Subject field set to Test Send Fax - 6147tfre<br/>14:31:06.541 [main] INFO : Message body field set to Message Body - 6983oxra<br/>14:31:06.609 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\ANSII - Text - English.txt<br/>14:31:06.656 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - Big5.txt<br/>14:31:06.705 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - GB2312.txt<br/>14:31:06.754 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Japanese - Shift-Jis.txt<br/>14:31:06.802 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - Japanese - UTF16.txt<br/>14:31:06.851 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - SimplifiedChinese - UTF8.txt<br/>14:31:06.913 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - TraditionalChinese - UTF16.txt<br/>14:31:06.984 [main] INFO : Sending fax...<br/>14:31:08.199 [main] INFO : Initializing page - My Account<br/>14:31:32.342 [main] INFO : Initializing page - Main MessageCenter™ Page (View Faxes)<br/>14:31:32.343 [main] INFO : Expected inbound fax Timeout set to 60 seconds.<br/>14:31:32.343 [main] INFO : SenderID = 15622868219<br/>14:31:52.011 [main] INFO : Waiting for the fax...<br/><br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"</div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests.ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT(MyAccountTests.java:82)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests#testcase1</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>org.testng.TestRunner@53976f5c</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages">14:20:32.736 [main] INFO : WebBrowser = chrome<br/>14:20:35.697 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:20:35.711 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:20:41.045 [main] INFO : Created ThreadLocal webdriver.<br/>14:20:45.073 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:20:45.081 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:20:45.083 [main] INFO : Navigating to - null<br/>14:20:45.084 [main] INFO : java.lang.NullPointerException: null value in entry: url=null<br/><br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"</div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests.testcase1(SignUpTests.java:100)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests#testcase1</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>org.testng.TestRunner@53976f5c</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages">14:20:46.042 [main] INFO : WebBrowser = chrome<br/>14:20:46.048 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:20:46.051 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:20:51.100 [main] INFO : Created ThreadLocal webdriver.<br/>14:20:55.120 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:20:55.129 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:20:55.130 [main] INFO : java.lang.NullPointerException: null value in entry: url=null<br/><br><img src='C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports\Suite\screenshots\maincaptureScreen.png' style="width: 33%; height: 33%"</div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: null
+	at org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests.testcase1(SendfaxTests.java:83)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">org.j2.faxqa.efax.corporate.admin.tests.AdminTests#addFaxNumberUsingSearchByState</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">14:21:47.169 [main] INFO : WebBrowser = chrome<br/>14:21:47.177 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:21:47.180 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:21:52.215 [main] INFO : Created ThreadLocal webdriver.<br/>14:21:56.243 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:21:56.254 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:22:00.805 [main] INFO : Initializing page - Login<br/>14:22:06.528 [main] INFO : Initializing page - Dashboard<br/>14:22:06.536 [main] INFO : Initializing page - Dashboard<br/>14:22:09.731 [main] INFO : Initializing page - Numbers | eFax<br/>14:22:10.211 [main] INFO : Initializing page - Numbers | eFax</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">org.j2.faxqa.efax.corporate.admin.tests.AdminTests#adminUserShouldBeCreatedSuccessfully</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">14:20:56.053 [main] INFO : WebBrowser = chrome<br/>14:20:56.059 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:20:56.062 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:21:01.106 [main] INFO : Created ThreadLocal webdriver.<br/>14:21:05.141 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:21:05.148 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:21:09.958 [main] INFO : Initializing page - Login<br/>14:21:16.895 [main] INFO : Initializing page - Dashboard<br/>14:21:16.923 [main] INFO : Initializing page - Dashboard<br/>14:21:22.812 [main] INFO : Initializing page - Users | eFax<br/>14:21:22.819 [main] INFO : Initializing page - Users | eFax<br/>14:21:25.891 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:21:25.896 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:21:32.053 [main] INFO : Initializing page - eFax Corporate: Edit Group Admin<br/>14:21:32.059 [main] INFO : Initializing page - eFax Corporate: Edit Group Admin<br/>14:21:34.347 [main] INFO : Initializing page - Login<br/>14:21:44.133 [main] INFO : Initializing page - eFax Corporate<br/>14:21:44.139 [main] INFO : Initializing page - eFax Corporate</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">org.j2.faxqa.efax.corporate.admin.tests.AdminTests#newUserShouldBeCreatedAndSettingShouldBeInheritedFromTheGroup</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">14:22:25.639 [main] INFO : WebBrowser = chrome<br/>14:22:25.659 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:22:25.662 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:22:30.702 [main] INFO : Created ThreadLocal webdriver.<br/>14:22:34.724 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:22:34.731 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:22:39.282 [main] INFO : Initializing page - Login<br/>14:22:45.651 [main] INFO : Initializing page - Dashboard<br/>14:22:45.656 [main] INFO : Initializing page - Dashboard<br/>14:22:50.748 [main] INFO : Initializing page - Groups | eFax<br/>14:22:50.752 [main] INFO : Initializing page - Groups | eFax<br/>14:22:53.285 [main] INFO : Initializing page - Groups Settings | eFax<br/>14:22:53.376 [main] INFO : Initializing page - Groups Settings | eFax<br/>14:22:53.380 [main] INFO : Initializing page - Groups Settings | eFax<br/>14:22:53.385 [main] INFO : Initializing page - Groups Settings | eFax</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">org.j2.faxqa.efax.corporate.admin.tests.AdminTests#testAddGroupUsingGroupAdmin</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages">14:23:03.413 [main] INFO : WebBrowser = chrome<br/>14:23:03.419 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:23:03.421 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:23:08.486 [main] INFO : Created ThreadLocal webdriver.<br/>14:23:12.518 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:23:12.526 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:23:16.909 [main] INFO : Initializing page - Login<br/>14:23:23.224 [main] INFO : Initializing page - Dashboard<br/>14:23:23.227 [main] INFO : Initializing page - Dashboard<br/>14:23:25.514 [main] INFO : Initializing page - Groups | eFax</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests#shouldBeAbleToCreateNewMyAccountUser</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>org.testng.TestRunner@53976f5c</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages">14:27:26.262 [main] INFO : WebBrowser = chrome<br/>14:27:26.269 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:27:26.273 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:27:31.396 [main] INFO : Created ThreadLocal webdriver.<br/>14:27:35.417 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:27:35.424 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:27:40.375 [main] INFO : Initializing page - Login<br/>14:27:53.625 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:27:53.629 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:28:04.768 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:28:04.772 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:28:11.125 [main] INFO : Initializing page - eFax Corporate: Edit User<br/>14:28:34.612 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login<br/>14:29:01.294 [main] INFO : Initializing page - My Account - Account Details<br/>14:29:01.297 [main] INFO : Initializing page - My Account - Account Details</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests#verifySendOutboundReceiveInboundFaxFunctionality</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>org.testng.TestRunner@53976f5c</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages">14:24:29.984 [main] INFO : WebBrowser = chrome<br/>14:24:29.991 [main] INFO : Using chromedriver 80.0.3987.16 (since Google Chrome 80 is installed in your machine)<br/>14:24:29.993 [main] INFO : Exporting webdriver.chrome.driver as C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe<br/>14:24:35.320 [main] INFO : Created ThreadLocal webdriver.<br/>14:24:39.349 [main] INFO : Setting  implicitlyWait to '10' seconds<br/>14:24:39.369 [main] INFO : Setting document.body.style.zoom='80%';<br/>14:24:43.795 [main] INFO : Initializing page - Login<br/>14:24:52.358 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:24:52.364 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:24:59.057 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:24:59.061 [main] INFO : Initializing page - eFax Corporate: Create New User<br/>14:25:05.949 [main] INFO : Initializing page - eFax Corporate: Edit User<br/>14:25:26.668 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login<br/>14:26:43.033 [main] INFO : Initializing page - My Account - Account Details<br/>14:26:43.038 [main] INFO : Initializing page - My Account - Account Details<br/>14:26:53.271 [main] INFO : Initializing page - eFax Corporate: Log into My Account | Internet Fax Services Login<br/>14:27:18.870 [main] INFO : Initializing page - My Account<br/>14:27:19.276 [main] INFO : Initializing page - My Account<br/>14:27:19.562 [main] INFO : Recipient FirstName field set to QATomas<br/>14:27:19.633 [main] INFO : Recipient LastName field set to Wisozk<br/>14:27:19.779 [main] INFO : Receipent Company field set to McGlynn, Douglas and Stiedemann<br/>14:27:19.899 [main] INFO : Fax Number field set to 15622868311<br/>14:27:19.967 [main] INFO : Add contact button enabled.<br/>14:27:20.103 [main] INFO : reference Id field set to REFxcvza917r<br/>14:27:20.658 [main] INFO : Fax Quality field set to Standard<br/>14:27:20.717 [main] INFO : Send Receipt field set to deafult first email.<br/>14:27:20.734 [main] INFO : Coverage option enabled.<br/>14:27:20.852 [main] INFO : Subject field set to Test Send Fax - 5886tdji<br/>14:27:20.940 [main] INFO : Message body field set to Message Body - 5710gfgs<br/>14:27:21.015 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\ANSII - Text - English.txt<br/>14:27:21.064 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - Big5.txt<br/>14:27:21.111 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Chinese - GB2312.txt<br/>14:27:21.160 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\MBCS - Text - Japanese - Shift-Jis.txt<br/>14:27:21.203 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - Japanese - UTF16.txt<br/>14:27:21.252 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - SimplifiedChinese - UTF8.txt<br/>14:27:21.298 [main] INFO : Uploaded attachment - C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\src\test\resources\sendrast\Unicode - Text - TraditionalChinese - UTF16.txt<br/>14:27:21.355 [main] INFO : Sending fax...</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<br></br>
+<br></br>
+<h3>Host Machine - Environment Variables </h3>
+<table>
+<tr><th>Variable</th><th>Value</th></tr>
+<tr> <td>USERDOMAIN_ROAMINGPROFILE</td> <td>DESKTOP-0HG7EU4</tr>
+<tr> <td>LOCALAPPDATA</td> <td>C:\Users\Jagadeesh\AppData\Local</tr>
+<tr> <td>ChocolateyLastPathUpdate</td> <td>132219180626688520</tr>
+<tr> <td>PROCESSOR_LEVEL</td> <td>6</tr>
+<tr> <td>USERDOMAIN</td> <td>DESKTOP-0HG7EU4</tr>
+<tr> <td>FPS_BROWSER_APP_PROFILE_STRING</td> <td>Internet Explorer</tr>
+<tr> <td>LOGONSERVER</td> <td>\\DESKTOP-0HG7EU4</tr>
+<tr> <td>JAVA_HOME</td> <td>C:\Program Files\Java\jdk1.8.0_231</tr>
+<tr> <td>SESSIONNAME</td> <td>Console</tr>
+<tr> <td>ALLUSERSPROFILE</td> <td>C:\ProgramData</tr>
+<tr> <td>PROCESSOR_ARCHITECTURE</td> <td>AMD64</tr>
+<tr> <td>PSModulePath</td> <td>C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules</tr>
+<tr> <td>SystemDrive</td> <td>C:</tr>
+<tr> <td>OneDrive</td> <td>C:\Users\Jagadeesh\OneDrive</tr>
+<tr> <td>APPDATA</td> <td>C:\Users\Jagadeesh\AppData\Roaming</tr>
+<tr> <td>USERNAME</td> <td>Jagadeesh</tr>
+<tr> <td>ChocolateyInstall</td> <td>C:\ProgramData\chocolatey</tr>
+<tr> <td>ProgramFiles(x86)</td> <td>C:\Program Files (x86)</tr>
+<tr> <td>CommonProgramFiles</td> <td>C:\Program Files\Common Files</tr>
+<tr> <td>Path</td> <td>C:/Program Files/Java/jdk-13.0.1/bin/server;C:/Program Files/Java/jdk-13.0.1/bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\PortableApps\SysinternalsSuite;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.6.3\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Users\Jagadeesh\AppData\Local\Microsoft\WindowsApps;C:\Users\Jagadeesh\AppData\Local\GitHubDesktop\bin;C:\Users\Jagadeesh\Desktop;</tr>
+<tr> <td>FPS_BROWSER_USER_PROFILE_STRING</td> <td>Default</tr>
+<tr> <td>PATHEXT</td> <td>.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC</tr>
+<tr> <td>DriverData</td> <td>C:\Windows\System32\Drivers\DriverData</tr>
+<tr> <td>OS</td> <td>Windows_NT</tr>
+<tr> <td>COMPUTERNAME</td> <td>DESKTOP-0HG7EU4</tr>
+<tr> <td>PROCESSOR_REVISION</td> <td>8e0b</tr>
+<tr> <td>CLASSPATH</td> <td>.;</tr>
+<tr> <td>CommonProgramW6432</td> <td>C:\Program Files\Common Files</tr>
+<tr> <td>ComSpec</td> <td>C:\WINDOWS\system32\cmd.exe</tr>
+<tr> <td>ProgramData</td> <td>C:\ProgramData</tr>
+<tr> <td>ProgramW6432</td> <td>C:\Program Files</tr>
+<tr> <td>HOMEPATH</td> <td>\Users\Jagadeesh</tr>
+<tr> <td>SystemRoot</td> <td>C:\WINDOWS</tr>
+<tr> <td>TEMP</td> <td>C:\Users\Jagadeesh\AppData\Local\Temp</tr>
+<tr> <td>HOMEDRIVE</td> <td>C:</tr>
+<tr> <td>PROCESSOR_IDENTIFIER</td> <td>Intel64 Family 6 Model 142 Stepping 11, GenuineIntel</tr>
+<tr> <td>USERPROFILE</td> <td>C:\Users\Jagadeesh</tr>
+<tr> <td>TMP</td> <td>C:\Users\Jagadeesh\AppData\Local\Temp</tr>
+<tr> <td>M2_HOME</td> <td>C:\ProgramData\chocolatey\lib\maven\apache-maven-3.6.3</tr>
+<tr> <td>CommonProgramFiles(x86)</td> <td>C:\Program Files (x86)\Common Files</tr>
+<tr> <td>ProgramFiles</td> <td>C:\Program Files</tr>
+<tr> <td>PUBLIC</td> <td>C:\Users\Public</tr>
+<tr> <td>NUMBER_OF_PROCESSORS</td> <td>8</tr>
+<tr> <td>windir</td> <td>C:\WINDOWS</tr>
+<tr> <td>=::</td> <td>::\</tr>
+</table>
+<br></br>
+<h3>JAVA</h3>
+<table>
+<tr><th>JVM Setting</th><th>Value</th></tr>
+<tr> <td>java.runtime.name</td> <td>Java(TM) SE Runtime Environment</tr>
+<tr> <td>sun.boot.library.path</td> <td>C:\Program Files\Java\jdk1.8.0_231\jre\bin</tr>
+<tr> <td>java.vm.version</td> <td>25.231-b11</tr>
+<tr> <td>testdatapath</td> <td>src/test/resources/qa</tr>
+<tr> <td>uploadresults</td> <td>false</tr>
+<tr> <td>testrailUser</td> <td>testrail.username@j2.com</tr>
+<tr> <td>java.vm.vendor</td> <td>Oracle Corporation</tr>
+<tr> <td>java.vendor.url</td> <td>http://java.oracle.com/</tr>
+<tr> <td>path.separator</td> <td>;</tr>
+<tr> <td>java.vm.name</td> <td>Java HotSpot(TM) 64-Bit Server VM</tr>
+<tr> <td>file.encoding.pkg</td> <td>sun.io</tr>
+<tr> <td>user.country</td> <td>IN</tr>
+<tr> <td>user.script</td> <td></tr>
+<tr> <td>sun.java.launcher</td> <td>SUN_STANDARD</tr>
+<tr> <td>sun.os.patch.level</td> <td></tr>
+<tr> <td>java.vm.specification.name</td> <td>Java Virtual Machine Specification</tr>
+<tr> <td>user.dir</td> <td>C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web</tr>
+<tr> <td>java.runtime.version</td> <td>1.8.0_231-b11</tr>
+<tr> <td>java.awt.graphicsenv</td> <td>sun.awt.Win32GraphicsEnvironment</tr>
+<tr> <td>java.endorsed.dirs</td> <td>C:\Program Files\Java\jdk1.8.0_231\jre\lib\endorsed</tr>
+<tr> <td>os.arch</td> <td>amd64</tr>
+<tr> <td>java.io.tmpdir</td> <td>C:\Users\Jagadeesh\AppData\Local\Temp\</tr>
+<tr> <td>line.separator</td> <td>
+</tr>
+<tr> <td>java.vm.specification.vendor</td> <td>Oracle Corporation</tr>
+<tr> <td>user.variant</td> <td></tr>
+<tr> <td>os.name</td> <td>Windows 10</tr>
+<tr> <td>sun.jnu.encoding</td> <td>Cp1252</tr>
+<tr> <td>java.library.path</td> <td>C:\Program Files\Java\jdk1.8.0_231\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jdk-13.0.1/bin/server;C:/Program Files/Java/jdk-13.0.1/bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\PortableApps\SysinternalsSuite;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.6.3\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Users\Jagadeesh\AppData\Local\Microsoft\WindowsApps;C:\Users\Jagadeesh\AppData\Local\GitHubDesktop\bin;C:\Users\Jagadeesh\Desktop;;.</tr>
+<tr> <td>webbrowser</td> <td>chrome</tr>
+<tr> <td>java.specification.name</td> <td>Java Platform API Specification</tr>
+<tr> <td>java.class.version</td> <td>52.0</tr>
+<tr> <td>sun.management.compiler</td> <td>HotSpot 64-Bit Tiered Compilers</tr>
+<tr> <td>os.version</td> <td>10.0</tr>
+<tr> <td>user.home</td> <td>C:\Users\Jagadeesh</tr>
+<tr> <td>user.timezone</td> <td>Asia/Calcutta</tr>
+<tr> <td>java.awt.printerjob</td> <td>sun.awt.windows.WPrinterJob</tr>
+<tr> <td>file.encoding</td> <td>Cp1252</tr>
+<tr> <td>java.specification.version</td> <td>1.8</tr>
+<tr> <td>java.class.path</td> <td>C:\Users\Jagadeesh\eclipse\java-2019-09\eclipse\configuration\org.eclipse.osgi\488\0\.cp\lib\testng-remote.jar;C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\test-classes;C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\classes;C:\Users\Jagadeesh\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.13.0\log4j-slf4j-impl-2.13.0.jar;C:\Users\Jagadeesh\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-java\3.141.59\selenium-java-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-api\3.141.59\selenium-api-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\3.141.59\selenium-chrome-driver-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\3.141.59\selenium-edge-driver-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\3.141.59\selenium-firefox-driver-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\3.141.59\selenium-ie-driver-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\3.141.59\selenium-opera-driver-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\3.141.59\selenium-remote-driver-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\3.141.59\selenium-safari-driver-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\org\seleniumhq\selenium\selenium-support\3.141.59\selenium-support-3.141.59.jar;C:\Users\Jagadeesh\.m2\repository\net\bytebuddy\byte-buddy\1.8.15\byte-buddy-1.8.15.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Jagadeesh\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\Jagadeesh\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\Jagadeesh\.m2\repository\io\github\bonigarcia\webdrivermanager\3.8.1\webdrivermanager-3.8.1.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\commons\commons-lang3\3.8.1\commons-lang3-3.8.1.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\httpcomponents\httpclient\4.5.6\httpclient-4.5.6.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\httpcomponents\httpcore\4.4.10\httpcore-4.4.10.jar;C:\Users\Jagadeesh\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\Jagadeesh\.m2\repository\commons-codec\commons-codec\1.10\commons-codec-1.10.jar;C:\Users\Jagadeesh\.m2\repository\org\rauschig\jarchivelib\1.0.0\jarchivelib-1.0.0.jar;C:\Users\Jagadeesh\.m2\repository\org\jsoup\jsoup\1.11.3\jsoup-1.11.3.jar;C:\Users\Jagadeesh\.m2\repository\org\testng\testng\7.1.0\testng-7.1.0.jar;C:\Users\Jagadeesh\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\Jagadeesh\.m2\repository\com\google\inject\guice\4.1.0\guice-4.1.0-no_aop.jar;C:\Users\Jagadeesh\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\Jagadeesh\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\Jagadeesh\.m2\repository\org\yaml\snakeyaml\1.21\snakeyaml-1.21.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\poi\poi-ooxml\4.1.0\poi-ooxml-4.1.0.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\poi\poi\4.1.0\poi-4.1.0.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\commons\commons-collections4\4.3\commons-collections4-4.3.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\poi\poi-ooxml-schemas\4.1.0\poi-ooxml-schemas-4.1.0.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\xmlbeans\xmlbeans\3.1.0\xmlbeans-3.1.0.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\commons\commons-compress\1.18\commons-compress-1.18.jar;C:\Users\Jagadeesh\.m2\repository\com\github\virtuald\curvesapi\1.06\curvesapi-1.06.jar;C:\Users\Jagadeesh\.m2\repository\commons-io\commons-io\2.6\commons-io-2.6.jar;C:\Users\Jagadeesh\.m2\repository\commons-lang\commons-lang\2.6\commons-lang-2.6.jar;C:\Users\Jagadeesh\.m2\repository\com\google\guava\guava\28.2-jre\guava-28.2-jre.jar;C:\Users\Jagadeesh\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\Jagadeesh\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\Jagadeesh\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\Jagadeesh\.m2\repository\org\checkerframework\checker-qual\2.10.0\checker-qual-2.10.0.jar;C:\Users\Jagadeesh\.m2\repository\com\google\errorprone\error_prone_annotations\2.3.4\error_prone_annotations-2.3.4.jar;C:\Users\Jagadeesh\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\clerezza\ext\org.json.simple\0.4\org.json.simple-0.4.jar;C:\Users\Jagadeesh\.m2\repository\com\googlecode\json-simple\json-simple\1.1\json-simple-1.1.jar;C:\Users\Jagadeesh\.m2\repository\com\google\code\gson\gson\2.8.6\gson-2.8.6.jar;C:\Users\Jagadeesh\.m2\repository\org\zeroturnaround\zt-zip\1.13\zt-zip-1.13.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.0\log4j-api-2.13.0.jar;C:\Users\Jagadeesh\.m2\repository\org\apache\logging\log4j\log4j-core\2.13.0\log4j-core-2.13.0.jar;C:\Users\Jagadeesh\.m2\repository\com\lmax\disruptor\3.4.2\disruptor-3.4.2.jar;C:\Users\Jagadeesh\.m2\repository\com\github\javafaker\javafaker\1.0.1\javafaker-1.0.1.jar;C:\Users\Jagadeesh\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\Jagadeesh\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\Jagadeesh\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar</tr>
+<tr> <td>user.name</td> <td>Jagadeesh</tr>
+<tr> <td>testrailpassword</td> <td>testrailpassword</tr>
+<tr> <td>java.vm.specification.version</td> <td>1.8</tr>
+<tr> <td>sun.java.command</td> <td>org.testng.remote.RemoteTestNG -serport 61274 -protocol json -d C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\target\surefire-reports C:\Users\Jagadeesh\eclipse-workspace\end-to-end-web\end-to-end.xml</tr>
+<tr> <td>java.home</td> <td>C:\Program Files\Java\jdk1.8.0_231\jre</tr>
+<tr> <td>sun.arch.data.model</td> <td>64</tr>
+<tr> <td>user.language</td> <td>en</tr>
+<tr> <td>java.specification.vendor</td> <td>Oracle Corporation</tr>
+<tr> <td>org.apache.logging.log4j.assignedSequences</td> <td>9855</tr>
+<tr> <td>awt.toolkit</td> <td>sun.awt.windows.WToolkit</tr>
+<tr> <td>java.vm.info</td> <td>mixed mode</tr>
+<tr> <td>java.version</td> <td>1.8.0_231</tr>
+<tr> <td>java.ext.dirs</td> <td>C:\Program Files\Java\jdk1.8.0_231\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext</tr>
+<tr> <td>webdriver.chrome.driver</td> <td>C:\Users\Jagadeesh\.m2\repository\webdriver\chromedriver\win32\80.0.3987.16\chromedriver.exe</tr>
+<tr> <td>sun.boot.class.path</td> <td>C:\Program Files\Java\jdk1.8.0_231\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_231\jre\classes</tr>
+<tr> <td>environment</td> <td>qa</tr>
+<tr> <td>java.vendor</td> <td>Oracle Corporation</tr>
+<tr> <td>file.separator</td> <td>\</tr>
+<tr> <td>testrailBaseUrl</td> <td>https://testrail.test.j2noc.com</tr>
+<tr> <td>java.vendor.url.bug</td> <td>http://bugreport.sun.com/bugreport/</tr>
+<tr> <td>sun.io.unicode.encoding</td> <td>UnicodeLittle</tr>
+<tr> <td>sun.cpu.endian</td> <td>little</tr>
+<tr> <td>sun.desktop</td> <td>windows</tr>
+<tr> <td>sun.cpu.isalist</td> <td>amd64</tr>
+</table>
+<br></br>
+<h3>Application Configuration Key-Value pairs</h3>
+<table>
+<tr><th>Property</th><th>Value</th></tr>
+<tr> <td>efax_myaccountBaseUrl</td> <td>null</tr>
+<tr> <td>efax_funnelBaseUrl</td> <td>null</tr>
+<tr> <td>efax_landingpageBaseUrl</td> <td>null</tr>
+<tr> <td>DID</td> <td>null</tr>
+<tr> <td>PIN</td> <td>null</tr>
+<tr> <td>creditCard</td> <td>null</tr>
+<tr> <td>mgmtBaseUrl</td> <td>https://qa.efaxcorporate.com/mgmt/login</tr>
+<tr> <td>myAccountBaseUrl</td> <td>https://qa.efaxcorporate.com/myaccount/login</tr>
+<tr> <td>adminCreateNewUser</td> <td>https://qa.efaxcorporate.com/mgmt/adminCreateNewUser</tr>
+<tr> <td>myAccountOverview</td> <td>https://qa.efaxcorporate.com/myaccount/overview</tr>
+<tr> <td>getContactInfo</td> <td>https://qa.efaxcorporate.com/mgmt/getContactInfo</tr>
+<tr> <td>sampleCoverPage</td> <td>https://qa.efaxcorporate.com/mgmt/SampleCoverPage.rtf</tr>
+<tr> <td>dbConnectionUrl</td> <td>jdbc:oracle:thin:@testdb1.test.j2noc.com:1521:SERV</tr>
+<tr> <td>dbUserName</td> <td>ISPPOWER</tr>
+<tr> <td>dbPassword</td> <td>G1ng!rbEef</tr>
+<tr> <td>filePath</td> <td>src//main//java//j2//eFaxCorporate//utils</tr>
+<tr> <td>secureAccountNumberMGMT</td> <td>null</tr>
+<tr> <td>secureAdministratorNameMGMT</td> <td>null</tr>
+<tr> <td>securePasswordMGMT</td> <td>null</tr>
+<tr> <td>secureExpireAccountNumberMGMT</td> <td>null</tr>
+<tr> <td>secureExpireAdministratorNameMGMT</td> <td>null</tr>
+<tr> <td>secureExpirePasswordMGMT</td> <td>null</tr>
+<tr> <td>AccountNumberMGMT</td> <td>40591</tr>
+<tr> <td>AdministratorNameMGMT</td> <td>testing1</tr>
+<tr> <td>PasswordMGMT</td> <td>Test@123456</tr>
+<tr> <td>nonSecureAccountNumberMGMTSuperAdmin</td> <td>78832</tr>
+<tr> <td>nonSecureAdministratorNameMGMTSuperAdmin</td> <td>Administrator</tr>
+<tr> <td>nonSecurePasswordMGMTSuperAdmin</td> <td>Admin@1234</tr>
+<tr> <td>faxNumberNonSecureMyAccount_SendFaxViewFax</td> <td>61259632022</tr>
+<tr> <td>passwordNonSecureMyAccount_SendFaxViewFax</td> <td>Admin@1234</tr>
+<tr> <td>faxNumberSecureMyAccount_SendFaxViewFax</td> <td>null</tr>
+<tr> <td>passwordSecureMyAccount_SendFaxViewFax</td> <td>null</tr>
+<tr> <td>secondDID_SendFaxViewFax</td> <td>null</tr>
+<tr> <td>faxNumberSecureMyAccount_ViewFax_Expire</td> <td>13233955846</tr>
+<tr> <td>passwordSecureMyAccount_ViewFax_Expire</td> <td>Password6@123@9@</tr>
+<tr> <td>faxNumberNonSecureMyAccount_ViewFax_Expire</td> <td>null</tr>
+<tr> <td>passwordNonSecureMyAccount_ViewFax_Expire</td> <td>null</tr>
+<tr> <td>faxNumberSecureMyAccount_ViewFax</td> <td>35021628851</tr>
+<tr> <td>passwordSecureMyAccount_ViewFax</td> <td>Test@12345</tr>
+<tr> <td>faxNumberNonSecureMyAccount_ViewFax</td> <td>null</tr>
+<tr> <td>passwordNonSecureMyAccount_ViewFax</td> <td>null</tr>
+<tr> <td>emailAddressNonSecureMyAccount_ViewFax</td> <td>null</tr>
+<tr> <td>emailAddressPasswordNonSecureMyAccount_ViewFax</td> <td>null</tr>
+<tr> <td>faxNumberNonSecureMyAccount_SendFax</td> <td>null</tr>
+<tr> <td>passwordNonSecureMyAccount_SendFax</td> <td>null</tr>
+<tr> <td>coverPageName</td> <td>CoverPageName_83491</tr>
+<tr> <td>firstName_DisplayLogsForField_ReceivedFaxes</td> <td>null</tr>
+<tr> <td>lastName_DisplayLogsForField_ReceivedFaxes</td> <td>null</tr>
+<tr> <td>faxNumber_ChooseFaxNumberField_ReceivedFaxes</td> <td>null</tr>
+<tr> <td>firstName_DisplayLogsForField_SentFaxes</td> <td>null</tr>
+<tr> <td>lastName_DisplayLogsForField_SentFaxes</td> <td>null</tr>
+<tr> <td>selectCityForSearchByAreaCode</td> <td>CA: Los Angeles (+1 323)</tr>
+<tr> <td>selectCityForSearchByState</td> <td>Casa Grande (+1 520)</tr>
+<tr> <td>selectCityForSearchByZipCode</td> <td>Los Angeles (+1 310)</tr>
+<tr> <td>selectCityForSearchByTollFree</td> <td>USA / Canada (+1 833)</tr>
+<tr> <td>secureAccountNumber_MGMT</td> <td>40591</tr>
+<tr> <td>nonSecureAccountNumber_MGMT</td> <td>32792</tr>
+<tr> <td>administratorName_MGMT</td> <td>null</tr>
+<tr> <td>password_MGMT</td> <td>null</tr>
+<tr> <td>faxNumber</td> <td>null</tr>
+<tr> <td>password</td> <td>null</tr>
+<tr> <td>URL</td> <td>https://accounts.google.com/signin</tr>
+<tr> <td>EMAILID</td> <td>ttlttl.tg30</tr>
+<tr> <td>PASSWORD</td> <td>Admin@123@123</tr>
+<tr> <td>emailSuffix</td> <td>gmail.com</tr>
+<tr> <td>passwordCreateNewUser_1</td> <td>Admin@a#7@A#8@b#9@B#8</tr>
+<tr> <td>passwordCreateNewUser_2</td> <td>Admin@a#7@A#8@b#9@B#61</tr>
+<tr> <td>passwordCreateNewUser_3</td> <td>Admin@a#7@A#8@b#9@B#91</tr>
+<tr> <td>valueIntoResetPeriodForUsersField</td> <td>90</tr>
+<tr> <td>valueIntoResetPeriodForUsersField_2</td> <td>25</tr>
+<tr> <td>valueIntoResetPeriodForUsersField_3</td> <td>95</tr>
+<tr> <td>valueIntoResetPeriodForAdminsField_1</td> <td>60</tr>
+<tr> <td>valueIntoResetPeriodForAdminsField_2</td> <td>21</tr>
+<tr> <td>valueIntoResetPeriodForAdminsField_3</td> <td>25</tr>
+<tr> <td>valueIntoResetPeriodForAdminsField_4</td> <td>65</tr>
+<tr> <td>password_4</td> <td>Admin@a#7@A#8@b#9@B#92889</tr>
+<tr> <td>password_5</td> <td>A@12</tr>
+<tr> <td>password_6</td> <td>A@1</tr>
+<tr> <td>password_7</td> <td>111111111111111111111111111111111111111111111111111111111111111111</tr>
+<tr> <td>password_8</td> <td>@@@@@@@@@@</tr>
+<tr> <td>password_9</td> <td>1111111111</tr>
+<tr> <td>password_10</td> <td>AAAAAAAAAA</tr>
+<tr> <td>password_11</td> <td>Admin@a#7@A#8@b#9@B#92881</tr>
+<tr> <td>password_12</td> <td>Password6@123@2</tr>
+<tr> <td>password_13</td> <td>Password6@123@3</tr>
+<tr> <td>password_14</td> <td>Password6@123@4</tr>
+<tr> <td>password_15</td> <td>Password@123$789$Test</tr>
+<tr> <td>password_16</td> <td>123456789</tr>
+<tr> <td>password_17</td> <td>**********</tr>
+<tr> <td>faxNumber_1</td> <td>00000000000</tr>
+<tr> <td>password_39Characters</td> <td>Admin@123456$Password@99@88Test089UNCLE</tr>
+<tr> <td>password_24Characters</td> <td>Admin@123456@Password@99</tr>
+<tr> <td>passwordLength_1</td> <td>7</tr>
+<tr> <td>passwordLength_2</td> <td>41</tr>
+<tr> <td>emailAddress</td> <td>test@test.com</tr>
+<tr> <td>accountNumber</td> <td>12345</tr>
+<tr> <td>invalidAdministratorName</td> <td>test</tr>
+<tr> <td>actualTimeToRunTTLScripts</td> <td>6</tr>
+<tr> <td>updateSqlQueryTo1MinuteForTTLScenario</td> <td>update j2_oem_settings t set t.value = 1 where t.name='TempPasswordTimeToLive'</tr>
+<tr> <td>updateSqlQueryTo30MinuteForTTLScenario</td> <td>update j2_oem_settings t set t.value = 30 where t.name='TempPasswordTimeToLive'</tr>
+<tr> <td>inputValue_1</td> <td>0</tr>
+<tr> <td>inputValue_2</td> <td>-1</tr>
+<tr> <td>inputValue_3</td> <td>ab</tr>
+<tr> <td>inputValue_4</td> <td>%</tr>
+<tr> <td>inputValue_5</td> <td>2</tr>
+<tr> <td>inputValue_6</td> <td>1</tr>
+<tr> <td>inputValue_7</td> <td>9</tr>
+<tr> <td>inputValue_8</td> <td>31</tr>
+<tr> <td>inputValue_9</td> <td>10</tr>
+<tr> <td>inputValue_10</td> <td>45</tr>
+<tr> <td>inputValue_11</td> <td>3</tr>
+<tr> <td>inputValue_12</td> <td>1000000</tr>
+<tr> <td>inputValue_13</td> <td>google.com</tr>
+<tr> <td>inputValue_14</td> <td>google.edu</tr>
+<tr> <td>inputValue_15</td> <td>google.net</tr>
+<tr> <td>inputValue_16</td> <td>google.gov</tr>
+<tr> <td>inputValue_17</td> <td>google.org</tr>
+<tr> <td>inputValue_18</td> <td>org</tr>
+<tr> <td>inputValue_19</td> <td>gov</tr>
+<tr> <td>inputValue_20</td> <td>net</tr>
+<tr> <td>inputValue_21</td> <td>edu</tr>
+<tr> <td>inputValue_22</td> <td>com</tr>
+<tr> <td>inputValue_23</td> <td>c</tr>
+<tr> <td>FileName</td> <td>CommonlyUsePasswords.xlsx</tr>
+<tr> <td>workBookName</td> <td>CommonlyUsePasswords</tr>
+<tr> <td>CoverPageName</td> <td>SampleCoverPage.rtf</tr>
+<tr> <td>UserListFileName</td> <td>ImportUserList.csv</tr>
+<tr> <td>UploadDocumentFileName_1</td> <td>UploadDocumentMyAccount.png</tr>
+<tr> <td>UploadDocumentFileName_2</td> <td>SampleCoverPage.rtf</tr>
+<tr> <td>UploadPdfDocumentFileName</td> <td>UploadPdfFile.pdf</tr>
+<tr> <td>UploadTifDocumentFileName</td> <td>UploadTifFile.tif</tr>
+<tr> <td>UploadNonSupportedDocumentFileName</td> <td>NonSupportedUploadFile.txt</tr>
+<tr> <td>UploadPdfDocument10PagesFileName</td> <td>UploadPdfDocument10Pages.pdf</tr>
+<tr> <td>addedFaxCount</td> <td>1</tr>
+<tr> <td>state</td> <td>Arizona</tr>
+<tr> <td>addedFaxCountUnderZipCode</td> <td>1</tr>
+<tr> <td>zipCode</td> <td>90005</tr>
+<tr> <td>addedFaxCountUnderTollFree</td> <td>1</tr>
+<tr> <td>addedFaxCountUnderAreaCode</td> <td>1</tr>
+<tr> <td>areCode</td> <td>323</tr>
+<tr> <td>lastName</td> <td>New_User</tr>
+<tr> <td>timeInterval_1</td> <td>30 days</tr>
+<tr> <td>timeInterval_2</td> <td>60 days</tr>
+<tr> <td>timeInterval_3</td> <td>90 days</tr>
+<tr> <td>timeInterval_4</td> <td>1 year</tr>
+<tr> <td>exportUserList</td> <td>exportReport</tr>
+<tr> <td>invalidInputCode</td> <td>1234</tr>
+<tr> <td>country_1</td> <td>Algeria</tr>
+<tr> <td>country_2</td> <td>United States</tr>
+<tr> <td>state_1</td> <td>Alaska</tr>
+<tr> <td>faxNumberSummaryWidgetID</td> <td>4</tr>
+<tr> <td>totalUsagWidgetID</td> <td>2</tr>
+<tr> <td>assignedFaxNumberColor</td> <td>rgb(112, 191, 102)</tr>
+<tr> <td>unassignedFaxNumberColor</td> <td>rgb(59, 114, 181)</tr>
+<tr> <td>totalUsagWidgetTitle</td> <td>Total Usage</tr>
+<tr> <td>userSummaryWidgetID</td> <td>1</tr>
+<tr> <td>recentActivityWidgetID</td> <td>3</tr>
+<tr> <td>searchValue_GroupName</td> <td>auto_group4</tr>
+<tr> <td>searchValue_FirstName</td> <td>test1025</tr>
+<tr> <td>searchValue_LastName</td> <td>test1025</tr>
+<tr> <td>searchValue_FaxNumber</td> <td>12053580121</tr>
+<tr> <td>searchValue_Location</td> <td>AL: Alabaster (+1 205)</tr>
+<tr> <td>searchBy_FirstName</td> <td>First name</tr>
+<tr> <td>searchBy_LastName</td> <td>Last name</tr>
+<tr> <td>searchBy_FaxNumber</td> <td>Fax number</tr>
+<tr> <td>searchBy_Location</td> <td>Location</tr>
+<tr> <td>searchOperator_Is</td> <td>is</tr>
+<tr> <td>searchOperator_Contains</td> <td>contains</tr>
+<tr> <td>searchOperator_StartsWith</td> <td>starts with</tr>
+<tr> <td>defaultTimeZone</td> <td>Pacific Time</tr>
+<tr> <td>indiaTimeZone</td> <td>Calcutta: Chennai:</tr>
+<tr> <td>sendReceiptEmailAddress</td> <td>pavan.kandukuri@j2.com</tr>
+<tr> <td>nonEfaxUserJconnectUrl</td> <td>https://myaccount.jconnect.com/internet_fax_login</tr>
+<tr> <td>jConnectNumber</td> <td>15092784216</tr>
+<tr> <td>jConnectPassword</td> <td>2347</tr>
+<tr> <td>userTimeZoneFormat</td> <td>MM/d/yyyy</tr>
+<tr> <td>oneMinute</td> <td>Every minute</tr>
+<tr> <td>fiveMinutes</td> <td>Every 5 minutes</tr>
+<tr> <td>faxViewer1</td> <td>Fax Viewer -1</tr>
+<tr> <td>newFolder</td> <td>New Folder</tr>
+<tr> <td>renameFolder</td> <td>Rename Folder</tr>
+<tr> <td>deleteFolder</td> <td>Delete Folder</tr>
+<tr> <td>folderName_1</td> <td>![]()'{}<>%</tr>
+<tr> <td>folderName_2</td> <td>`~@#$^& ;*-_=+:,./?</tr>
+<tr> <td>folderName_3</td> <td>loremIpsumissimplydummytextoftheprintingandtypesettingindustry</tr>
+<tr> <td>importCSVFile</td> <td>Import CSV File</tr>
+<tr> <td>gmail</td> <td>Gmail</tr>
+<tr> <td>yahooMail</td> <td>Yahoo! Mail</tr>
+<tr> <td>importFile</td> <td>importContacts.csv</tr>
+<tr> <td>firstNameFromImportFile</td> <td>James</tr>
+</table>
+<br></br>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration packages="org.j2.faxqa.efax.common">
+	<Properties>
+		<Property name="output_directory">target/failsafe-reports</Property>
+		<Property name="rollingFileName">selenium_execution</Property>
+	</Properties>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%highlight{%-5level}] %d{DEFAULT} %c{1}.%M() - %msg%n%throwable{short.lineNumber}" />
+		</Console>
+		<RollingFile name="rollingFile"
+			fileName="${output_directory}/${rollingFileName}.log"
+			filePattern="${output_directory}/${rollingFileName}_%d{yyyy_MM_dd}.log">
+			<PatternLayout
+				pattern="[%highlight{%-5level}] [%d{DEFAULT}] [%c{10}.%M()] - %msg%n%throwable{short.lineNumber}" />
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+		<TestNGReportAppender name="TestNGReportAppender">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level: %msg" />
+		</TestNGReportAppender>
+	</Appenders>
+	<Loggers>
+		<Root level="ALL">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="rollingFile" />
+			<AppenderRef ref="TestNGReportAppender" />
+		</Root>
+	</Loggers>
+</Configuration>

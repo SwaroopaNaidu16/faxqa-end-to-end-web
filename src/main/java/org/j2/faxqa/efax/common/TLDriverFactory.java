@@ -1,0 +1,101 @@
+package org.j2.faxqa.efax.common;
+
+import io.github.bonigarcia.wdm.PhantomJsDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.CapabilityType;
+
+public class TLDriverFactory {
+
+	private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+
+	public synchronized static void setTLDriver(Logger logger) {
+
+		logger.info("WebBrowser = " + System.getProperty("webbrowser"));
+		switch (System.getProperty("webbrowser").toLowerCase()) {
+
+		case "chrome":
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions choptions = new ChromeOptions();
+			choptions.setCapability("InPrivate", true);
+			choptions.addArguments("--ignore-certificate-errors");
+			choptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			choptions.addArguments("--disable-features=VizDisplayCompositor");
+			choptions.addArguments("--start-maximized");
+			choptions.addArguments("--disable-infobars");
+			choptions.setExperimentalOption("useAutomationExtension", false);
+			tlDriver.set(new ChromeDriver(choptions));
+			break;
+
+		case "firefox":
+			WebDriverManager.firefoxdriver().setup();
+			FirefoxOptions firefoxoptions = new FirefoxOptions();
+			firefoxoptions.setCapability("marionette", true);
+			tlDriver.set(new FirefoxDriver(firefoxoptions));
+			break;
+
+		case "ie":
+			WebDriverManager.iedriver().setup();
+			InternetExplorerOptions ieoptions = new InternetExplorerOptions();
+			ieoptions.setCapability("InPrivate", true);
+			ieoptions.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+			tlDriver.set(new InternetExplorerDriver(ieoptions));
+			break;
+
+		case "phantomjs":
+			WebDriverManager.phantomjs().setup();
+			tlDriver.set((WebDriver) new PhantomJsDriverManager());
+			break;
+			
+		case "edge":
+			WebDriverManager.edgedriver().setup();
+			EdgeOptions edgeoptions = new EdgeOptions();
+			edgeoptions.setCapability("InPrivate", true);
+			tlDriver.set(new EdgeDriver(edgeoptions));
+			break;
+			
+			
+		default:
+			WebDriverManager.chromedriver().setup();
+			ChromeOptions chromeoptions = new ChromeOptions();
+			chromeoptions.setCapability("InPrivate", true);
+			chromeoptions.addArguments("--ignore-certificate-errors");
+			chromeoptions.addArguments("--disable-features=VizDisplayCompositor");
+			chromeoptions.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+			chromeoptions.addArguments("--start-maximized");
+			chromeoptions.addArguments("--disable-infobars");			
+			chromeoptions.setExperimentalOption("useAutomationExtension", false);
+			tlDriver.set(new ChromeDriver(chromeoptions));
+			break;
+
+		}
+
+		logger.info("Created ThreadLocal webdriver.");
+		
+		int wait = 10;
+		tlDriver.get().manage().deleteAllCookies();
+		tlDriver.get().manage().window().maximize();
+		tlDriver.get().manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);
+		logger.info("Setting  implicitlyWait to '" + wait + "' seconds");
+		JavascriptExecutor js = (JavascriptExecutor) tlDriver.get();
+		js.executeScript("document.body.style.zoom='90%'");
+		logger.info("Setting document.body.style.zoom='80%';");
+	}
+
+	public synchronized static WebDriver getTLDriver() {
+		return tlDriver.get();
+	}
+
+}

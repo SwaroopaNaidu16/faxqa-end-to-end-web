@@ -1,0 +1,158 @@
+package org.j2.faxqa.efax.corporate.admin;
+
+import java.awt.Robot;
+import java.io.File;
+import java.io.FileInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.j2.faxqa.efax.common.Config;
+import org.j2.faxqa.efax.common.TLDriverFactory;
+import org.j2.faxqa.efax.corporate.admin.pageobjects.AddUser;
+import org.j2.faxqa.efax.corporate.admin.pageobjects.EditUser;
+import org.j2.faxqa.efax.corporate.admin.pageobjects.LoginPage;
+import org.j2.faxqa.efax.corporate.admin.pageobjects.NavigationBar;
+import org.j2.faxqa.efax.corporate.admin.pageobjects.UsersPage;
+import org.j2.faxqa.efax.corporate.myaccount.pageobjects.HomePageMyAccount;
+import org.j2.faxqa.efax.corporate.myaccount.pageobjects.LoginPageMyAccount;
+import org.j2.faxqa.efax.corporate.myaccount.pageobjects.NavigationBarMyAccount;
+import org.j2.faxqa.efax.corporate.myaccount.pageobjects.SendFaxesModalMyAccount;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.zeroturnaround.zip.ZipUtil;
+
+import com.github.javafaker.Faker;
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
+
+public class CoreFaxFunctions {
+
+	public String createNewMyAccountUser() throws Exception {
+		
+		String firstname = "QA" + new Faker().address().firstName();
+		String lastname = new Faker().address().lastName();
+		String primaryemail = firstname + lastname + new Faker().number().digits(3) + "@mailinator.com";
+		String password = "Welcome@123";
+		String companyName = new Faker().company().name();
+		String accountId = new Faker().bothify("ACCID?????###?");
+		String clientName = new Faker().company().name();
+		String matter = accountId + " - " + clientName;
+		String subject = "Test Send Fax - " + new Faker().bothify("####????");
+		String messageBody = "Message Body - " + new Faker().bothify("####????");
+		String referenceId = new Faker().bothify("REF?????###?");
+		String quality = "Standard";
+		String country = "United States";
+		String senderMail;
+		String faxNumber;
+
+	
+			TLDriverFactory.getTLDriver().navigate().to(Config.mgmtBaseUrl);
+			LoginPage loginPage = new LoginPage();
+			loginPage.open();
+			loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
+			TLDriverFactory.getTLDriver().navigate().to(Config.adminCreateNewUser);
+			UsersPage usersPage = new UsersPage();
+			usersPage.clickUsersTab();
+			usersPage.clickPageActionsMenu();
+			usersPage.clickAddUsersOption();
+
+			AddUser addUser = new AddUser();
+
+			addUser.enterFirstName(firstname);
+			addUser.enterLastName(lastname);
+			addUser.enterPrimaryEmailAddress(primaryemail);
+			addUser.enterPassword(password);
+			System.out.println(password);
+			addUser.enterConfirmPassword(password);
+			faxNumber = addUser.getFaxNumber();
+			addUser.userMaySendFaxesToggle(true);
+			addUser.clickCreateUserButton();
+
+			String expectedValidationMessage = "The account has been created.";
+			String actualValidationMessage = addUser.getCreateUserValidationMessage();
+
+			Assert.assertEquals(actualValidationMessage, expectedValidationMessage);
+
+			EditUser editUser = new EditUser();
+			editUser.clickAdvancedOptions();
+			editUser.userMustResetPasswordToggle(false);
+			editUser.clickUpdateUserButton();
+
+			if (addUser.isUserLoggedIn())
+				addUser.logout();
+
+			TLDriverFactory.getTLDriver().navigate().to(Config.myAccountBaseUrl);
+
+			LoginPageMyAccount loginPageMA = new LoginPageMyAccount();
+			loginPageMA.open();
+			loginPageMA.login(faxNumber, password);
+
+			HomePageMyAccount homePageMyAccount = new HomePageMyAccount();
+
+			if (homePageMyAccount.isPasswordUpdatePrompted())
+				password = homePageMyAccount.updatePassword(password);
+
+			Assert.assertEquals(homePageMyAccount.isUserLoggedIn(), true);
+
+			if (homePageMyAccount.isUserLoggedIn())
+				homePageMyAccount.logout();
+			
+			return faxNumber+";"+ password;
+
+	}
+	
+	public boolean composeSendFaxTo(String toFaxNumber) throws Exception {
+		
+		String firstname = "QA" + new Faker().address().firstName();
+		String lastname = new Faker().address().lastName();
+		String companyName = new Faker().company().name();
+		String clientName = new Faker().company().name();
+		String matter = "message to " + companyName + clientName;
+		String subject = "Test Send Fax - " + new Faker().bothify("####????");
+		String messageBody = "Message Body - " + new Faker().bothify("####????");
+		String referenceId = new Faker().bothify("REF?????###?");
+		String accountId = new Faker().bothify("ACCID?????###?");
+		String quality = "Standard";
+		
+		NavigationBarMyAccount navigationBarMyAccount = new NavigationBarMyAccount();
+		navigationBarMyAccount.clickSendFaxesTab();
+
+		String attachments;
+		Path folder = Paths.get((new java.io.File(".")).getCanonicalPath(), "src/test/resources/sendrast");
+		Stream<Path> pathstream = Files.list(folder).filter(f -> f.getFileName().toString().endsWith(".txt"));
+		attachments = Files.list(folder).filter(f -> f.getFileName().toString().endsWith(".txt")).limit(10)
+				.map(f -> f.toAbsolutePath().toString()).collect(Collectors.joining("|"));
+		
+		SendFaxesModalMyAccount sendFaxesModalMyAccount = new SendFaxesModalMyAccount();
+		boolean response = sendFaxesModalMyAccount.sendfax(firstname, lastname, companyName, toFaxNumber, subject,
+				messageBody, referenceId, accountId, clientName, matter, quality, attachments);
+
+		Assert.assertEquals(response, true);
+		sendFaxesModalMyAccount.closeconfirmation();
+		
+		return response;
+	}
+
+}

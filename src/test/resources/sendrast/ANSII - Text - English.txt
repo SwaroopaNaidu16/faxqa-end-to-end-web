@@ -1,0 +1,15 @@
+OpenType Fonts
+The Unicode–based OpenType font format has been developed jointly by Microsoft and Adobe; 
+it extends the TrueType font file format originally designed by Apple. OpenType fonts allow rich mapping 
+between characters and glyphs, thus enabling support for ligatures, positional forms, alternates, and other substitutions. 
+OpenType fonts can also include information that supports two–dimensional glyph positioning and glyph attachment, 
+and can contain either TrueType or PostScript outlines. Layout features within OpenType fonts are organized by scripts 
+and languages, allowing a single font to support multiple writing systems, even within the same script.
+
+The Windows core fonts (Times New Roman, Courier New, Arial, MS Sans Serif, and Tahoma) contain Western and Central European, 
+Hebrew, Arabic, Greek, Turkish, Baltic, Cyrillic, and Vietnamese scripts but do not contain East Asian script characters. 
+They link to fonts that do. The main reason behind the exclusion of these scripts is related to the massive performance 
+overhead that East Asian glyphs would introduce in terms of font loading and mapping in GDI. In addition, these scripts 
+would make the font size several times bigger. Instead of having instructions on how to create glyphs for several hundred 
+characters, you would have instructions on how to create them for some 6,000 or 7,000 characters, approximately.
+

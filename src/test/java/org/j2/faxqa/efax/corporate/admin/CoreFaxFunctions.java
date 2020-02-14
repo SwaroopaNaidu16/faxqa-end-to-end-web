@@ -26,6 +26,7 @@ import org.j2.faxqa.efax.common.Config;
 import org.j2.faxqa.efax.common.TLDriverFactory;
 import org.j2.faxqa.efax.corporate.admin.pageobjects.AddUser;
 import org.j2.faxqa.efax.corporate.admin.pageobjects.EditUser;
+import org.j2.faxqa.efax.corporate.admin.pageobjects.HomePage;
 import org.j2.faxqa.efax.corporate.admin.pageobjects.LoginPage;
 import org.j2.faxqa.efax.corporate.admin.pageobjects.NavigationBar;
 import org.j2.faxqa.efax.corporate.admin.pageobjects.UsersPage;
@@ -72,7 +73,9 @@ public class CoreFaxFunctions {
 			LoginPage loginPage = new LoginPage();
 			loginPage.open();
 			loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
-			TLDriverFactory.getTLDriver().navigate().to(Config.adminCreateNewUser);
+			HomePage home = new HomePage();
+			home.clickUsersTab();
+			
 			UsersPage usersPage = new UsersPage();
 			usersPage.clickUsersTab();
 			usersPage.clickPageActionsMenu();

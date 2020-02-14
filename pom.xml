@@ -12,11 +12,11 @@
 		<suiteXmlFiles>testng.xml</suiteXmlFiles>
 		<skipTests>false</skipTests>
 		<testgroups>smoke,regression</testgroups>
-		<testrailBaseUrl>https://testrail.test.j2noc.com</testrailBaseUrl>
-		<testrailUser>testrail.username@j2.com</testrailUser>
-		<testrailpassword>testrailpassword</testrailpassword>
+		<testrailBaseUrl>https://testrail.j2noc.com</testrailBaseUrl>
+		<testrailUser>jagadeesh.medabalimi@j2.com</testrailUser>
+		<testrailpassword>testrail</testrailpassword>
 		<uploadresults>false</uploadresults>
-		<webbrowser>chrome</webbrowser>	<!-- chrome,ie,firefox,edge,opera -->
+		<webbrowser>chrome</webbrowser>
 	</properties>
 
 	<dependencies>

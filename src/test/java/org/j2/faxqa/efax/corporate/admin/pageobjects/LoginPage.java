@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.j2.faxqa.efax.common.TLDriverFactory;
 import org.j2.faxqa.efax.corporate.admin.CommonMethods;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,10 +20,11 @@ public class LoginPage extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
+		logger.info("URL - " + driver.getCurrentUrl());
 		logger.info("Initializing page - " + driver.getTitle());
 	}
-	
+
 	static final String accountNumberField = "adminId";
 	static final String administratorNameField = "gAdmin";
 	static final String passwordField = "adminpassword";
@@ -59,7 +61,6 @@ public class LoginPage extends CommonMethods {
 	static final String errorMessageForExpiredPasswordTTLScenario = ".//table[@id='formErrorGeneralTableloginFormErrors']//div[@class='formErrorLarge']";
 	static final String currentLanguage = "//div[@class='current-language']";
 	static final String requiredFieldsValidationMessage = "//div[@id='formErrorJavascriptTableloginFormErrorsAdmin']//td[@class='formMessage']";
-
 
 	@FindBy(id = accountNumberField)
 	private WebElement accountNumberFieldWebElement;
@@ -162,337 +163,215 @@ public class LoginPage extends CommonMethods {
 
 	@FindBy(xpath = errorMessageForExpiredPasswordTTLScenario)
 	private WebElement errorMessageForExpiredPasswordTTLScenarioWebElement;
-	
+
 	@FindBy(xpath = currentLanguage)
 	private WebElement currentLanguageWebElement;
-	
+
 	@FindBy(xpath = requiredFieldsValidationMessage)
 	private WebElement requiredFieldsValidationMessageWebElement;
-		
-	public WebElement getAccountNumberField() {
-		return accountNumberFieldWebElement;
-	}
-
-	public WebElement getAdministratorNameField() {
-		return administratorNameFieldWebElement;
-	}
-
-	public WebElement getPasswordField() {
-		return passwordFieldWebElement;
-	}
-
-	public WebElement getLoginButton() {
-		return loginButtonWebElement;
-	}
-
-	public WebElement getForgotPasswordLink() {
-		return forgotPasswordLinkWebElement;
-	}
-
-	public WebElement getErrorMessage() {
-		return errorMessageWebElement;
-	}
-
-	public WebElement getRememberMeCheckbox() {
-		return rememberMeCheckboxWebElement;
-	}
-
-	public WebElement getSolutionsLinkHeader() {
-		return solutionsLinkHeaderWebElement;
-	}
-
-	public WebElement getIndustryLinkHeader() {
-		return industryLinkHeaderWebElement;
-	}
-
-	public WebElement getResourcesLinkHeader() {
-		return resourcesLinkHeaderWebElement;
-	}
-
-	public WebElement getAboutLinkHeader() {
-		return aboutLinkHeaderWebElement;
-	}
-
-	public WebElement getPartnersLinkHeader() {
-		return partnersLinkHeaderWebElement;
-	}
-
-	public WebElement getBlogLinkHeader() {
-		return blogLinkHeaderWebElement;
-	}
-
-	public WebElement getAQuoteLinkHeader() {
-		return getAQuoteLinkHeaderWebElement;
-	}
-
-	public WebElement getUserTab() {
-		return userTabWebElement;
-	}
-
-	public WebElement getPartnerTab() {
-		return partnerTabWebElement;
-	}
-
-	public WebElement getDeveloperTab() {
-		return developerTabWebElement;
-	}
-
-	public WebElement getOnlineFaxingLinkFooter() {
-		return onlineFaxingLinkFooterWebElement;
-	}
-
-	public WebElement getSolutionsLinkFooter() {
-		return solutionsLinkFooterWebElement;
-	}
-
-	public WebElement getIndustryLinkFooter() {
-		return industryLinkFooterWebElement;
-	}
-
-	public WebElement getResourcesLinkFooter() {
-		return resourcesLinkFooterWebElement;
-	}
-
-	public WebElement getEventsLinkFooter() {
-		return eventsLinkFooterWebElement;
-	}
-
-	public WebElement getCloudServicesLinkFooter() {
-		return cloudServicesLinkFooterWebElement;
-	}
-
-	public WebElement getBlogLinkFooter() {
-		return blogLinkFooterWebElement;
-	}
-
-	public WebElement getContactUsLinkFooter() {
-		return contactUsLinkFooterWebElement;
-	}
-
-	public WebElement getSmallBusinessLinkFooter() {
-		return smallBusinessLinkFooterWebElement;
-	}
-
-	public WebElement getMediumSizeBusinessLinkFooter() {
-		return mediumSizeBusinessLinkFooterWebElement;
-	}
-
-	public WebElement getEnterpriseBusinessLinkFooter() {
-		return enterpriseBusinessLinkFooterWebElement;
-	}
-
-	public WebElement getCustomerAgreementLinkFooter() {
-		return customerAgreementLinkFooterWebElement;
-	}
-
-	public WebElement getPrivacyPolicyLinkFooter() {
-		return privacyPolicyLinkFooterWebElement;
-	}
-
-	public WebElement getLegalNoticesLinkFooter() {
-		return legalNoticesLinkFooterWebElement;
-	}
-
-	public WebElement getSitemapLinkFooter() {
-		return sitemapLinkFooterWebElement;
-	}
-
-	public WebElement getFooterBrandingImage() {
-		return footerBrandingImageWebElement;
-	}
-
-	public WebElement getErrorMessageForExpiredPasswordTTLScenario() {
-		return errorMessageForExpiredPasswordTTLScenarioWebElement;
-	}
-	
-	public WebElement getCurrentLanguage() {
-		return currentLanguageWebElement;
-	}
-	
-	public WebElement getRequiredFieldsValidationMessage() {
-		return requiredFieldsValidationMessageWebElement;
-	}
 
 	public String errorMessage() {
-		String errorMessage = getErrorMessage().getText();
+		String errorMessage = errorMessageWebElement.getText();
 		return errorMessage;
 	}
 
 	public void enterAccountNumber(String AccountNumber) {
-		getAccountNumberField().clear();
-		getAccountNumberField().sendKeys(AccountNumber);
+		accountNumberFieldWebElement.clear();
+		accountNumberFieldWebElement.sendKeys(AccountNumber);
 	}
 
 	public void enterAdministratorName(String AdministratorName) {
-		getAdministratorNameField().clear();
-		getAdministratorNameField().sendKeys(AdministratorName);
+		administratorNameFieldWebElement.clear();
+		administratorNameFieldWebElement.sendKeys(AdministratorName);
 	}
 
 	public void enterPassword(String password) {
-		getPasswordField().clear();
-		getPasswordField().sendKeys(password);
+		passwordFieldWebElement.clear();
+		passwordFieldWebElement.sendKeys(password);
 	}
 
 	public void clickLoginButton() {
-		new CommonMethods().closeGDPRbanner();
-		getLoginButton().click();
+		loginButtonWebElement.click();
 	}
 
 	public void login(String AccountNumber, String AdministratorName, String password) {
+		this.enterAccountNumber("Logging-in as Group Administrator...");
 		this.enterAccountNumber(AccountNumber);
+		logger.info("AccountNumber=" + AccountNumber);
 		this.enterAdministratorName(AdministratorName);
+		logger.info("AdministratorName=" + AdministratorName);
 		this.enterPassword(password);
+		logger.info("Password=" + password);
 		this.clickLoginButton();
 	}
 
 	public void clickForgotPasswordLink() {
-		
-		getForgotPasswordLink().click();
+
+		forgotPasswordLinkWebElement.click();
 	}
 
 	public void clickSolutionsLinkHeader() {
-		
-		getSolutionsLinkHeader().click();
+
+		solutionsLinkHeaderWebElement.click();
 	}
 
 	public void clickIndustryLinkHeader() {
-		
-		getIndustryLinkHeader().click();
+
+		industryLinkHeaderWebElement.click();
 	}
 
 	public void clickResourcesLinkHeader() {
-		
-		getResourcesLinkHeader().click();
+
+		resourcesLinkHeaderWebElement.click();
 	}
 
 	public void clickAboutLinkHeader() {
-		
-		getAboutLinkHeader().click();
+
+		aboutLinkHeaderWebElement.click();
 	}
 
 	public void clickPartnersLinkHeader() {
-		
-		getPartnersLinkHeader().click();
+
+		partnersLinkHeaderWebElement.click();
 	}
 
 	public void clickBlogLinkHeader() {
-		
-		getBlogLinkHeader().click();
+
+		blogLinkHeaderWebElement.click();
 	}
 
 	public void clickAQuoteLinkHeader() {
-		
-		getAQuoteLinkHeader().click();
+
+		getAQuoteLinkHeaderWebElement.click();
 	}
 
 	public void clickUserTab() {
-		
-		getUserTab().click();
+
+		userTabWebElement.click();
 	}
 
 	public void clickPartnerTab() {
-		
-		getPartnerTab().click();
+
+		partnerTabWebElement.click();
 	}
 
 	public void clickDeveloperTab() {
-		
-		getDeveloperTab().click();
+
+		developerTabWebElement.click();
 	}
 
 	public void clickOnlineFaxingLinkFooter() {
-		
-		getOnlineFaxingLinkFooter().click();
+
+		onlineFaxingLinkFooterWebElement.click();
 	}
 
 	public void clickSolutionsLinkFooter() {
-		
-		getSolutionsLinkFooter().click();
+
+		solutionsLinkFooterWebElement.click();
 	}
 
 	public void clickIndustryLinkFooter() {
-		
-		getIndustryLinkFooter().click();
+
+		industryLinkFooterWebElement.click();
 	}
 
 	public void clickResourcesLinkFooter() {
-		
-		getResourcesLinkFooter().click();
+
+		resourcesLinkFooterWebElement.click();
 	}
 
 	public void clickEventsLinkFooter() {
-		
-		getEventsLinkFooter().click();
+
+		eventsLinkFooterWebElement.click();
 	}
 
 	public void clickCloudServicesLinkFooter() {
-		
-		getCloudServicesLinkFooter().click();
+
+		cloudServicesLinkFooterWebElement.click();
 	}
 
 	public void clickBlogLinkFooter() {
-		
-		getBlogLinkFooter().click();
+
+		blogLinkFooterWebElement.click();
 	}
 
 	public void clickContactUsLinkFooter() {
-		
-		getContactUsLinkFooter().click();
+
+		contactUsLinkFooterWebElement.click();
 	}
 
 	public void clickSmallBusinessLinkFooter() {
-		
-		getSmallBusinessLinkFooter().click();
+
+		smallBusinessLinkFooterWebElement.click();
 	}
 
 	public void clickMediumSizeBusinessLinkFooter() {
-		
-		getMediumSizeBusinessLinkFooter().click();
+
+		mediumSizeBusinessLinkFooterWebElement.click();
 	}
 
 	public void clickEnterpriseBusinessLinkFooter() {
-		
-		getEnterpriseBusinessLinkFooter().click();
+
+		enterpriseBusinessLinkFooterWebElement.click();
 	}
 
 	public void clickCustomerAgreementLinkFooter() {
-		
-		getCustomerAgreementLinkFooter().click();
+
+		customerAgreementLinkFooterWebElement.click();
 	}
 
 	public void clickPrivacyPolicyLinkFooter() {
-		
-		getPrivacyPolicyLinkFooter().click();
+
+		privacyPolicyLinkFooterWebElement.click();
 	}
 
 	public void clickLegalNoticesLinkFooter() {
-		
-		getLegalNoticesLinkFooter().click();
+
+		legalNoticesLinkFooterWebElement.click();
 	}
 
 	public void clickSitemapLinkFooter() {
-		
-		getSitemapLinkFooter().click();
+
+		sitemapLinkFooterWebElement.click();
 	}
 
 	public void clickFooterBrandingImage() {
-		
-		getFooterBrandingImage().click();
+
+		footerBrandingImageWebElement.click();
 	}
 
 	public String getErrorMessageTextForExpiredPassword() {
-		String errorMessage = getErrorMessageForExpiredPasswordTTLScenario().getText();
+		String errorMessage = errorMessageForExpiredPasswordTTLScenarioWebElement.getText();
 		return errorMessage;
 	}
-	
+
 	public String currentLanguage() throws Exception {
-		this.scrollToTheSpecificWebelement(getCurrentLanguage());
-		String language = getCurrentLanguage().getText();
+		this.scrollToTheSpecificWebelement(currentLanguageWebElement);
+		String language = currentLanguageWebElement.getText();
 		return language;
 	}
-	
+
 	public String requiredFieldsValidationMessage() {
-		String validationMessage = getRequiredFieldsValidationMessage().getText();
+		String validationMessage = requiredFieldsValidationMessageWebElement.getText();
 		return validationMessage;
+	}
+
+	public boolean isPasswordChangePrompted() {
+		boolean flag = driver.findElements(By.id("confirmNewPin")).size() > 0;
+		if (flag) {
+			logger.info("Password chnage prompted");
+			return true;
+		} else
+			return false;
+	}
+
+	public String changePassword(String password) {
+		String newpassword = password+"4";
+		driver.findElement(By.id("currentPassword")).sendKeys(password);
+		driver.findElement(By.id("newPin")).sendKeys(newpassword);
+		driver.findElement(By.id("confirmNewPin")).sendKeys(newpassword);
+		driver.findElement(By.id("updatePasswordSubmit")).click();
+		logger.info("Updating password to " + newpassword);
+		return newpassword;
 	}
 }

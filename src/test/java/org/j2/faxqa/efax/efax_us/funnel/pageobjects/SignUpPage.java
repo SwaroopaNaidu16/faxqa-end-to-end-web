@@ -45,7 +45,7 @@ public class SignUpPage {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 15);
+		wait = new WebDriverWait(driver, 30);
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
@@ -158,18 +158,23 @@ public class SignUpPage {
 		wait.until(ExpectedConditions.elementToBeClickable(ddlChooseNumberCity));
 		Select selection = new Select(ddlChooseNumberCity);
 		selection.selectByIndex(ThreadLocalRandom.current().nextInt(1, selection.getOptions().size()));
-		return selection.getFirstSelectedOption().getText();
+		String city = selection.getFirstSelectedOption().getText();
+		logger.info("Setting City to - " + city);
+		return city;
 	}
 
 	public String setState() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(ddlChooseNumberState));
 		Select selection = new Select(ddlChooseNumberState);
 		selection.selectByIndex(ThreadLocalRandom.current().nextInt(1, selection.getOptions().size()));
-		return selection.getFirstSelectedOption().getText();
+		String state = selection.getFirstSelectedOption().getText();
+		logger.info("Setting State to - " + state);
+		return state;
 	}
 
 	public void selectState() {
 		wait.until(ExpectedConditions.elementToBeClickable(radioState));
+		logger.info("Chosing to look for faxnumbers by State");
 		radioState.click();
 	}
 
@@ -187,9 +192,10 @@ public class SignUpPage {
 	}
 
 	public boolean noInventory() {
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading_ChooseNumber")));
 		if (noInventory.isDisplayed()) {
-			logger.info("Out of fax numbers for the selected area.");
-			return noInventory.getText().contains("Unfortunately, we are out of fax numbers in that area.");
+			logger.info(noInventory.getText());
+			return true;
 		}
 		return false;
 	}
@@ -241,6 +247,7 @@ public class SignUpPage {
 	}
 
 	public void setBillingCardName(String text) {
+		wait.until(ExpectedConditions.elementToBeClickable(txtCreditCardNameBillingdomestic));
 		txtCreditCardNameBillingdomestic.clear();
 		txtCreditCardNameBillingdomestic.sendKeys(text);
 		logger.info("BillingCardName set to - " + text);
@@ -332,29 +339,48 @@ public class SignUpPage {
 	}
 
 	public boolean isSignUpSuccess() {
-		wait.until(ExpectedConditions.visibilityOfAllElements(lbleFaxNumberValue));
-		wait.until(ExpectedConditions.visibilityOfAllElements(lblPasswordValue));
+		wait.until(ExpectedConditions.visibilityOf(lbleFaxNumberValue));
+		wait.until(ExpectedConditions.visibilityOf(lblPasswordValue));
 		if (lbleFaxNumberValue.isDisplayed() && lblPasswordValue.isDisplayed()) {
-			logger.info(String.format("Registration successful - FaxNumber=%1$s Password=%2$s",
-					lbleFaxNumberValue.getText(), lblPasswordValue.getText()));
+			logger.info(String.format("Registration successful - FaxNumber=%1$s Password=%2$s", lbleFaxNumberValue.getText(), lblPasswordValue.getText()));
 			return true;
 		} else {
 			logger.info("Registration un-successful.");
 			return false;
 		}
 	}
+	
+	public String getLoginDetails()
+	{
+		return lbleFaxNumberValue.getText() + ";" + lblPasswordValue.getText();	
+	}
 
-	public boolean loginToNewAccount() {
+	public boolean isLoginBtnAvailable() {
+		wait.until(ExpectedConditions.elementToBeClickable(BtnLogin));
+		boolean flag = BtnLogin.isDisplayed();
+		return flag;
+	}
+
+	public void clickLogin() {
+		logger.info("Attempting Auto log-in.");
 		BtnLogin.click();
-		logger.info("Attempting to log-on to new account.");
-		if (driver.findElement(By.id("logout")).isDisplayed()) {
-			logger.info("Sign-in successful.");
+	}
+
+	public boolean isLoggedIn() {
+		if (!(driver.findElements(By.id("loginSubmitBtn")).size() > 0)) {
+			logger.info("Auto Sign-in successful.");
 			return true;
-		}
-		else {
-			logger.info("Sign-in unsuccessful.");
+		} else {
+			logger.info("Auto Sign-in unsuccessful.");
 			return false;
 		}
+	}
+	
+	public void LoginWithCredentials(String faxnumber, String pin) {
+		logger.info("Signing-in with credentials.");
+		driver.findElement(By.id("phoneNumber")).sendKeys(faxnumber);
+		driver.findElement(By.id("pin")).sendKeys(pin);
+		driver.findElement(By.id("loginSubmitBtn")).click();
 	}
 
 	public boolean logout() {
@@ -362,8 +388,7 @@ public class SignUpPage {
 			driver.findElement(By.id("logout")).click();
 			logger.info("Sign-out successful.");
 			return true;
-		}
-		else {
+		} else {
 			logger.info("Sign-out unsuccessful.");
 			return false;
 		}

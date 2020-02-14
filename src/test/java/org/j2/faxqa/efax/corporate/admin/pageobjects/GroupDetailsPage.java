@@ -21,13 +21,15 @@ public class GroupDetailsPage extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
+		logger.info("URL - " + driver.getCurrentUrl());
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
 	static final String advancedSettingsButton = "//div[contains(@class,'advanced-settings-button')]";
-	static final String inputHiddenStorageEnabled = "//input[contains(@id,'SecureStorage')]";
-	static final String inputHiddenEditProfile = "//input[contains(@id,'userEditProfile')]";
+	static final String inputHiddenStorageEnabled = "//input[@id='NonSecureStorageEnabled']";
+	static final String inputHiddenEditProfile = "//input[@id='userEditProfile']";
+	static final String addUser = "adminCreateAccount";
 	
 	@FindBy(xpath = advancedSettingsButton)
 	private WebElement advancedSettingsButtonWebElement;
@@ -38,18 +40,9 @@ public class GroupDetailsPage extends CommonMethods {
 	@FindBy(xpath = inputHiddenEditProfile)
 	private WebElement inputHiddenEditProfileWebElement;
 
-	public WebElement getAdvancedSettingsButton() {
-		return advancedSettingsButtonWebElement;
-	}
-
-	public WebElement getInputHiddenStorageEnabled() {
-		return inputHiddenStorageEnabledWebElement;
-	}
-
-	public WebElement getInputHiddenEditProfile() {
-		return inputHiddenEditProfileWebElement;
-	}
-
+	@FindBy(id = addUser)
+	private WebElement addUserWebElement;
+	
 	public WebElement getUnassignedFaxEmailField() {
 		WebElement unassignedFaxEmailFieldWebElement = null;
 		String locator = "unassignedDIDEmail";
@@ -59,24 +52,28 @@ public class GroupDetailsPage extends CommonMethods {
 			@SuppressWarnings("unused")
 			WebElement element = driver.findElement(By.id("unassignedDIDEmail"));
 		}
-
 		return unassignedFaxEmailFieldWebElement;
 	}
 
 	public void clickAdvancedSettingsButton() {
-		this.scrollToTheSpecificWebelement(getAdvancedSettingsButton());
-		getAdvancedSettingsButton().click();
+		this.scrollToTheSpecificWebelement(advancedSettingsButtonWebElement);
+		advancedSettingsButtonWebElement.click();
 	}
 
-	public String getAttributeValueOfStorageEnabledField(String attribute) {
-		this.scrollToTheSpecificWebelement(getInputHiddenStorageEnabled());
-		String attributeValue = getInputHiddenStorageEnabled().getAttribute(attribute);
-		return attributeValue;
+	public boolean isStorageEnabled() {
+		this.scrollToTheSpecificWebelement(inputHiddenStorageEnabledWebElement);
+		return inputHiddenStorageEnabledWebElement.isSelected();
 	}
 
-	public String getAttributeValueOfEditProfileField(String attribute) {
-		this.scrollToTheSpecificWebelement(getInputHiddenEditProfile());
-		String attributeValue = getInputHiddenEditProfile().getAttribute(attribute);
-		return attributeValue;
+	public boolean isEditProfileEnabled() {
+		this.scrollToTheSpecificWebelement(inputHiddenEditProfileWebElement);
+		return inputHiddenEditProfileWebElement.isSelected();
 	}
+	
+	public void clickAddUser()
+	{
+		this.scrollToTheSpecificWebelement(addUserWebElement);
+		addUserWebElement.click();
+	}
+	
 }

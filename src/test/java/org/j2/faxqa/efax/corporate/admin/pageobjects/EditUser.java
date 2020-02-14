@@ -25,7 +25,8 @@ public class EditUser extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
+		logger.info("URL - " + driver.getCurrentUrl());
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
@@ -38,8 +39,8 @@ public class EditUser extends CommonMethods {
 	static final String removeButton = "//button[@id='modalDeleteUserBtn']";
 	static final String userFirstNameForm = "//label[@id='userfirstname']";
 	static final String advancedSettingsButton = "//div[contains(@class,'advanced-settings-button')]";
-	static final String inputHiddenStorageEnabled = "//input[contains(@id,'SecureStorage')]";
-	static final String inputHiddenEditProfile = "//input[contains(@id,'userEditProfile')]";
+	static final String inputHiddenStorageEnabled = "//input[@id='userEditProfile']";
+	static final String inputHiddenEditProfile = "//input[@id='nonSecureStorageEnabled']";
 	static final String preferencesTab = "//a[@class='faxOptionsPanel']";
 	static final String storageDurationDropdown = "//span[@id='storageDurationType-button']//span[@class='ui-icon icon_ChevronDown']";
 	static final String lifetimeStorageOption = "//li[contains(text(),'Lifetime')]";
@@ -489,6 +490,16 @@ public class EditUser extends CommonMethods {
 			}
 		}
 
+	}
+
+	public boolean isStorageEnabled() {
+		this.scrollToTheSpecificWebelement(inputHiddenStorageEnabledWebElement);
+		return inputHiddenStorageEnabledWebElement.isSelected();
+	}
+
+	public boolean isEditProfileEnabled() {
+		this.scrollToTheSpecificWebelement(inputHiddenEditProfileWebElement);
+		return inputHiddenEditProfileWebElement.isSelected();
 	}
 
 }

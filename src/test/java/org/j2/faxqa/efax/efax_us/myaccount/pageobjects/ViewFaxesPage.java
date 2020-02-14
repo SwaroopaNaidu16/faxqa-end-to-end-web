@@ -43,8 +43,9 @@ import org.apache.logging.log4j.*;
 import org.j2.faxqa.efax.common.Config;
 import org.j2.faxqa.efax.common.TLDriverFactory;
 import org.j2.faxqa.efax.common.Utils;
+import org.j2.faxqa.efax.corporate.myaccount.CommonMethods;
 
-public class ViewFaxesPage {
+public class ViewFaxesPage extends CommonMethods {
 	private WebDriver driver;
 	private Logger logger;
 	WebDriverWait wait;
@@ -83,10 +84,9 @@ public class ViewFaxesPage {
 
 	private WebElement getreceivedfax(String from) throws InterruptedException {	
 		wait.until(ExpectedConditions.elementToBeClickable(inbox));
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[text()='Loading...']")));
 		for (WebElement e : inboxfaxes)
 		{
-			//logger.info(e.findElements(By.tagName("td")).get(3).getCssValue("font-weight") + "....................." + e.findElements(By.tagName("td")).get(3).getText());
 			if (e.findElements(By.tagName("td")).get(3).getCssValue("font-weight").contains("700") && e.findElements(By.tagName("td")).get(3).getText().contains(from))
 				return e;
 		}
@@ -97,11 +97,11 @@ public class ViewFaxesPage {
 		Instant waittime = Instant.now().plusSeconds(timeout);
 		logger.info("Expected inbound fax Timeout set to "+ timeout +" seconds.");
 		logger.info("SenderID = " + from);
-		WebElement fax = getreceivedfax(from);
+		WebElement fax = null;
 		while (fax == null && waittime.isAfter(Instant.now())) {
-			inbox.click();
 			logger.info("Waiting for the fax...");
-			wait.until(ExpectedConditions.invisibilityOf(TLDriverFactory.getTLDriver().findElement(By.xpath("//div[text()='Loading...']"))));
+			Thread.sleep(10000);
+			inbox.click();
 			fax = getreceivedfax(from);
 		} 
 		if (fax != null) {

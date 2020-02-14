@@ -57,7 +57,7 @@ public class HomePage {
 
 	@FindBy(id = "logout")
 	private WebElement logout;
-
+	
 	public void gotosendfaxesview() {
 		wait.until(ExpectedConditions.elementToBeClickable(sendfaxesdash));
 		sendfaxesdash.click();
@@ -81,4 +81,5 @@ public class HomePage {
 		helpdash.click();
 		logger.info("Opened Help view.");
 	}
+
 }

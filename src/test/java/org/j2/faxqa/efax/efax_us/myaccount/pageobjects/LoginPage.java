@@ -40,16 +40,18 @@ public class LoginPage {
 	@FindBy(id = "loginSubmitBtn")
 	private WebElement loginSubmitBtn;
 
-//	@FindBy(xpath = "//*/div[@id='formRow_loginUsername']/..//Input[@name='Submit']")
-//	private WebElement loginSubmitBtn2;
+	@FindBy(id = "cookie-understand")
+	private WebElement cookie_understand;
 
-	public void validLogin() {
+	public void login() {
 		faxnumber.sendKeys(Config.DID);
 		passwordpin.sendKeys(Config.PIN);
 
 		logger.info("DID = " + Config.DID);
 		logger.info("PIN = " + Config.PIN);
 
+		cookie_understand.click();
+		
 		submit();
 	}
 
@@ -59,5 +61,6 @@ public class LoginPage {
 			logger.info("Log-in Submit.");
 		}
 	}
+
 
 }

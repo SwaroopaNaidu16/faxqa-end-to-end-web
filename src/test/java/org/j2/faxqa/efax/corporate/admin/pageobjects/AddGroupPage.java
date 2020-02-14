@@ -21,7 +21,8 @@ public class AddGroupPage extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
+		logger.info("URL - " + driver.getCurrentUrl());
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
@@ -84,16 +85,20 @@ public class AddGroupPage extends CommonMethods {
 
 	public void toggleBillingCodeRequiredBtn(boolean flag) throws Exception {
 		if (!groupRequiredToggleCheckboxWebElement.isSelected() && flag) {
+			logger.info("Enabling Billing code required.");
 			groupRequiredToggleCheckboxWebElement.click();
 		} else if (groupRequiredToggleCheckboxWebElement.isSelected() && !flag) {
+			logger.info("Disabling Billing code required.");
 			groupRequiredToggleCheckboxWebElement.click();
 		}
 	}
 
 	public void togglePrivatePoolRequiredBtn(boolean flag) throws Exception {
 		if (!groupPoolRequiredCheckboxWebElement.isSelected() && flag) {
+			logger.info("Enabling PrivatePoolRequired.");
 			groupPoolRequiredCheckboxWebElement.click();
 		} else if (groupPoolRequiredCheckboxWebElement.isSelected() && !flag) {
+			logger.info("Disabling PrivatePoolRequired.");
 			groupPoolRequiredCheckboxWebElement.click();
 		}
 	}
@@ -105,15 +110,16 @@ public class AddGroupPage extends CommonMethods {
 	}
 
 	public void clickGetBtnCreateGroup() {
-		// Reporter.verifyElementToBeClickableOnPage(getBtnCreateGroup(),
-		// AddGroupPageLocators.btnCreateGroup);
+		new CommonMethods().scrollToTheSpecificWebelement(btnCreateGroupWebElement);
 		btnCreateGroupWebElement.click();
+		logger.info("Creating group.");
 	}
 
 	public String getSuccessGroupValidationMessage() {
 		// Reporter.verifyElementToBeVisibleOnPage(getGroupSuccessValidationMessage(),
 		// AddGroupPageLocators.groupSuccessValidationMessage);
 		System.out.println(groupSuccessValidationMessageWebElement.getText());
+		logger.info(groupSuccessValidationMessageWebElement.getText());
 		return groupSuccessValidationMessageWebElement.getText();
 	}
 
@@ -184,5 +190,11 @@ public class AddGroupPage extends CommonMethods {
 		// AddGroupPageLocators.privateFaxNumberPoolFieldValidationMessage);
 		String message = privateFaxNumberPoolFieldValidationMessageWebElement.getText();
 		return message;
+	}
+
+	public void enterNewGroupName(String groupname) {
+		clickGetBtnAddGroup();
+		enterGroupName(groupname);
+		logger.info("Entering wew group name as " + groupname);
 	}
 }

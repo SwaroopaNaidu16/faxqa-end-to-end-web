@@ -27,7 +27,7 @@ public class SignUpTests {
 
 	@TestRail(id = "C7862")
 	@Test(enabled = true, groups = { "smoke", "regression" }, priority = 1, description = "US > SignUp for a new user account")
-	public void testcase1(ITestContext context) throws Exception {
+	public void verifyNewUserSignUpLogin(ITestContext context) throws Exception {
 		WebDriver driver = null;
 		try {
 			driver = TLDriverFactory.getTLDriver();
@@ -37,7 +37,7 @@ public class SignUpTests {
 			String random = UUID.randomUUID().toString().replace("-", "").substring(0, 12);
 			String firstname = "QATest"; 
 			String lastname = new Faker().address().firstName();
-			String email = firstname + "." + lastname + "@" + random.substring(3, 8) + ".com";
+			String email = firstname + "." + lastname + random.substring(3, 8) + "@mailinator.com";
 			String phone = String.format("%1$s%2$s", ThreadLocalRandom.current().nextInt(10000, 99999),
 					ThreadLocalRandom.current().nextInt(10000, 99999));
 			String address1 = new Faker().address().streetAddress();
@@ -50,7 +50,7 @@ public class SignUpTests {
 			String creditcardmonth = "DEC";
 			String creditcardyear = "2025";
 			String creditcardcvv = "321";
-
+			
 			SignUpPage signup = new SignUpPage();
 			signup.selectCountry(country);
 			// signup.selectAreaCode();
@@ -59,7 +59,7 @@ public class SignUpTests {
 			state = signup.setState();
 			city = signup.setCity();
 			while (signup.noInventory()) {
-				logger.info("Couldn't get a DID, retrying...");
+				logger.info("No fax numbers found for the selected region, retrying...");
 				state = signup.setState();
 				city = signup.setCity();
 			}
@@ -86,8 +86,22 @@ public class SignUpTests {
 			
 			boolean flag = signup.isSignUpSuccess();
 			Assert.assertTrue(flag);
+
+			String[] login = signup.getLoginDetails().split(";");
+			String fax = login[0];
+			String pin = login[1];
 			
-			flag = signup.loginToNewAccount();
+			if (signup.isLoginBtnAvailable()) {
+				signup.clickLogin();
+			}
+			
+			if (signup.isLoggedIn()) {
+				signup.clickLogin();
+			}
+			else {
+				signup.LoginWithCredentials(fax, pin);
+			}
+				
 			Assert.assertTrue(flag);
 			
 			flag = signup.logout();

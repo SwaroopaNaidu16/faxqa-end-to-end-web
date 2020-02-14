@@ -1,4 +1,4 @@
-package org.j2.faxqa.efax.corporate.myaccount.pageobjects;
+package org.j2.faxqa.efax.efax_us.myaccount.pageobjects;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,13 +11,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class NavigationBarMyAccount extends CommonMethods {
+public class NavigationBar {
 
 	private WebDriver driver;
 	private Logger logger;
 	WebDriverWait wait;
 
-	public NavigationBarMyAccount() {
+	public NavigationBar() {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
@@ -42,36 +42,20 @@ public class NavigationBarMyAccount extends CommonMethods {
 	@FindBy(id = ReportsTab)
 	private WebElement ReportsTabWebElement;
 
-	public WebElement getReportsTab() {
-		return ReportsTabWebElement;
-	}
-
-	public WebElement getSendFaxesTab() {
-		return sendFaxesTabWebElement;
-	}
-
-	public WebElement getAccountDetailsTab() {
-		return accountDetailsTabWebElement;
-	}
-
-	public WebElement getViewFaxesTab() {
-		return viewFaxesTabWebElement;
-	}
-
 	public void clickSendFaxesTab() {
-		getSendFaxesTab().click();
+		sendFaxesTabWebElement.click();
 	}
 
 	public void clickAccountDetailsTab() {
-		getAccountDetailsTab().click();
+		accountDetailsTabWebElement.click();
 	}
 
 	public void clickViewFaxesTab() {
-		getViewFaxesTab().click();
+		viewFaxesTabWebElement.click();
 	}
 
 	public void clickReportsTab() {
-		getReportsTab().click();
+		ReportsTabWebElement.click();
 	}
 
 }

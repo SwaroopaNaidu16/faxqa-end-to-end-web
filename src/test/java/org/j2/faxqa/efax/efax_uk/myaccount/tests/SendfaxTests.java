@@ -43,7 +43,7 @@ public class SendfaxTests {
 			driver = TLDriverFactory.getTLDriver();
 			driver.navigate().to(Config.efax_myaccountBaseUrl);
 			LoginPage loginpage = new LoginPage();
-			loginpage.validLogin();
+			loginpage.login();
 
 			HomePage homepage = new HomePage();
 			homepage.gotoacctdetailsview();

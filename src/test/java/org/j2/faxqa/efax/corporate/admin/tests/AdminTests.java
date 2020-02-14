@@ -29,15 +29,15 @@ public class AdminTests {
 	@Test(enabled = true, priority = 0, description = "Verify that new admin user should be created successfully")
 	public void adminUserShouldBeCreatedSuccessfully() throws Exception {
 		try {
+			WebDriver driver = TLDriverFactory.getTLDriver();
 			String firstname = "QA" + new Faker().address().firstName();
 			String lastname = new Faker().address().lastName();
 			String primaryemail = firstname + lastname + new Faker().number().digits(3) + "@mailinator.com";
 			String password = "Welcome@123";
 
 			String expectedValidationMessage = "Group Admin Created Successfully.";
-			TLDriverFactory.getTLDriver().navigate().to(Config.mgmtBaseUrl);
+			driver.navigate().to(Config.mgmtBaseUrl);
 			LoginPage loginPage = new LoginPage();
-			loginPage.open();
 			loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
 			HomePage homepage = new HomePage();
 			homepage.clickUsersTab();
@@ -58,7 +58,6 @@ public class AdminTests {
 			homepage.logout();
 			// CommonMethods.getWelcomeEmail(primaryemail);
 			loginPage = new LoginPage();
-			loginPage.open();
 			loginPage.login(Config.AccountNumberMGMT, firstname + lastname, password);
 			homepage = new HomePage();
 			Assert.assertEquals(true, homepage.isUserLoggedIn());
@@ -73,20 +72,46 @@ public class AdminTests {
 	@Test(enabled = true, priority = 1, description = "Verify that new group should be created/added successfully")
 	public void testAddGroupUsingGroupAdmin() throws Exception {
 		try {
-			TLDriverFactory.getTLDriver().navigate().to(Config.mgmtBaseUrl);
-			LoginPage loginPage = new LoginPage();
-			loginPage.open();
-			loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
+			WebDriver driver = TLDriverFactory.getTLDriver();
+			String firstname = "QA" + new Faker().address().firstName();
+			String lastname = new Faker().address().lastName();
+			String primaryemail = firstname + lastname + new Faker().number().digits(3) + "@mailinator.com";
+			String password = "Welcome@123";
 
+			String expectedValidationMessage = "Group Admin Created Successfully.";
+			driver.navigate().to(Config.mgmtBaseUrl);
+			LoginPage loginPage = new LoginPage();
+			loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
 			HomePage homepage = new HomePage();
+			homepage.clickUsersTab();
+			UsersPage usersPage = new UsersPage();
+			usersPage.clickPageActionsMenu();
+			usersPage.clickAddUsersOption();
+			AddUser adduserpage = new AddUser();
+			adduserpage.tickAdminAccountCheckbox(true);
+			adduserpage.enterFirstName(firstname);
+			adduserpage.enterLastName(lastname);
+			adduserpage.enterPrimaryEmailAddress(primaryemail);
+			adduserpage.enterPassword(password);
+			adduserpage.enterConfirmPassword(password);
+			adduserpage.enterAdministratorName(firstname + lastname);
+			adduserpage.clickCreateUserButton();
+			Assert.assertEquals(adduserpage.createUserValidationMessage(), expectedValidationMessage);
+			homepage = new HomePage();
+			homepage.logout();
+			// CommonMethods.getWelcomeEmail(primaryemail);
+			loginPage = new LoginPage();
+			loginPage.login(Config.AccountNumberMGMT, firstname + lastname, password);
+			if (loginPage.isPasswordChangePrompted())
+				password = loginPage.changePassword(password);
+			
+			driver.navigate().refresh();
+			homepage = new HomePage();
 			homepage.clickGroupsTab();
 
 			AddGroupPage addGroupPage = new AddGroupPage();
-			addGroupPage.clickGetBtnAddGroup();
-
 			String newGrpName = "QA_Automation_" + new Faker().number().digits(5);
-
-			addGroupPage.enterGroupName(newGrpName);
+			addGroupPage.enterNewGroupName(newGrpName);
 			addGroupPage.toggleBillingCodeRequiredBtn(false);
 			addGroupPage.togglePrivatePoolRequiredBtn(false);
 			addGroupPage.clickGetBtnCreateGroup();
@@ -104,50 +129,43 @@ public class AdminTests {
 	public void newUserShouldBeCreatedAndSettingShouldBeInheritedFromTheGroup() throws Exception {
 
 		try {
-			String groupSetting;
-			String userSetting;
+						
 			TLDriverFactory.getTLDriver().navigate().to(Config.mgmtBaseUrl);
 			LoginPage loginPage = new LoginPage();
-			loginPage.open();
-			loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
+			loginPage.login(Config.nonsecureAccountNumber_MGMT, Config.nonsecureadministratorName_MGMT, Config.nonsecurepassword_MGMT);
 			HomePage homepage = new HomePage();
 			homepage.clickGroupsTab();
 			GroupsPage groupsPage = new GroupsPage();
 			groupsPage.clickMyAccountEditButton();
 			GroupDetailsPage groupDetailsPage = new GroupDetailsPage();
 			groupDetailsPage.clickAdvancedSettingsButton();
-			AddUser addUser = new AddUser();
-			EditUser editUser = new EditUser();
+			boolean groupSetting1 = groupDetailsPage.isStorageEnabled();
+			boolean groupSetting2 = groupDetailsPage.isEditProfileEnabled();
 
-			try {
-				groupSetting = groupDetailsPage.getAttributeValueOfStorageEnabledField("checked");
-			} catch (Exception e) {
-				groupSetting = groupDetailsPage.getAttributeValueOfEditProfileField("checked");
-			}
-
-			String currentURL = TLDriverFactory.getTLDriver().getCurrentUrl();
-			String[] groupId = new String[1];
-			groupId = currentURL.split("=");
-
-			TLDriverFactory.getTLDriver().navigate().to(Config.adminCreateNewUser + "?groupId=" + groupId[1]);
-			
-			String firstname = new Faker().address().firstName();
+			String firstname = "QATest" + new Faker().address().firstName();
 			String lastname = new Faker().address().lastName();
-			String contactemail = new Faker().internet().emailAddress("@mailinator.com");
-			String password = new Faker().internet().password(8, 40, true, true, true);
+			String contactemail = String.join(".", firstname, lastname + "@mailinator.com");
+			String password = "Welcome@123";
 
+			groupDetailsPage.clickAddUser();
+			AddUser addUser = new AddUser();
 			addUser.enterFirstName(firstname);
 			addUser.enterLastName(lastname);
-			addUser.enterPrimaryEmailAddress(contactemail);
-			addUser.enterPassword(Config.passwordCreateNewUser_1);
-			addUser.enterConfirmPassword(Config.passwordCreateNewUser_1);
+			addUser.enterPrimaryEmailPrefix(contactemail);
+			addUser.enterPassword(password);
+			addUser.enterConfirmPassword(password);
 			addUser.clickCreateUserButton();
+			
+			EditUser editUser = new EditUser();
 			editUser.clickAdvancedSettingsButton();
 
-			String expected = "The account has been created.";
-			Assert.assertEquals(editUser.getSuccessMessage(), expected);
+			boolean userSetting1 = editUser.isStorageEnabled();
+			boolean userSetting2 = editUser.isEditProfileEnabled();
+			
+			Assert.assertEquals(groupSetting1, userSetting1);
+			Assert.assertEquals(groupSetting2, userSetting2);
+			
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Assert.fail();
 		}
@@ -171,23 +189,16 @@ public class AdminTests {
 			faxNumbersPage.clickAddFaxNumbersIcon();
 
 			AddFaxNumbersOverlay addFaxNumbersOverlay = new AddFaxNumbersOverlay();
-			addFaxNumbersOverlay.searchByState(Config.state, Config.addedFaxCount);
+			addFaxNumbersOverlay.searchByState(1);
 
-			String expectedText = null;
-			String actualText = null;
-			int addedFaxCounts = Integer.parseInt(Config.addedFaxCount);
-			if (addedFaxCounts == 1) {
-				expectedText = "You have successfully added numbers to your account.\n" + "\n" + Config.addedFaxCount
-						+ " number added for " + Config.selectCityForSearchByState + ".";
-			}
-			actualText = addFaxNumbersOverlay.getValidationMessageText();
-			Assert.assertEquals(expectedText, actualText);
+			String actualText = addFaxNumbersOverlay.getValidationMessageText();
+			Assert.assertTrue(actualText.contains("You have successfully added numbers to your account"));
 			addFaxNumbersOverlay.clickCloseIcon();
 			
 			faxNumbersPage.refresh();
 			String unassignedFaxNumberCountTwo = faxNumbersPage.totalUnassignedFaxNumbers();
 			int unassignedFaxNumberCount2 = Integer.parseInt(unassignedFaxNumberCountTwo);
-			Assert.assertEquals(unassignedFaxNumberCount1 + Integer.parseInt(Config.addedFaxCount), unassignedFaxNumberCount2);
+			Assert.assertEquals(unassignedFaxNumberCount1 + 1, unassignedFaxNumberCount2);
 
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
@@ -209,9 +220,10 @@ public class AdminTests {
 			UsersPage usersPage = new UsersPage();
 			AddUser addUser = new AddUser();
 
-			TLDriverFactory.getTLDriver().navigate().to(Config.adminCreateNewUser);
+			TLDriverFactory.getTLDriver().navigate().to(Config.mgmtBaseUrl);
 			loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
-			usersPage.clickUsersTab();
+			homepage.clickUsersTab();
+			
 			usersPage.clickPageActionsMenu();
 			usersPage.clickAddUsersOption();
 

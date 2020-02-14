@@ -29,7 +29,7 @@ public class SendFaxesModalMyAccount extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 	
@@ -205,7 +205,7 @@ public class SendFaxesModalMyAccount extends CommonMethods {
 			includeCoverPage.click();
 		else if (!check && includeCoverPage.isSelected())
 			includeCoverPage.click();
-		logger.info("Coverage option enabled.");
+		logger.info("Coverpage option enabled.");
 	}
 
 	private void setaddContact() throws Exception {

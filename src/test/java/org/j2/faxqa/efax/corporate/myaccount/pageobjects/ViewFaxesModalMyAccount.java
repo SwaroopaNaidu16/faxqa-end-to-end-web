@@ -29,7 +29,7 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
@@ -249,34 +249,8 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 		return element;
 	}
 
-	public void selectMessageFromInbox(int index) {
-		String locator = "/html[1]/body[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div["
-		+ index + "]/table[1]/tbody[1]/tr[1]/td[1]/div[1]/div[1]";
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-				element.click();
-		} catch (Exception e) {
-				@SuppressWarnings("unused")
-			WebElement element = driver.findElement(By.xpath(locator));
-		}
-	}
-
 	public void clickNextMessageButton() {
 		nextMessageButtonWebElement.click();
-	}
-
-	public String getMessageSubject(int index) {
-		String locator = "/html[1]/body[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div["
-		+ index + "]/table[1]/tbody[1]/tr[1]/td[5]/div[1]";
-		String subject = null;
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-				subject = element.getText();
-		} catch (Exception e) {
-				@SuppressWarnings("unused")
-			WebElement element = driver.findElement(By.xpath(locator));
-		}
-		return subject;
 	}
 
 	public String messageTitle() {
@@ -571,10 +545,9 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 	}
 	
 	private WebElement getreceivedfax(String from) {	
-		wait.until(ExpectedConditions.elementToBeClickable(inbox));
+		wait.until(ExpectedConditions.invisibilityOf(TLDriverFactory.getTLDriver().findElement(By.xpath("//div[text()='Loading...']"))));
 		for (WebElement e : inboxfaxes)
 		{
-			logger.info(e.findElements(By.tagName("td")).get(3).getCssValue("font-weight") + "....................." + e.findElements(By.tagName("td")).get(3).getText());
 			if (e.findElements(By.tagName("td")).get(3).getCssValue("font-weight").contains("700") && e.findElements(By.tagName("td")).get(3).getText().contains(from))
 				return e;
 		}
@@ -585,11 +558,11 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 		Instant waittime = Instant.now().plusSeconds(timeout);
 		logger.info("Expected inbound fax Timeout set to "+ timeout +" seconds.");
 		logger.info("SenderID = " + from);
-		WebElement fax = getreceivedfax(from);
+		WebElement fax = null;
 		while (fax == null && waittime.isAfter(Instant.now())) {
-			inbox.click();
 			logger.info("Waiting for the fax...");
-			wait.until(ExpectedConditions.invisibilityOf(TLDriverFactory.getTLDriver().findElement(By.xpath("//div[text()='Loading...']"))));
+			Thread.sleep(10000);
+			inbox.click();
 			fax = getreceivedfax(from);
 		} 
 		if (fax != null) {

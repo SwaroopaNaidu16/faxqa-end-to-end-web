@@ -21,12 +21,13 @@ import com.github.javafaker.Faker;
 public class SignUpTests {
 
 	protected static final Logger logger = LogManager.getLogger();
-	
+
 	// If uploadresults=true, then the results get uploaded to location
 	// https://testrail.test.j2noc.com/
 
 	@TestRail(id = "C7862")
-	@Test(enabled = true, groups = { "smoke", "regression" }, priority = 1, description = "US > SignUp for a new user account")
+	@Test(enabled = true, groups = { "smoke",
+			"regression" }, priority = 1, description = "US > SignUp for a new user account")
 	public void testcase1(ITestContext context) throws Exception {
 		WebDriver driver = null;
 		try {
@@ -35,9 +36,9 @@ public class SignUpTests {
 			driver.navigate().to(Config.efax_funnelBaseUrl);
 
 			String random = UUID.randomUUID().toString().replace("-", "").substring(0, 12);
-			String firstname = "QATest"; 
+			String firstname = "QATest";
 			String lastname = new Faker().address().firstName();
-			String email = firstname + "." + lastname + "@" + random.substring(3, 8) + ".com";
+			String email = firstname + "." + lastname + random.substring(3, 8) + "@mailinator.com";
 			String phone = String.format("%1$s%2$s", ThreadLocalRandom.current().nextInt(10000, 99999),
 					ThreadLocalRandom.current().nextInt(10000, 99999));
 			String address1 = new Faker().address().streetAddress();
@@ -46,11 +47,11 @@ public class SignUpTests {
 			String pcode = String.format("%s", ThreadLocalRandom.current().nextInt(10000, 99999));
 			String state = "";
 			String country = "United States";
-			String creditcardnumber = "4133738662043055"; //"4872906545490653"; // "441506691331";
+			String creditcardnumber = "4133738662043055"; // "4872906545490653"; // "441506691331";
 			String creditcardmonth = "DEC";
 			String creditcardyear = "2025";
 			String creditcardcvv = "321";
-
+			
 			SignUpPage signup = new SignUpPage();
 			signup.selectCountry(country);
 			// signup.selectAreaCode();
@@ -59,7 +60,7 @@ public class SignUpTests {
 			state = signup.setState();
 			city = signup.setCity();
 			while (signup.noInventory()) {
-				logger.info("Couldn't get a DID, retrying...");
+				logger.info("No fax numbers found for the selected region, retrying...");
 				state = signup.setState();
 				city = signup.setCity();
 			}
@@ -83,16 +84,29 @@ public class SignUpTests {
 			signup.setBillingCreditCardCVV(creditcardcvv);
 			signup.agreeToTermsConditions();
 			signup.activateAccount();
-			
+
 			boolean flag = signup.isSignUpSuccess();
 			Assert.assertTrue(flag);
-			
-			flag = signup.loginToNewAccount();
+
+			String[] login = signup.getLoginDetails().split(";");
+			String fax = login[0];
+			String pin = login[1];
+
+			if (signup.isLoginBtnAvailable()) {
+				signup.clickLogin();
+			}
+
+			if (signup.isLoggedIn()) {
+				signup.clickLogin();
+			} else {
+				signup.LoginWithCredentials(fax, pin);
+			}
+
 			Assert.assertTrue(flag);
-			
+
 			flag = signup.logout();
 			Assert.assertTrue(flag);
-		
+
 		} catch (Throwable e) {
 			e.printStackTrace();
 			logger.info(e.toString());

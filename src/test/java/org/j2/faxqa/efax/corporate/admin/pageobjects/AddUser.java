@@ -30,7 +30,8 @@ public class AddUser extends NavigationBar {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
+		logger.info("URL - " + driver.getCurrentUrl());
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
@@ -38,6 +39,7 @@ public class AddUser extends NavigationBar {
 	static final String firstName = "firstName";
 	static final String lastName = "lastName";
 	static final String contactEmail = "contactEmail";
+	static final String emailPrefix = "emailPrefix";
 	static final String password = "newPin";
 	static final String confirmPassword = "confirmNewPin";
 	static final String administratorName = "newGroupAdminUserName";
@@ -68,6 +70,9 @@ public class AddUser extends NavigationBar {
 	@FindBy(id = contactEmail)
 	private WebElement contactEmailElement;
 
+	@FindBy(id = emailPrefix)
+	private WebElement emailPrefixElement;
+	
 	@FindBy(id = password)
 	private WebElement passwordWebElement;
 
@@ -121,49 +126,67 @@ public class AddUser extends NavigationBar {
 	}
 
 	public void tickAdminAccountCheckbox(boolean flag) {
-
-		if (flag && !adminAccountCheckboxWebElement.isSelected())
+		wait.until(ExpectedConditions.elementToBeClickable(adminAccountCheckboxWebElement));
+		if (flag && !adminAccountCheckboxWebElement.isSelected()) {
+			logger.info("Selecting Admin check-box");
 			adminAccountCheckboxWebElement.click();
-		if (!flag && adminAccountCheckboxWebElement.isSelected())
+		}
+		if (!flag && adminAccountCheckboxWebElement.isSelected()) {
+			logger.info("De-selecting Admin check-box");
 			adminAccountCheckboxWebElement.click();
+		}
 	}
 
 	public void enterFirstName(String text) {
 		firstNameWebElement.clear();
 		firstNameWebElement.sendKeys(text);
+		logger.info("FirstName=" + text);
 	}
 
 	public void enterLastName(String text) {
 		lastNameWebElement.clear();
 		lastNameWebElement.sendKeys(text);
+		logger.info("LastName=" + text);
 	}
 
 	public void enterPrimaryEmailAddress(String text) {
 		contactEmailElement.clear();
 		contactEmailElement.sendKeys(text);
+		logger.info("PrimaryEmail=" + text);
+	}
+	
+	public void enterPrimaryEmailPrefix(String text) {
+		emailPrefixElement.clear();
+		emailPrefixElement.sendKeys(text.split("@")[0]);
+		logger.info("PrimaryEmail=" + text.split("@")[0]);
 	}
 
 	public void enterSenderEmailAddress(String text) {
 		contactEmailElement.clear();
 		contactEmailElement.sendKeys(text);
+		logger.info("SenderEmail=" + text);
 	}
 
 	public void enterPassword(String setPassword) {
 		passwordWebElement.sendKeys(setPassword);
+		logger.info("Password=" + setPassword);
 	}
 
 	public void enterConfirmPassword(String setConfirmPassword) {
 		confirmPasswordWebElement.sendKeys(setConfirmPassword);
+		logger.info("Password=" + setConfirmPassword);
 	}
 
 	public void enterAdministratorName(String text) {
 		administratorNameWebElement.clear();
 		administratorNameWebElement.sendKeys(text);
+		logger.info("AdministratorName=" + text);
 	}
 
 	public void clickCreateUserButton() {
 		wait.until(ExpectedConditions.elementToBeClickable(createUserWebElement));
 		createUserWebElement.click();
+		logger.info("Creating user account...");
 	}
 
 	public void clickReadOnlyAdminToggle() {
@@ -174,10 +197,12 @@ public class AddUser extends NavigationBar {
 	public void userMaySendFaxesToggle(boolean flag) {
 		wait.until(ExpectedConditions.elementToBeClickable(userMaySendFaxesWebElement));
 		this.scrollToTheSpecificWebelement(userMaySendFaxesWebElement);
-		if (!TLDriverFactory.getTLDriver().findElement(By.id("sendEnabled")).isSelected() && flag)
-			userMaySendFaxesWebElement.click();
-		else if (TLDriverFactory.getTLDriver().findElement(By.id("sendEnabled")).isSelected() && !flag)
-			userMaySendFaxesWebElement.click();
+		if (!TLDriverFactory.getTLDriver().findElement(By.id("sendEnabled")).isSelected() && flag) {
+			logger.info("Allowing the User to Send Faxes");
+			userMaySendFaxesWebElement.click();}
+		else if (TLDriverFactory.getTLDriver().findElement(By.id("sendEnabled")).isSelected() && !flag) {
+			logger.info("Disallowing the User to Send Faxes");
+			userMaySendFaxesWebElement.click();}
 	}
 
 	public String getPasswordValidationMessage() {
@@ -192,11 +217,14 @@ public class AddUser extends NavigationBar {
 
 	public String getFaxNumber() {
 		wait.until(ExpectedConditions.elementToBeClickable(faxNumberWebElement));
-		List<WebElement> numberelements = new Select(TLDriverFactory.getTLDriver().findElement(By.id("availableNumberList"))).getOptions();
-		List<String> numbers = numberelements.stream().map(e->e.getAttribute("value")).collect(Collectors.toList());
-		String number = numbers.get(new Faker().number().numberBetween(1, numbers.size()+1)-1);
+		List<WebElement> numberelements = new Select(
+				TLDriverFactory.getTLDriver().findElement(By.id("availableNumberList"))).getOptions();
+		List<String> numbers = numberelements.stream().map(e -> e.getAttribute("value")).collect(Collectors.toList());
+		String number = numbers.get(new Faker().number().numberBetween(1, numbers.size() + 1) - 1);
 		faxNumberWebElement.click();
-		TLDriverFactory.getTLDriver().findElement(By.id("availableNumberList-menu")).findElement(By.xpath("//li[text()='"+number+"']")).click();
+		TLDriverFactory.getTLDriver().findElement(By.id("availableNumberList-menu"))
+				.findElement(By.xpath("//li[text()='" + number + "']")).click();
+		logger.info("FaxNumber="+faxNumberWebElement.getText());
 		return faxNumberWebElement.getText();
 	}
 
@@ -252,6 +280,7 @@ public class AddUser extends NavigationBar {
 
 	public String createUserValidationMessage() {
 		wait.until(ExpectedConditions.elementToBeClickable(createUserValidationMessageWebElement));
+		logger.info(createUserValidationMessageWebElement.getText());
 		return createUserValidationMessageWebElement.getText();
 	}
 }

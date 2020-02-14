@@ -1,5 +1,8 @@
 package org.j2.faxqa.efax.corporate.admin.pageobjects;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.j2.faxqa.efax.common.Config;
@@ -12,6 +15,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.github.javafaker.Faker;
+
 public class AddFaxNumbersOverlay extends CommonMethods {
 
 	private WebDriver driver;
@@ -22,7 +27,8 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
+		logger.info("URL - " + driver.getCurrentUrl());
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
@@ -214,11 +220,11 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		getNextButton().click();
 	}
 
-	public void enterFaxCount(String count) throws Exception {
+	public void enterFaxCount(int count) throws Exception {
 		
 		getQuantityOfFaxNumbersToAddTextbox().click();
 		getQuantityOfFaxNumbersToAddTextbox().clear();
-		getQuantityOfFaxNumbersToAddTextbox().sendKeys(count);
+		getQuantityOfFaxNumbersToAddTextbox().sendKeys(Integer.toString(count));
 	}
 
 	public void clickAddFaxNumbersButton() throws Exception {
@@ -259,52 +265,39 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		getAreaCodeTextBox().sendKeys(code);
 	}
 
-	public void selectAStateFromDropdown(String stateName) throws Exception {
+	public void selectAStateFromDropdown() throws Exception {
 		clickStateDropdown();
-		this.pause(2000);
-		String locator = ".//ul[contains(@id,'addNumbersRegion')]/li[text()='" + stateName + "']";
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			this.clickAction(element);
-		} catch (Exception e) {
-			@SuppressWarnings("unused")
-			WebElement element = driver.findElement(By.xpath(locator));
-		}
+		List<String> states = driver.findElements(By.xpath("//select[@id='addNumbersRegion']/option")).stream().map(e->e.getAttribute("innerText")).collect(Collectors.toList());
+		String state = states.get((new Faker()).number().numberBetween(1,states.size()));
+		String locator = ".//ul[contains(@id,'addNumbersRegion')]/li[text()='" + state + "']";
+		driver.findElement(By.xpath(locator)).click();
 	}
 
-	public void chooseACityFromDropdown(String city) throws Exception {
+	public void chooseACityFromDropdown() throws Exception {
 		clickCityDropdown();
-		this.pause(2000);
+		List<String> cities = driver.findElements(By.xpath("//select[@id='addNumbersCity']/option")).stream().map(e->e.getAttribute("innerText")).collect(Collectors.toList());
+		String city = cities.get((new Faker()).number().numberBetween(1,cities.size()));
 		String locator = "//li[contains(text(),'" + city + "')]";
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			this.clickAction(element);
-		} catch (Exception e) {
-			@SuppressWarnings("unused")
-			WebElement element = driver.findElement(By.xpath(locator));
-		}
+		driver.findElement(By.xpath(locator)).click();
 	}
 
-	public void searchByState(String stateName, String faxCount) throws Exception {
+	public void searchByState(int faxCount) throws Exception {
 		
 		clickStateRadioButton();
-		selectAStateFromDropdown(stateName);
-		chooseACityFromDropdown(Config.selectCityForSearchByState);
-		clickNextButton();
-		this.pause(2000);
-		
+		selectAStateFromDropdown();
+		chooseACityFromDropdown();
+		clickNextButton();	
 		enterFaxCount(faxCount);
 		clickAddFaxNumbersButton();
-		this.pause(8000);
 	}
 
-	public void searchByZipCode(String zipcode, String faxCount) throws Exception {
+	public void searchByZipCode(String zipcode, int faxCount) throws Exception {
 		
 		clickZipCodeRadioButton();
 		enterZipCode(zipcode);
 		clickSearchButton();
 		this.pause(8000);
-		chooseACityFromDropdown(Config.selectCityForSearchByZipCode);
+		chooseACityFromDropdown();
 		clickNextButton();
 		this.pause(2000);
 		
@@ -313,11 +306,11 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		this.pause(8000);
 	}
 
-	public void searchByTollFree(String faxCount) throws Exception {
+	public void searchByTollFree(int faxCount) throws Exception {
 		
 		clickTollFreeRadioButton();
 		this.pause(2000);
-		chooseACityFromDropdown(Config.selectCityForSearchByTollFree);
+		chooseACityFromDropdown();
 		clickNextButton();
 		this.pause(2000);
 		
@@ -326,13 +319,13 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		this.pause(8000);
 	}
 
-	public void searchByAreaCode(String areacode, String faxCount) throws Exception {
+	public void searchByAreaCode(String areacode, int faxCount) throws Exception {
 		
 		clickAreaCodeRadioButton();
 		enterAreaCode(areacode);
 		clickSearchAreaCodeButton();
 		this.pause(120000);
-		chooseACityFromDropdown(Config.selectCityForSearchByAreaCode);
+		chooseACityFromDropdown();
 		clickNextButton();
 		this.pause(2000);
 		

@@ -31,8 +31,9 @@ import org.apache.logging.log4j.*;
 import org.j2.faxqa.efax.common.Config;
 import org.j2.faxqa.efax.common.TLDriverFactory;
 import org.j2.faxqa.efax.common.Utils;
+import org.j2.faxqa.efax.corporate.myaccount.CommonMethods;
 
-public class AccountDetailsPage {
+public class AccountDetailsPage extends CommonMethods {
 	private WebDriver driver;
 	private Logger logger;
 	WebDriverWait wait;
@@ -83,16 +84,16 @@ public class AccountDetailsPage {
 
 	@FindBy(id = "receive_usageGrid")
 	private WebElement receive_usageGrid;
-	
+
 	@FindBy(id = "send_usageGrid")
 	private WebElement send_usageGrid;
-	
+
 	@FindBy(id = "btn_receiveLog")
 	private WebElement btn_receiveLog;
 
 	@FindBy(id = "btn_sendLog")
 	private WebElement btn_sendLog;
-	
+
 	public void updatesendCSID(String sender) {
 		wait.until(ExpectedConditions.elementToBeClickable(sendfaxoptionsedit));
 		sendfaxoptionsedit.click();
@@ -111,7 +112,7 @@ public class AccountDetailsPage {
 			deliverFaxReceipts.click();
 		else if (!check && deliverFaxReceipts.isSelected())
 			deliverFaxReceipts.click();
-		logger.info("Coverage option enabled.");
+		logger.info("coverpage option enabled.");
 	}
 
 	private void setdefaultEmailAddress() {
@@ -131,7 +132,7 @@ public class AccountDetailsPage {
 	public void clickReceiveActivityDetails() {
 		lnkUsageActivityLogReceive.click();
 	}
-	
+
 	public void clickReceiveGo() {
 		wait.until(ExpectedConditions.elementToBeClickable(btn_receiveLog));
 		btn_receiveLog.click();
@@ -142,47 +143,48 @@ public class AccountDetailsPage {
 		btn_sendLog.click();
 	}
 
-	
-	////////////////////////////////////////////////////// Receive Logs /////////////////////////////////////////////////////
+	////////////////////////////////////////////////////// Receive Logs
+	////////////////////////////////////////////////////// /////////////////////////////////////////////////////
 
-	
 	private WebElement getExpectedReceiveRecordLog(String senderid) {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='load_receive_usageGrid' and text()='Loading...']")));
-		for (WebElement element : receive_usageGrid.findElements(By.xpath(".//tbody/tr[@class='ui-widget-content jqgrow ui-row-ltr']")))
-			if (element.findElements(By.tagName("td")).get(4).getText().contains(senderid)) {
-				logger.info("Log record found.");
-				return element;
-			}
+		wait.until(ExpectedConditions
+				.invisibilityOfElementLocated(By.xpath("//div[@id='load_receive_usageGrid' and text()='Loading...']")));
+		if (receive_usageGrid.findElements(By.tagName("tr")).size() > 1)
+			for (WebElement element : receive_usageGrid
+					.findElements(By.xpath(".//tbody/tr[@class='ui-widget-content jqgrow ui-row-ltr']")))
+				if (element.findElements(By.tagName("td")).get(4).getText().contains(senderid)) {
+					logger.info("Log record found.");
+					return element;
+				}
+
 		return null;
 	}
-	
-	public boolean isReceiveActivityLogFound(String senderid, int timeout) throws InterruptedException
-	{
+
+	public boolean isReceiveActivityLogFound(String senderid, int timeout) throws InterruptedException {
 		clickReceiveGo();
-		
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='load_receive_usageGrid' and text()='Loading...']")));
+
+		wait.until(ExpectedConditions
+				.invisibilityOfElementLocated(By.xpath("//div[@id='load_receive_usageGrid' and text()='Loading...']")));
 		Instant waittime = Instant.now().plusSeconds(timeout);
-		logger.info("Expected Receive Activity Log Timeout set to "+ timeout +" seconds.");
-		Thread.sleep(5000);
-		WebElement log = getExpectedReceiveRecordLog(senderid);
+		logger.info("Expected Receive Activity Log Timeout set to " + timeout + " seconds.");
+		WebElement log = null;
 		while (log == null && waittime.isAfter(Instant.now())) {
 			logger.info("Waiting for the log record...");
 			Thread.sleep(10000);
 			clickReceiveGo();
 			log = getExpectedReceiveRecordLog(senderid);
 		}
-		
+
 		if (log != null) {
 			printReceiveActivityLog(log);
 			return true;
-		}
-		else {
-			logger.info("Wait '" + timeout + "' seconds timed-out, expected log not found.");
+		} else {
+			logger.warn("Wait '" + timeout + "' seconds timed-out, expected log not found.");
 			return false;
 		}
-		
+
 	}
-	
+
 	public void printReceiveActivityLog(WebElement log) {
 		logger.info("Expected fax received successfully.");
 		logger.info("Date = " + log.findElements(By.tagName("td")).get(0).getText());
@@ -191,49 +193,50 @@ public class AccountDetailsPage {
 		logger.info("Duration = " + log.findElements(By.tagName("td")).get(3).getText());
 		logger.info("From = " + log.findElements(By.tagName("td")).get(4).getText());
 	}
-	
-	
-	
-	//////////////////////////////////////////////////////// Send Logs /////////////////////////////////////////////////////////////
-		
-	
+
+	//////////////////////////////////////////////////////// Send Logs
+	//////////////////////////////////////////////////////// /////////////////////////////////////////////////////////////
+
 	private WebElement getExpectedSendRecordLog(String senderid) {
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='load_send_usageGrid' and text()='Loading...']")));
-		for (WebElement element : send_usageGrid.findElements(By.xpath(".//tbody/tr[@class='ui-widget-content jqgrow ui-row-ltr']")))
-			if (element.findElements(By.tagName("td")).get(4).getText().contains(senderid)) {
-				logger.info("Log record found.");
-				return element;
+		wait.until(ExpectedConditions
+				.invisibilityOfElementLocated(By.xpath("//div[@id='load_send_usageGrid' and text()='Loading...']")));
+		if (send_usageGrid.findElements(By.tagName("tr")).size() > 1)
+			for (WebElement element : send_usageGrid
+					.findElements(By.xpath(".//tbody/tr[@class='ui-widget-content jqgrow ui-row-ltr']"))) {
+				if (element.findElements(By.tagName("td")).get(4).getText().contains(senderid)) {
+					logger.info("Log record found.");
+					return element;
+				}
 			}
 		return null;
 	}
-	
-	public boolean isSendActivityLogFound(String senderid, int timeout) throws InterruptedException
-	{
+
+	public boolean isSendActivityLogFound(String senderid, int timeout) throws InterruptedException {
 		clickUsageTab();
 		clickSendActivityDetails();
 		clickSendGo();
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='load_send_usageGrid' and text()='Loading...']")));
+		wait.until(ExpectedConditions
+				.invisibilityOfElementLocated(By.xpath("//div[@id='load_send_usageGrid' and text()='Loading...']")));
 		Instant waittime = Instant.now().plusSeconds(timeout);
-		logger.info("Expected Send Activity Log Timeout set to "+ timeout +" seconds.");
-		WebElement log = getExpectedSendRecordLog(senderid);
+		logger.info("Expected Send Activity Log Timeout set to " + timeout + " seconds.");
+		WebElement log = null;
 		while (log == null && waittime.isAfter(Instant.now())) {
 			logger.info("Waiting for the log record...");
 			Thread.sleep(10000);
 			clickSendGo();
 			log = getExpectedSendRecordLog(senderid);
 		}
-		
+
 		if (log != null) {
 			printSendActivityLog1(log);
 			return true;
-		}
-		else {
-			logger.info("Wait '" + timeout + "' seconds timed-out, expected log not found.");
+		} else {
+			logger.warn("Wait '" + timeout + "' seconds timed-out, expected log not found.");
 			return false;
 		}
-		
+
 	}
-	
+
 	public void printSendActivityLog1(WebElement log) {
 		logger.info("Expected fax received successfully.");
 		logger.info("Date = " + log.findElements(By.tagName("td")).get(0).getText());
@@ -243,9 +246,8 @@ public class AccountDetailsPage {
 		logger.info("Subject = " + log.findElements(By.tagName("td")).get(4).getText());
 		logger.info("Status = " + log.findElements(By.tagName("td")).get(5).getText());
 	}
-	
-	public void switchToReceiveLogs()
-	{
+
+	public void switchToReceiveLogs() {
 		driver.findElement(By.xpath("//a[text()='View Receive Logs']")).click();
 	}
 }

@@ -19,7 +19,8 @@ public class UsersPage extends NavigationBar {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
+		logger.info("URL - " + driver.getCurrentUrl());
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
@@ -154,12 +155,12 @@ public class UsersPage extends NavigationBar {
 	}
 
 	public void clickPageActionsMenu() {
-		
+		logger.info("Opening Page Action Menu");
 		pageActionsMenuWebElement.click();
 	}
 
 	public void clickAddUsersOption() {
-		
+		logger.info("Selecting Add Users option");
 		addUsersOptionWebElement.click();
 	}
 

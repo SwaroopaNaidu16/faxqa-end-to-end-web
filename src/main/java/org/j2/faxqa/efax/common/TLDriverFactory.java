@@ -84,14 +84,11 @@ public class TLDriverFactory {
 
 		logger.info("Created ThreadLocal webdriver.");
 		
-		int wait = 10;
+		int wait = 30;
 		tlDriver.get().manage().deleteAllCookies();
 		tlDriver.get().manage().window().maximize();
 		tlDriver.get().manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);
 		logger.info("Setting  implicitlyWait to '" + wait + "' seconds");
-		JavascriptExecutor js = (JavascriptExecutor) tlDriver.get();
-		js.executeScript("document.body.style.zoom='90%'");
-		logger.info("Setting document.body.style.zoom='80%';");
 	}
 
 	public synchronized static WebDriver getTLDriver() {

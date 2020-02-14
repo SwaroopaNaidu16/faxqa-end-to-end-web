@@ -21,7 +21,7 @@ public class AccountDetailsPageMyAccount extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
@@ -73,7 +73,7 @@ public class AccountDetailsPageMyAccount extends CommonMethods {
 			deliverFaxReceipts.click();
 		else if (!check && deliverFaxReceipts.isSelected())
 			deliverFaxReceipts.click();
-		logger.info("Coverage option enabled.");
+		logger.info("coverpage option enabled.");
 	}
 
 	private void setdefaultEmailAddress() {

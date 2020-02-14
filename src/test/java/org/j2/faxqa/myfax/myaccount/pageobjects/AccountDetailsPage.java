@@ -111,7 +111,7 @@ public class AccountDetailsPage {
 			deliverFaxReceipts.click();
 		else if (!check && deliverFaxReceipts.isSelected())
 			deliverFaxReceipts.click();
-		logger.info("Coverage option enabled.");
+		logger.info("coverpage option enabled.");
 	}
 
 	private void setdefaultEmailAddress() {

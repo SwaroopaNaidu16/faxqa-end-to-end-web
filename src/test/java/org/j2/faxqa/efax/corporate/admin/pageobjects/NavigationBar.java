@@ -21,16 +21,17 @@ public class NavigationBar extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 5);
+		wait = new WebDriverWait(driver, 15);
+		logger.info("URL - " + driver.getCurrentUrl());
 		logger.info("Initializing page - " + driver.getTitle());
 	}
 
 	static final String settingsTab = "//*[@id='top-nav-btn-settings']/a/span[1]";
 	static final String usersTab = "//*[@id='top-nav-btn-users']/a/span[1]";
-	static final String groupsTab = "#manageGroups > span.text";
-	static final String faxNumbersTab = "//a[@class='numbers']";
-	static final String usageTab = "//a[@id='usage']";
-	static final String homePageTab = "//ul[@class='top-level']//a[@href='/mgmt/dashboard']";
+	static final String groupsTab = "//*[@id='top-nav-btn-groups']/a/span[1]";
+	static final String faxNumbersTab = "//*[@id='top-nav-btn-numbers']/a/span[1]";
+	static final String usageTab = "//*[@id='top-nav-btn-usage']/a/span[1]";
+	static final String homePageTab = "//*[@id='top-nav-btn-home']/a/span[1]";
 
 	static final String myAccount = "//a[@class='icon_MyAccount']";
 	static final String currentLanguage = "//a[@class='icon_World']";
@@ -43,7 +44,7 @@ public class NavigationBar extends CommonMethods {
 	@FindBy(xpath = usersTab)
 	private WebElement usersTabWebElement;
 
-	@FindBy(css = groupsTab)
+	@FindBy(xpath = groupsTab)
 	private WebElement groupsTabWebElement;
 
 	@FindBy(xpath = faxNumbersTab)
@@ -68,42 +69,51 @@ public class NavigationBar extends CommonMethods {
 	private WebElement logoutButtonWebElement;
 
 	public void clickUsersTab() {
-		
+		logger.info("Navigating to Users tab");
 		usersTabWebElement.click();
 	}
 
 	public void clickSettingsTab() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(settingsTabWebElement));
 		settingsTabWebElement.click();
+		logger.info("Navigating to Settings tab.");
 	}
 
 	public void clickGroupsTab() {
-		
+		logger.info("Navigating to Groups tab.");
+		wait.until(ExpectedConditions.elementToBeClickable(groupsTabWebElement));
 		groupsTabWebElement.click();
 	}
 
 	public void clickFaxNumbersTab() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(faxNumbersTabWebElement));
 		faxNumbersTabWebElement.click();
+		logger.info("Navigating to FaxNumbers tab.");
 	}
 
 	public void clickUsageTab() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(usageTabWebElement));
 		usageTabWebElement.click();
+		logger.info("Navigating to Usage tab.");
 	}
 
 	public void clickHomeTab() {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(homePageTabWebElement));
 		homePageTabWebElement.click();
+		logger.info("Navigating to Home tab.");
 	}
 
 	public boolean isUserLoggedIn() {
 		wait.until(ExpectedConditions.elementToBeClickable(logoutButtonWebElement));
-		return logoutButtonWebElement.getText().contains("Logout");
+		if ( logoutButtonWebElement.getText().contains("Logout")) {
+			logger.info("The user is logged-in.");
+			return true;
+		}
+		return false;
 	}
 
 	public void logout() {
-		
+		logger.info("Logging-out");
 		logoutButtonWebElement.click();
 	}
 }

@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.PhantomJsDriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -21,9 +22,9 @@ public class TLDriverFactory {
 
 	private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
-	public synchronized static void setTLDriver(Logger logger) {
+	public synchronized static void setTLDriver() {
 
-		logger.info("WebBrowser = " + System.getProperty("webbrowser"));
+		LogManager.getLogger().info("WebBrowser = " + System.getProperty("webbrowser"));
 		switch (System.getProperty("webbrowser").toLowerCase()) {
 
 		case "chrome":
@@ -82,13 +83,13 @@ public class TLDriverFactory {
 
 		}
 
-		logger.info("Created ThreadLocal webdriver.");
+		LogManager.getLogger().info("Created ThreadLocal webdriver.");
 		
-		int wait = 30;
+		int wait = 15;
 		tlDriver.get().manage().deleteAllCookies();
 		tlDriver.get().manage().window().maximize();
 		tlDriver.get().manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);
-		logger.info("Setting  implicitlyWait to '" + wait + "' seconds");
+		LogManager.getLogger().info("Setting  implicit-wait to '" + wait + "' seconds");
 	}
 
 	public synchronized static WebDriver getTLDriver() {

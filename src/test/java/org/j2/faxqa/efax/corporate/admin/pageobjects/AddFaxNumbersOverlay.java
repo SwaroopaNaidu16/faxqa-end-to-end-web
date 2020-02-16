@@ -29,7 +29,7 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
 		logger.info("URL - " + driver.getCurrentUrl());
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	static final String stateRadioButton = ".//div[@id='numbersGrid']//div[contains(@style,'block')]//input[@value='R']";
@@ -296,27 +296,21 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		clickZipCodeRadioButton();
 		enterZipCode(zipcode);
 		clickSearchButton();
-		this.pause(8000);
 		chooseACityFromDropdown();
 		clickNextButton();
-		this.pause(2000);
 		
 		enterFaxCount(faxCount);
 		clickAddFaxNumbersButton();
-		this.pause(8000);
 	}
 
 	public void searchByTollFree(int faxCount) throws Exception {
 		
 		clickTollFreeRadioButton();
-		this.pause(2000);
 		chooseACityFromDropdown();
 		clickNextButton();
-		this.pause(2000);
 		
 		enterFaxCount(faxCount);
 		clickAddFaxNumbersButton();
-		this.pause(8000);
 	}
 
 	public void searchByAreaCode(String areacode, int faxCount) throws Exception {
@@ -324,14 +318,11 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		clickAreaCodeRadioButton();
 		enterAreaCode(areacode);
 		clickSearchAreaCodeButton();
-		this.pause(120000);
 		chooseACityFromDropdown();
 		clickNextButton();
-		this.pause(2000);
 		
 		enterFaxCount(faxCount);
 		clickAddFaxNumbersButton();
-		this.pause(8000);
 	}
 
 	public String getErrorMessageInvalidInputCode() {

@@ -22,56 +22,69 @@ public class NavigationBarMyAccount extends CommonMethods {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
-	static final String sendFaxesTab = "sendfaxestab";
-	static final String accountDetailsTab = "updateaccttab";
-	static final String viewFaxesTab = "viewfaxestab";
-	static final String ReportsTab = "reportstab";
+	static final String myaccthometab = "myaccthometab";
+	static final String viewfaxestab = "viewfaxestab";
+	static final String sendfaxestab = "sendfaxestab";
+	static final String reportstab = "reportstab";
+	static final String updateaccttab = "updateaccttab";
+	static final String filesharetab = "filesharetab";
+	static final String helptab = "helptab";
+	static final String logout = "logout";
 	
-	@FindBy(id = sendFaxesTab)
-	private WebElement sendFaxesTabWebElement;
+	@FindBy(id = myaccthometab)
+	private WebElement myaccthometabElement;
 
-	@FindBy(id = accountDetailsTab)
-	private WebElement accountDetailsTabWebElement;
+	@FindBy(id = viewfaxestab)
+	private WebElement viewfaxestabElement;
 
-	@FindBy(id = viewFaxesTab)
-	private WebElement viewFaxesTabWebElement;
+	@FindBy(id = sendfaxestab)
+	private WebElement sendfaxestabElement;
 
-	@FindBy(id = ReportsTab)
-	private WebElement ReportsTabWebElement;
+	@FindBy(id = reportstab)
+	private WebElement reportstabElement;
 
-	public WebElement getReportsTab() {
-		return ReportsTabWebElement;
-	}
+	@FindBy(id = updateaccttab)
+	private WebElement updateaccttabElement;
 
-	public WebElement getSendFaxesTab() {
-		return sendFaxesTabWebElement;
-	}
+	@FindBy(id = filesharetab)
+	private WebElement filesharetabElement;
 
-	public WebElement getAccountDetailsTab() {
-		return accountDetailsTabWebElement;
-	}
+	@FindBy(id = helptab)
+	private WebElement helptabElement;
 
-	public WebElement getViewFaxesTab() {
-		return viewFaxesTabWebElement;
-	}
+	@FindBy(id = logout)
+	private WebElement logoutElement;
+	
 
 	public void clickSendFaxesTab() {
-		getSendFaxesTab().click();
+		sendfaxestabElement.click();
 	}
 
 	public void clickAccountDetailsTab() {
-		getAccountDetailsTab().click();
+		updateaccttabElement.click();
 	}
 
 	public void clickViewFaxesTab() {
-		getViewFaxesTab().click();
+		viewfaxestabElement.click();
 	}
 
 	public void clickReportsTab() {
-		getReportsTab().click();
+		reportstabElement.click();
 	}
 
+	public void clickFileshareTab() {
+		filesharetabElement.click();
+	}
+	
+	public void clickHelpTab() {
+		helptabElement.click();
+	}
+	
+	public void logout() {
+		helptabElement.click();
+	}
+	
 }

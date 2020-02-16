@@ -30,7 +30,6 @@ import org.apache.commons.math3.analysis.function.Exp;
 import org.apache.logging.log4j.*;
 import org.j2.faxqa.efax.common.Config;
 import org.j2.faxqa.efax.common.TLDriverFactory;
-import org.j2.faxqa.efax.common.Utils;
 import org.j2.faxqa.efax.corporate.myaccount.CommonMethods;
 
 public class AccountDetailsPage extends CommonMethods {
@@ -43,7 +42,7 @@ public class AccountDetailsPage extends CommonMethods {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	@FindBy(id = "tabs-prefs")

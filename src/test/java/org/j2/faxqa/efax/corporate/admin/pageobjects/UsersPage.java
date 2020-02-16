@@ -3,6 +3,7 @@ package org.j2.faxqa.efax.corporate.admin.pageobjects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.j2.faxqa.efax.common.TLDriverFactory;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,8 +21,7 @@ public class UsersPage extends NavigationBar {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("URL - " + driver.getCurrentUrl());
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	static final String usersTab = "//a[@class='users']";
@@ -53,8 +53,11 @@ public class UsersPage extends NavigationBar {
 	static final String usersPaitle = "/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h1[1]/span[2]";
 	static final String exportUserListIcon = ".//span[contains(@class,'export-icon')]/parent::li";
 	static final String SearchWithDropdown = ".//span[@id='searchField-button']/span[1]";
+	static final String emailOption = "//li[contains(.,'Email address')]";
 	static final String faxNumberOption = "//li[contains(.,'Fax number')]";
 	static final String deleteUserIcon = ".//span[contains(@class,'delete-user-icon')]/parent::li";
+	static final String selectAllResults = "select_all_control";
+	static final String confirmDelete = "//button[contains(., 'Delete Users')]";
 	
 	@FindBy(xpath = usersTab)
 	private WebElement usersTabWebElement;
@@ -143,12 +146,21 @@ public class UsersPage extends NavigationBar {
 	@FindBy(xpath = SearchWithDropdown)
 	private WebElement SearchWithDropdownWebElement;
 	
+	@FindBy(xpath = emailOption)
+	private WebElement emailOptionWebElement;
+	
 	@FindBy(xpath = faxNumberOption)
 	private WebElement faxNumberOptionWebElement;
 	
 	@FindBy(xpath = deleteUserIcon)
 	private WebElement deleteUserIconWebElement;
 
+	@FindBy(id = selectAllResults)
+	private WebElement selectAllResultsWebElement;
+	
+	@FindBy(xpath = confirmDelete)
+	private WebElement confirmDeleteWebElement;
+	
 	public void clickUsersTab() {
 		
 		usersTabWebElement.click();
@@ -226,6 +238,7 @@ public class UsersPage extends NavigationBar {
 
 	public void clickMoveButton() {
 		moveButtonWebElement.click();
+		logger.info("Clicked Move option");
 	}
 
 	public String errorValidationMessage() {
@@ -239,11 +252,31 @@ public class UsersPage extends NavigationBar {
 	
 	public void searchUserByFaxno(String user_faxnumber_string) throws Exception {
 		searchWebElement.click();
-		this.pause(2000);
 		SearchWithDropdownWebElement.click();
-		this.pause(2000);
 		faxNumberOptionWebElement.click();
 		searchValueWebElement.sendKeys(user_faxnumber_string);
 		searchButtonWebElement.click();
+		logger.info("Searching for User accounts by Fax Number.");
 	}	
+	
+	public void searchUsersByEmail(String email) {
+		searchWebElement.click();
+		SearchWithDropdownWebElement.click();
+		emailOptionWebElement.click();
+		searchValueWebElement.sendKeys(email);
+		searchButtonWebElement.click();
+		logger.info("Searching for User accounts by email.");
+	}	
+	
+	public void selectAllResults() {
+		selectAllResultsWebElement.click();
+		logger.info("Selecting All user accounts.");
+	}
+	
+	public void confirmDelete() {
+		confirmDeleteWebElement.click();
+		logger.info("User account deleted.");
+	}
+	
+	
 }

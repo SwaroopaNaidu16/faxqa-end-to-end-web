@@ -112,12 +112,12 @@ public class TestNGReportListener implements IReporter {
 		writer.print("table a {font-weight:bold}");
 		writer.print(".stripe td {background-color: #E6EBF9}");
 		writer.print(".num {text-align:right}");
-		writer.print(".passedodd td {background-color: #3F3}");
-		writer.print(".passedeven td {background-color: #0A0}");
+		writer.print(".passedodd td {background-color: rgba(76, 150, 76, 0.5)}");
+		writer.print(".passedeven td {background-color: rgba(76, 150, 76, 0.5)}");
 		writer.print(".skippedodd td {background-color: #DDD}");
 		writer.print(".skippedeven td {background-color: #CCC}");
-		writer.print(".failedodd td,.attn {background-color: #B33}");
-		writer.print(".failedeven td,.stripe .attn {background-color: #A00}");
+		writer.print(".failedodd td,.attn {background-color: rgba(150, 76, 76, 0.5)}");
+		writer.print(".failedeven td,.stripe .attn {background-color: rgba(150, 76, 76, 0.5)}");
 		writer.print(".stacktrace {white-space:pre;font-family:monospace}");
 		writer.print(".totop {font-size:85%;text-align:center;border-bottom:2px solid #000}");
 		writer.print(".invisible {display:none}");

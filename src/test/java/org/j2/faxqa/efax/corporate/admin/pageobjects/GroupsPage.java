@@ -23,8 +23,7 @@ public class GroupsPage extends NavigationBar {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("URL - " + driver.getCurrentUrl());
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	static final String myAccountEditButton = "groups-edit-btn-text";
@@ -96,13 +95,11 @@ public class GroupsPage extends NavigationBar {
 	}
 
 	public void editGroupByName(String groupName) throws Exception {
-		this.pause(5000);
 		String locator = "//a[contains(text(),'" + groupName + "')]/div";
 		try {
 			WebElement element = driver.findElement((By.xpath(locator)));
 			this.scrollToTheSpecificWebelement(element);
 			element.click();
-			this.pause(5000);
 		} catch (Exception e) {
 			@SuppressWarnings("unused")
 			WebElement element = driver.findElement((By.xpath(locator)));

@@ -24,8 +24,7 @@ public class FaxNumbersPage extends CommonMethods {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("URL - " + driver.getCurrentUrl());
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	static final String totalUnassignedFaxNumbers = "totalUnassigned";
@@ -268,7 +267,6 @@ public class FaxNumbersPage extends CommonMethods {
 		enterUserSearchTermWebElement.click();
 
 		enterUserSearchTermWebElement.sendKeys(user);
-		this.pause(1000);
 		String locator = "/html[1]/body[1]/ul[1]/li[1]";
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));

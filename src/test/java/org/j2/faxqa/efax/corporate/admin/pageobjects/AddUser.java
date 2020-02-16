@@ -31,8 +31,7 @@ public class AddUser extends NavigationBar {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("URL - " + driver.getCurrentUrl());
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	static final String adminAccountCheckbox = "/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/input[1]";
@@ -229,18 +228,14 @@ public class AddUser extends NavigationBar {
 	}
 
 	public void selectEmailDomain(String mailname) throws Exception {
-		this.pause(2000);
 		clickEmailDomainWebElement.click();
-		this.pause(5000);
 		String locator = ".//ul[@id='emailDomain-menu']/li[contains(text(),'" + mailname + "')]";
 		try {
 			WebElement subdrop = driver
 					.findElement(By.xpath(".//ul[@id='emailDomain-menu']/li[contains(text(),'" + mailname + "')]"));
 			Actions action = new Actions(driver);
 			action.moveToElement(subdrop).perform();
-			this.pause(5000);
 			action.click(subdrop).perform();
-			this.pause(5000);
 		} catch (Exception e) {
 			@SuppressWarnings("unused")
 			WebElement element = driver

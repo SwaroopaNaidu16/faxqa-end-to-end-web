@@ -145,7 +145,7 @@ public class CoreFaxFunctions {
 		String attachments;
 		Path folder = Paths.get((new java.io.File(".")).getCanonicalPath(), "src/test/resources/sendrast");
 		Stream<Path> pathstream = Files.list(folder).filter(f -> f.getFileName().toString().endsWith(".txt"));
-		attachments = Files.list(folder).filter(f -> f.getFileName().toString().endsWith(".txt")).limit(10)
+		attachments = Files.list(folder).filter(f -> f.getFileName().toString().endsWith(".txt")).limit(1)
 				.map(f -> f.toAbsolutePath().toString()).collect(Collectors.joining("|"));
 		
 		SendFaxesModalMyAccount sendFaxesModalMyAccount = new SendFaxesModalMyAccount();
@@ -158,4 +158,19 @@ public class CoreFaxFunctions {
 		return response;
 	}
 
+	public void deleteAccount(String email) {
+		WebDriver driver = TLDriverFactory.getTLDriver();
+		driver.navigate().to(Config.mgmtBaseUrl);
+		LoginPage loginPage = new LoginPage();
+		loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
+		HomePage homepage = new HomePage();
+		homepage.clickUsersTab();
+		UsersPage page = new UsersPage();
+		page.searchUsersByEmail(email);
+		page.selectAllResults();
+		page.clickPageActionsMenu();
+		page.clickDeleteUserOption();
+		page.confirmDelete();
+	}
+	
 }

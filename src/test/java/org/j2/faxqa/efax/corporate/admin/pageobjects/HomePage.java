@@ -24,8 +24,7 @@ public class HomePage extends NavigationBar {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("URL - " + driver.getCurrentUrl());
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	static final String logoutButton = "icon_LogoutCircle";
@@ -188,59 +187,6 @@ public class HomePage extends NavigationBar {
 		return Integer.parseInt(groups);
 	}
 
-	public void removeWidgets() throws Exception {
-		String locator = widgetCloseButton;
-		List<WebElement> divButton_1 = widgetCloseButtonWebElement;
-		if (divButton_1.size() > 0) {
-			// wait.until(ExpectedConditions.elementToBeClickable(locator));
-			for (int i = 0; i < divButton_1.size(); i++) {
-				divButton_1.get(i).click();
-				this.pause(2000);
-			}
-
-			List<WebElement> divButton_2 = widgetCloseButtonWebElement;
-			if (divButton_2.size() > 0) {
-				for (int i = 0; i < divButton_2.size(); i++) {
-					divButton_2.get(i).click();
-					this.pause(2000);
-				}
-
-				List<WebElement> divButton_3 = widgetCloseButtonWebElement;
-				if (divButton_3.size() > 0) {
-					for (int i = 0; i < divButton_3.size(); i++) {
-						divButton_3.get(i).click();
-						this.pause(2000);
-					}
-				}
-			}
-		} else {
-			// Reporter.elementIsNotAvailableOnWebPage(locator);
-		}
-		this.pause(2000);
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.click();
-		} catch (Exception e) {
-		}
-		this.pause(2000);
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.click();
-		} catch (Exception e) {
-		}
-		this.pause(2000);
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.click();
-		} catch (Exception e) {
-		}
-		this.pause(2000);
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.click();
-		} catch (Exception e) {
-		}
-	}
 
 	public String getProfileName() {
 		String name = profileNameHomePageWebElement.getText();

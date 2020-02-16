@@ -30,7 +30,7 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	static final String createNewFolderButton = "//table[@id='newFolder']//button";
@@ -326,7 +326,6 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 
 	public void selectDID(String DID) throws Exception {
 		this.clickDIDSelectionDropdown();
-		this.pause(2000);
 		String locator = ".//div[@class='x-combo-list-item' and text()='" + DID + "']";
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -475,7 +474,6 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 			operation = "Delete Folder";
 		}
 		this.rightClickAction(element);
-		this.pause(2000);
 		String locator = "//a[contains(text(),'" + operation + "')]";
 		try {
 			driver.findElement(By.xpath(locator)).click();
@@ -488,10 +486,8 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 	public void deleteAllContacts() throws Exception {
 		if (contactsListWebElement.size() > 0) {
 			clickSelectAllCheckboxOfContactsTab();
-			this.pause(2000);
 			clickDeleteContactsButton();
 			clickYesButtonFromTheConfirmDeleteContactsDialog();
-			this.pause(5000);
 			clickOkButtonFromTheDeleteContactsDialog();
 		}
 	}
@@ -532,7 +528,6 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 
 	public void uploadFileImportContactCSV(String fileName) throws Exception {
 		uploadCSVFileButton(fileName);
-		this.pause(5000);
 		clickImportButtonFromTheImportCSVFileOverlay();
 	}
 

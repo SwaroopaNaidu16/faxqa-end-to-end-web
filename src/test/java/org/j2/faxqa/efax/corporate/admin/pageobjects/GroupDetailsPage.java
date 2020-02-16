@@ -22,8 +22,7 @@ public class GroupDetailsPage extends CommonMethods {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("URL - " + driver.getCurrentUrl());
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	static final String advancedSettingsButton = "//div[contains(@class,'advanced-settings-button')]";

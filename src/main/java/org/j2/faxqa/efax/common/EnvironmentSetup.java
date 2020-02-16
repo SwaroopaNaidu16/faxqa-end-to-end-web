@@ -24,12 +24,12 @@ public class EnvironmentSetup extends org.testng.Reporter {
 			return;
 		}
 
-		Config.efax_myaccountBaseUrl = prop.getProperty("efax_myaccountBaseUrl");
-		Config.efax_funnelBaseUrl = prop.getProperty("efax_funnelBaseUrl");
-		Config.efax_landingpageBaseUrl = prop.getProperty("efax_landingpageBaseUrl");
-		Config.DID = prop.getProperty("DID");
-		Config.PIN = prop.getProperty("PIN");
-		Config.creditCard = prop.getProperty("creditCard");
+		Config.efax_US_myaccountBaseUrl = prop.getProperty("efax_US_myaccountBaseUrl");
+		Config.efax_US_funnelBaseUrl = prop.getProperty("efax_US_funnelBaseUrl");
+		Config.efax_US_landingpageBaseUrl = prop.getProperty("efax_US_landingpagelBaseUrl");
+		Config.DID_US = prop.getProperty("DID_US");
+		Config.PIN_US = prop.getProperty("PIN_US");
+		Config.creditCard_US = prop.getProperty("CreditCard_US");
 		
 		
 		Config.mgmtBaseUrl = prop.getProperty("baseUrl_MGMT");

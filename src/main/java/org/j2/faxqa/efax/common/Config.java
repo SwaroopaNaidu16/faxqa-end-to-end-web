@@ -3,12 +3,12 @@ package org.j2.faxqa.efax.common;
 public class Config {
 
 	/* efax US related config*/ 
-	public static String efax_myaccountBaseUrl;
-	public static String efax_funnelBaseUrl;
-	public static String efax_landingpageBaseUrl;
-	public static String DID;
-	public static String PIN;
-	public static String creditCard;
+	public static String efax_US_myaccountBaseUrl;
+	public static String efax_US_funnelBaseUrl;
+	public static String efax_US_landingpageBaseUrl;
+	public static String DID_US;
+	public static String PIN_US;
+	public static String creditCard_US;
 	 
 	
 	/*

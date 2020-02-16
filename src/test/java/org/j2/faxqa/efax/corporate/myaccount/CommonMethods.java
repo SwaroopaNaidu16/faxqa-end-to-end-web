@@ -74,7 +74,6 @@ public class CommonMethods {
 	public void clickAction(WebElement element) throws Exception {
 		Actions actions = new Actions(this.driver);
 		actions.click(element).build().perform();
-		this.pause(2000);
 	}
 
 	public void open() throws Exception {
@@ -95,14 +94,9 @@ public class CommonMethods {
 		driver.navigate().refresh();
 	}
 
-	public void pause(long time) throws Exception {
-		//Thread.sleep(time);
-	}
-
 	public void keyBoardClickInteraction(int keyCode) throws Exception {
 		Robot robot = new Robot();
 		robot.keyPress(keyCode);
-		this.pause(2000);
 		robot.keyRelease(keyCode);
 	}
 
@@ -116,7 +110,6 @@ public class CommonMethods {
 	}
 
 	public void switchSiteLanguageToFrench() throws Exception {
-		this.pause(5000);
 		String locator1 = "//div[@class='current-language']";
 		String locator2 = "/html[1]/body[1]/div[2]/footer[1]/div[3]/ul[1]/li[5]/ul[1]/li[3]/a[1]";
 		try {
@@ -125,9 +118,7 @@ public class CommonMethods {
 					.findElement(By.xpath("/html[1]/body[1]/div[2]/footer[1]/div[3]/ul[1]/li[5]/ul[1]/li[3]/a[1]"));
 			scrollToTheSpecificWebelement(languageOption);
 			languageOption.click();
-			this.pause(3000);
 			frenchLanguageSelection.click();
-			pause(5000);
 		} catch (Exception e) {
 			@SuppressWarnings("unused")
 			WebElement element1 = driver.findElement(By.xpath("//div[@class='current-language']"));
@@ -138,7 +129,7 @@ public class CommonMethods {
 	}
 
 	public void switchSiteLanguageToGerman() throws Exception {
-		this.pause(5000);
+
 		String locator1 = "//div[@class='current-language']";
 		String locator2 = "/html[1]/body[1]/div[2]/footer[1]/div[3]/ul[1]/li[5]/ul[1]/li[2]/a[1]";
 		try {
@@ -147,9 +138,7 @@ public class CommonMethods {
 					.findElement(By.xpath("/html[1]/body[1]/div[2]/footer[1]/div[3]/ul[1]/li[5]/ul[1]/li[2]/a[1]"));
 			scrollToTheSpecificWebelement(languageOption);
 			languageOption.click();
-			this.pause(3000);
 			germanLanguageSelection.click();
-			pause(5000);
 		} catch (Exception e) {
 			@SuppressWarnings("unused")
 			WebElement element1 = driver.findElement(By.xpath("//div[@class='current-language']"));
@@ -160,7 +149,6 @@ public class CommonMethods {
 	}
 
 	public void switchSiteLanguageToEnglish() throws Exception {
-		this.pause(5000);
 		String locator1 = "//div[@class='current-language']";
 		String locator2 = "/html[1]/body[1]/div[2]/footer[1]/div[3]/ul[1]/li[5]/ul[1]/li[1]/a[1]";
 		try {
@@ -169,9 +157,7 @@ public class CommonMethods {
 					.findElement(By.xpath("/html[1]/body[1]/div[2]/footer[1]/div[3]/ul[1]/li[5]/ul[1]/li[1]/a[1]"));
 			scrollToTheSpecificWebelement(languageOption);
 			languageOption.click();
-			this.pause(3000);
 			englishLanguageSelection.click();
-			pause(5000);
 		} catch (Exception e) {
 			@SuppressWarnings("unused")
 			WebElement element1 = driver.findElement(By.xpath("//div[@class='current-language']"));

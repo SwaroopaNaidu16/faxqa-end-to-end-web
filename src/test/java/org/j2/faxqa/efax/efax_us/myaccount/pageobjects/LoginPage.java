@@ -16,7 +16,6 @@ import java.nio.file.Paths;
 import org.apache.logging.log4j.*;
 import org.j2.faxqa.efax.common.Config;
 import org.j2.faxqa.efax.common.TLDriverFactory;
-import org.j2.faxqa.efax.common.Utils;
 
 public class LoginPage {
 	private WebDriver driver;
@@ -28,7 +27,7 @@ public class LoginPage {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	@FindBy(id = "phoneNumber")
@@ -44,11 +43,11 @@ public class LoginPage {
 	private WebElement cookie_understand;
 
 	public void login() {
-		faxnumber.sendKeys(Config.DID);
-		passwordpin.sendKeys(Config.PIN);
+		faxnumber.sendKeys(Config.DID_US);
+		passwordpin.sendKeys(Config.PIN_US);
 
-		logger.info("DID = " + Config.DID);
-		logger.info("PIN = " + Config.PIN);
+		logger.info("DID = " + Config.DID_US);
+		logger.info("PIN = " + Config.PIN_US);
 
 		cookie_understand.click();
 		

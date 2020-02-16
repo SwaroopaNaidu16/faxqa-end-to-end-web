@@ -1,5 +1,7 @@
 package org.j2.faxqa.efax.common;
 
+import java.io.File;
+import java.io.IOException;
 import java.rmi.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,14 +20,19 @@ import org.testng.ITestListener;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.Reporter;
+import org.zeroturnaround.zip.commons.FileUtils;
+
 import com.google.gson.GsonBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
-public class TestExecutionListener implements IInvokedMethodListener, ISuiteListener, ITestListener, IConfigurationListener {
+public class TestExecutionListener
+		implements IInvokedMethodListener, ISuiteListener, ITestListener, IConfigurationListener {
 	protected static final Logger logger = LogManager.getLogger();
 	private List<Map<String, Object>> results = Collections.synchronizedList(new ArrayList<Map<String, Object>>());
 	public String newtestrunid = null;
@@ -34,21 +41,44 @@ public class TestExecutionListener implements IInvokedMethodListener, ISuiteList
 
 	@Override
 	public void onStart(ISuite suite) {
+		logger.info("Initializing...."); 
 		EnvironmentSetup.setupEnvironment();
 	}
 
 	@Override
 	public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
 		Reporter.setCurrentTestResult(testResult);
-		TLDriverFactory.setTLDriver(logger);
+		TLDriverFactory.setTLDriver();
 	}
-	
+
+	@Override
+	public void onTestFailure(ITestResult result) {
+		logger.info("Test failed - " + result.getMethod().getConstructorOrMethod().getMethod());
+	}
+
+	@Override
+	public void onTestSkipped(ITestResult result) {
+		logger.info("Test skipped - " + result.getMethod().getConstructorOrMethod().getMethod());
+	}
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		logger.info("Test passed - " + result.getMethod().getConstructorOrMethod().getMethod());
+	}
+
 	@Override
 	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
 		Reporter.setCurrentTestResult(testResult);
-		if (TLDriverFactory.getTLDriver() != null) TLDriverFactory.getTLDriver().quit();
 
+		if (!testResult.isSuccess()) captureScreen(testResult);
+			
+		if (TLDriverFactory.getTLDriver() != null) {
+			TLDriverFactory.getTLDriver().quit();
+			logger.info("Quitting WebDriver...");
+		}
+		
 		TestRail testrail = method.getTestMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+		
 		if (testrail != null) {
 			String testrail_caseid = testrail.id().substring(1);
 			updateResult(testResult, testrail_caseid, testResult.getStatus() == ITestResult.SUCCESS);
@@ -58,20 +88,36 @@ public class TestExecutionListener implements IInvokedMethodListener, ISuiteList
 
 	@Override
 	public void onFinish(ISuite suite) {
+		logger.info("Done with the execution of all tests.");
 		try {
 			if (Boolean.parseBoolean(System.getProperty("uploadresults"))) {
 				createTestrun(suite);
 				uploadResults();
 			} else {
-				logger.info("To upload results to TestRail, the flag 'uploadresults' should be set to 'true' in POM.xml or as a parameter from commandline");
+				logger.info("'uploadresults=false' in POM.xml - Skipping upload result to TestRail.");
 			}
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
 	}
 
+	private void captureScreen(ITestResult testResult) {
+		File src = (((TakesScreenshot) TLDriverFactory.getTLDriver()).getScreenshotAs(OutputType.FILE));
+		String path = testResult.getTestContext().getOutputDirectory() + "\\screenshots\\"
+				+ testResult.getMethod().getConstructorOrMethod().getMethod() + ".png";
+		System.out.println(path);
+		File dest = new File(path);
+		try {
+			FileUtils.copyFile(src, dest);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Reporter.log("<br><img src='" + path + "' style=\"width: 33%; height: 33%\"");
+	}
+
 	private void updateResult(ITestResult testResult, String testrailid, boolean pass) {
 
+		logger.info("Capturing test logs...");
 		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("case_id", testrailid);
 		result.put("status_id", testResult.getStatus() == 1 ? 1 : testResult.getStatus() == 2 ? 5 : 2);
@@ -114,17 +160,14 @@ public class TestExecutionListener implements IInvokedMethodListener, ISuiteList
 			result = (JSONObject) tr_client.sendPost(String.format("add_run/%s",
 					suite.getXmlSuite().getAllParameters().get("testrailprojectid").replace("P", "")), newrun);
 			logger.info(new GsonBuilder().setPrettyPrinting().create().toJson(result));
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-			logger.error("TestRail Host Not found (VPN required?)");
-			return;
 		} catch (Exception e) {
+			logger.error("TestRail Host Not found (VPN required?)");
 			e.printStackTrace();
 			return;
 		}
 		newtestrunid = result.get("id").toString();
-		logger.info("******  New TestRail Run [" + suite_name + "] created with id [" + newtestrunid
-				+ "] with testcases : " + testids + "  ******");
+		logger.info("***  TestRun [" + suite_name + "] created with id [" + newtestrunid + "] with testcases : "
+				+ testids + "  ***");
 
 	}
 
@@ -138,10 +181,6 @@ public class TestExecutionListener implements IInvokedMethodListener, ISuiteList
 			result = (JSONArray) tr_client.sendPost(String.format("add_results_for_cases/%s", newtestrunid),
 					objresults);
 			logger.info(new GsonBuilder().setPrettyPrinting().create().toJson(result));
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-			logger.error("TestRail Host Not found (VPN required?)");
-			return;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return;

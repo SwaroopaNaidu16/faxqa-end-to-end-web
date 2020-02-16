@@ -24,7 +24,6 @@ import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.logging.log4j.*;
 import org.j2.faxqa.efax.common.Config;
 import org.j2.faxqa.efax.common.TLDriverFactory;
-import org.j2.faxqa.efax.common.Utils;
 
 public class SendFaxesPage {
 	private WebDriver driver;
@@ -36,7 +35,7 @@ public class SendFaxesPage {
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 15);
-		logger.info("Initializing page - " + driver.getTitle());
+		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
 	String attachments;
@@ -119,7 +118,7 @@ public class SendFaxesPage {
 		setrecipientLastName(random);
 		setrecipientCompany(random);
 		settoCountry(country);
-		setfaxNumber(Config.DID);
+		setfaxNumber(Config.DID_US);
 		setselectContact(true);
 		setaddContact();
 		setincludeCoverPage(true);

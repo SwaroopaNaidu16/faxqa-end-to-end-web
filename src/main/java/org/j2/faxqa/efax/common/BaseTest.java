@@ -6,7 +6,9 @@ import org.testng.Assert;
 import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestResult;
+import org.testng.annotations.Listeners;
 
+@Listeners({TestExecutionListener.class, TestNGReportListener.class})	
 public class BaseTest implements IHookable {
 
 	@Override

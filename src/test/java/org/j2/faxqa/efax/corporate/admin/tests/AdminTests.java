@@ -66,7 +66,7 @@ public class AdminTests extends BaseTest {
 		homepage = new HomePage();
 		Assert.assertEquals(true, homepage.isUserLoggedIn());
 		homepage.logout();
-		new CoreFaxFunctions().deleteAccount(primaryemail);
+		new CoreFaxFunctions().deleteAccount(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT, primaryemail);
 	}
 
 	@TestRail(id = "C8145")
@@ -99,7 +99,7 @@ public class AdminTests extends BaseTest {
 		Assert.assertEquals(adduserpage.createUserValidationMessage(), expectedValidationMessage);
 		homepage = new HomePage();
 		homepage.logout();
-		// CommonMethods.getWelcomeEmail(primaryemail);
+
 		loginPage = new LoginPage();
 		loginPage.login(Config.AccountNumberMGMT, firstname + lastname, password);
 		if (loginPage.isPasswordChangePrompted())
@@ -118,7 +118,7 @@ public class AdminTests extends BaseTest {
 
 		String expected = "Group created successfully.";
 		Assert.assertEquals(addGroupPage.getSuccessGroupValidationMessage(), expected);
-		new CoreFaxFunctions().deleteAccount(primaryemail);
+		new CoreFaxFunctions().deleteAccount(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT, primaryemail);
 	}
 
 	@TestRail(id = "C8146")
@@ -156,10 +156,10 @@ public class AdminTests extends BaseTest {
 
 		boolean userSetting1 = editUser.isStorageEnabled();
 		boolean userSetting2 = editUser.isEditProfileEnabled();
-
+		editUser.logout();
 		Assert.assertEquals(groupSetting1, userSetting1);
 		Assert.assertEquals(groupSetting2, userSetting2);
-		new CoreFaxFunctions().deleteAccount(contactemail);
+		new CoreFaxFunctions().deleteAccount(Config.nonsecureAccountNumber_MGMT, Config.nonsecureadministratorName_MGMT, Config.nonsecurepassword_MGMT, contactemail);
 	}
 
 	@TestRail(id = "C8147")
@@ -252,6 +252,6 @@ public class AdminTests extends BaseTest {
 		count = Integer.parseInt(unassignedFaxNumberCount);
 
 		Assert.assertEquals(count, 0);
-		new CoreFaxFunctions().deleteAccount(primaryemail);
+		new CoreFaxFunctions().deleteAccount(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT, primaryemail);
 	}
 }

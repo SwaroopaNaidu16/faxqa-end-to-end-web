@@ -13,12 +13,14 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -158,19 +160,20 @@ public class CoreFaxFunctions {
 		return response;
 	}
 
-	public void deleteAccount(String email) {
+	public void deleteAccount(String account, String admin, String password, String email) {
 		WebDriver driver = TLDriverFactory.getTLDriver();
 		driver.navigate().to(Config.mgmtBaseUrl);
 		LoginPage loginPage = new LoginPage();
-		loginPage.login(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT);
+		loginPage.login(account, admin, password);
 		HomePage homepage = new HomePage();
 		homepage.clickUsersTab();
 		UsersPage page = new UsersPage();
-		page.searchUsersByEmail(email);
+		page.searchUsersByEmail(email.split("@")[0]);
 		page.selectAllResults();
 		page.clickPageActionsMenu();
 		page.clickDeleteUserOption();
 		page.confirmDelete();
+		LogManager.getLogger().info(page.successRemovalValidationMessgae());
 	}
 	
 }

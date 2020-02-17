@@ -31,6 +31,8 @@ public class LoginPageMyAccount extends CommonMethods {
 	static final String forgotPasswordLink = "forgotPassword";
 	static final String errorMessage = "//div[@class='loginError']";
 	static final String rememberMeCheckbox = "rememberUsernameAndPasswordChk";
+	static final String cookie_understand = "cookie-understand";
+
 	
 	@FindBy(id = faxNumberField)
 	private WebElement faxNumberFieldWebElement;
@@ -50,58 +52,36 @@ public class LoginPageMyAccount extends CommonMethods {
 	@FindBy(id = rememberMeCheckbox)
 	private WebElement rememberMeCheckboxWebElement;
 
-	public WebElement getFaxNumberField() {
-		return faxNumberFieldWebElement;
-	}
-
-	public WebElement getPasswordField() {
-		return passwordFieldWebElement;
-	}
-
-	public WebElement getLoginButton() {
-		return loginButtonWebElement;
-	}
-
-	public WebElement getForgotPasswordLink() {
-		return forgotPasswordLinkWebElement;
-	}
-
-	public WebElement getErrorMessage() {
-		return errorMessageWebElement;
-	}
-
-	public WebElement getRememberMeCheckbox() {
-		return rememberMeCheckboxWebElement;
-	}
-
+	@FindBy(id = cookie_understand)
+	private WebElement cookie_understandWebElement;
+	
 	public String errorMessage() {
-		String errorMessage = getErrorMessage().getText();
+		String errorMessage = errorMessageWebElement.getText();
 		return errorMessage;
 	}
 
 	public void enterFaxNumber(String AccountNumber) {
-		getFaxNumberField().clear();
-		getFaxNumberField().sendKeys(AccountNumber);
+		faxNumberFieldWebElement.clear();
+		faxNumberFieldWebElement.sendKeys(AccountNumber);
 	}
 
 	public void enterPassword(String password) {
-		getPasswordField().clear();
-		getPasswordField().sendKeys(password);
+		passwordFieldWebElement.clear();
+		passwordFieldWebElement.sendKeys(password);
 	}
 
 	public void clickLoginButton() {
-		this.closeGDPRbanner();
-		getLoginButton().click();
+		loginButtonWebElement.click();
 	}
 
 	public void login(String AccountNumber, String password) {
 		this.enterFaxNumber(AccountNumber);
 		this.enterPassword(password);
+		this.cookie_understandWebElement.click();
 		this.clickLoginButton();
 	}
 
 	public void clickForgotPasswordLink() {
-		this.closeGDPRbanner();
-		getForgotPasswordLink().click();
+		forgotPasswordLinkWebElement.click();
 	}
 }

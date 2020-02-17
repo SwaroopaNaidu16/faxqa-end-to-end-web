@@ -15,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class EditUser extends CommonMethods {
+public class EditUser extends NavigationBar {
 
 	private WebDriver driver;
 	private Logger logger;

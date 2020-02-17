@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends CommonMethods {
@@ -60,7 +61,8 @@ public class LoginPage extends CommonMethods {
 	static final String errorMessageForExpiredPasswordTTLScenario = ".//table[@id='formErrorGeneralTableloginFormErrors']//div[@class='formErrorLarge']";
 	static final String currentLanguage = "//div[@class='current-language']";
 	static final String requiredFieldsValidationMessage = "//div[@id='formErrorJavascriptTableloginFormErrorsAdmin']//td[@class='formMessage']";
-
+	static final String cookie_understand = "cookie-understand";
+	
 	@FindBy(id = accountNumberField)
 	private WebElement accountNumberFieldWebElement;
 
@@ -169,6 +171,9 @@ public class LoginPage extends CommonMethods {
 	@FindBy(xpath = requiredFieldsValidationMessage)
 	private WebElement requiredFieldsValidationMessageWebElement;
 
+	@FindBy(id = cookie_understand)
+	private WebElement cookie_understandWebElement;
+	
 	public String errorMessage() {
 		String errorMessage = errorMessageWebElement.getText();
 		return errorMessage;
@@ -194,13 +199,15 @@ public class LoginPage extends CommonMethods {
 	}
 
 	public void login(String AccountNumber, String AdministratorName, String password) {
-		this.enterAccountNumber("Logging-in as Group Administrator...");
+		logger.info("Loging-in as Group Administrator...");
 		this.enterAccountNumber(AccountNumber);
 		logger.info("AccountNumber=" + AccountNumber);
 		this.enterAdministratorName(AdministratorName);
 		logger.info("AdministratorName=" + AdministratorName);
 		this.enterPassword(password);
 		logger.info("Password=" + password);
+		if (cookie_understandWebElement.isDisplayed())
+			cookie_understandWebElement.click();
 		this.clickLoginButton();
 	}
 

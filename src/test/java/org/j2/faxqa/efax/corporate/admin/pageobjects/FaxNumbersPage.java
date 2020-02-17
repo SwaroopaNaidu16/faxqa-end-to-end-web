@@ -13,7 +13,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class FaxNumbersPage extends CommonMethods {
+import com.github.javafaker.Faker;
+
+public class FaxNumbersPage extends NavigationBar {
 
 	private WebDriver driver;
 	private Logger logger;
@@ -214,6 +216,7 @@ public class FaxNumbersPage extends CommonMethods {
 	}
 
 	public void clickMoveButtonFromMoveFaxNumberPopup() {
+		wait.until(ExpectedConditions.elementToBeClickable(moveButtonFromMoveFaxNumberPopupWebElement));
 		moveButtonFromMoveFaxNumberPopupWebElement.click();
 	}
 
@@ -224,14 +227,17 @@ public class FaxNumbersPage extends CommonMethods {
 	public void clickCloseButtonFromSucceededPopup() {
 		wait.until(ExpectedConditions.elementToBeClickable(closeButtonFromSucceededPopupWebElement));
 		closeButtonFromSucceededPopupWebElement.click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='All']//div[@class='loading']/img")));
 	}
 
 	public void clickAssignFaxNumbersButton() throws Exception {
 		this.doubleClickAction(assignFaxNumbersButtonWebElement);
+		logger.info("Assigning FaxNumbers....");
 	}
 
 	public void clickAddFaxNumbersIcon() {
 		this.doubleClickAction(addFaxNumbersIconWebElement);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='numbersGrid']//div/img[@alt='loading']")));
 	}
 
 	public WebElement getSucceededPopup() {
@@ -240,19 +246,15 @@ public class FaxNumbersPage extends CommonMethods {
 	}
 	
 	public void clickMoveOption() throws Exception {
-		
-
 		clickPageActionsDropdown();
-
 		moveOptionWebElement.click();
+		logger.info("Selecting Move option");
 	}
 
 	public void clickAssignOption() throws Exception {
-		
-
 		clickPageActionsDropdown();
-
 		assignOptionWebElement.click();
+		logger.info("Selecting Assign option");
 	}
 
 	public void clickUnassignOption() throws Exception {
@@ -345,32 +347,19 @@ public class FaxNumbersPage extends CommonMethods {
 		}
 	}
 
-	public WebElement getAllTab() {
-		return allTabWebElement;
-	}
-
-	public WebElement getUnassignedTab() {
-		return unassignedTabWebElement;
-	}
-
-	public WebElement getAssignedTab() {
-		return assignedTabWebElement;
-	}
-	
-	public void clickUnassignedNumbersTab() {
-		unassignedTabWebElement.click();
-	}
-
 	public void selectFirstFaxNumberFromTheAllTab() {
 		allfaxesWebElement.findElements(By.tagName("tr")).get(0).findElements(By.tagName("td")).get(0).click();
+		logger.info("Selecting first one from the filtered results");
 	}
 
 	public void selectFirstFaxNumberFromTheUnassignedTab() {
 		unassignedfaxesWebElement.findElements(By.tagName("tr")).get(0).findElements(By.tagName("td")).get(0).click();
+		logger.info("Selecting first one from the filtered results");
 	}
 	
 	public void selectFirstFaxNumberFromTheAssignedTab() {
 		assignedfaxesWebElement.findElements(By.tagName("tr")).get(0).findElements(By.tagName("td")).get(0).click();
+		logger.info("Selecting first one from the filtered results");
 	}
 	
 	public WebElement getFirstFaxNumberFromTheAllTab() {
@@ -378,10 +367,31 @@ public class FaxNumbersPage extends CommonMethods {
 	}
 
 	public WebElement getFirstFaxNumberFromTheUnassignedTab() {
-		return unassignedfaxesWebElement.findElements(By.tagName("tr")).get(0).findElements(By.tagName("td")).get(1);
+		return unassignedfaxesWebElement.findElements(By.tagName("tr")).get(new Faker().number().numberBetween(1, 50)).findElements(By.tagName("td")).get(1);
 	}
 	
 	public WebElement getFirstFaxNumberFromTheAssignedTab() {
 		return assignedfaxesWebElement.findElements(By.tagName("tr")).get(0).findElements(By.tagName("td")).get(1);
+	}
+
+	public void gotoAllFaxNumbersTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(allTabWebElement));
+		allTabWebElement.click();
+		logger.info("Navigating to All faxnumbers screen.");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='All']//div[@class='loading']/img")));
+	}
+
+	public void gotoAssignedFaxNumbersTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(assignedTabWebElement));
+		assignedTabWebElement.click();
+		logger.info("Navigating to Assigned faxnumbers screen.");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='Assigned']//div[@class='loading']/img")));
+	}
+	
+	public void gotoUnassignedFaxNumbers() {
+		wait.until(ExpectedConditions.elementToBeClickable(unassignedTabWebElement));
+		unassignedTabWebElement.click();
+		logger.info("Navigating to Unassigned faxnumbers screen.");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='Unassigned']//div[@class='loading']/img")));
 	}
 }

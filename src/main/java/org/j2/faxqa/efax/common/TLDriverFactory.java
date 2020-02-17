@@ -85,7 +85,7 @@ public class TLDriverFactory {
 
 		LogManager.getLogger().info("Created ThreadLocal webdriver.");
 		
-		int wait = 15;
+		int wait = 30;
 		tlDriver.get().manage().deleteAllCookies();
 		tlDriver.get().manage().window().maximize();
 		tlDriver.get().manage().timeouts().implicitlyWait(wait, TimeUnit.SECONDS);

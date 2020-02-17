@@ -40,7 +40,7 @@ public class SendfaxTests extends BaseTest {
 	@TestRail(id = "C7861")
 	@Test(enabled = true, groups = { "smoke",
 			"regression" }, priority = 1, description = "US > Send a fax to self and verify the received fax")
-	public void testcase1(ITestContext context) throws Exception {
+	public void sendfaxtoselfandverifythereceivedfax(ITestContext context) throws Exception {
 		WebDriver driver = TLDriverFactory.getTLDriver();
 		driver.navigate().to(Config.efax_US_myaccountBaseUrl);
 		LoginPage loginpage = new LoginPage();

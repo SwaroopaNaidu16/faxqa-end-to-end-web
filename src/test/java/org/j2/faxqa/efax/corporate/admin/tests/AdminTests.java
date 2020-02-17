@@ -34,7 +34,7 @@ public class AdminTests extends BaseTest {
 
 		driver = TLDriverFactory.getTLDriver();
 		String firstname = "QA" + new Faker().address().firstName();
-		String lastname = new Faker().address().lastName();
+		String lastname = new Faker().address().lastName() + new Faker().bothify("??????");
 		primaryemail = firstname + lastname + new Faker().number().digits(3) + "@mailinator.com";
 		String password = "Welcome@123";
 
@@ -74,7 +74,7 @@ public class AdminTests extends BaseTest {
 	public void testAddGroupUsingGroupAdmin() throws Exception {
 		WebDriver driver = TLDriverFactory.getTLDriver();
 		String firstname = "QA" + new Faker().address().firstName();
-		String lastname = new Faker().address().lastName();
+		String lastname = new Faker().address().lastName() + new Faker().bothify("??????");
 		String primaryemail = firstname + lastname + new Faker().number().digits(3) + "@mailinator.com";
 		String password = "Welcome@123";
 
@@ -125,7 +125,7 @@ public class AdminTests extends BaseTest {
 	@Test(enabled = true, priority = 1, description = "Verify that new user should be created from the Group Details page and setting of that user should be inherited from the Group")
 	public void newUserShouldBeCreatedAndSettingShouldBeInheritedFromTheGroup() throws Exception {
 		String firstname = "QATest" + new Faker().address().firstName();
-		String lastname = new Faker().address().lastName();
+		String lastname = new Faker().address().lastName() + new Faker().bothify("??????");
 		String contactemail = String.join(".", firstname, lastname + "@mailinator.com");
 		String password = "Welcome@123";
 
@@ -146,11 +146,11 @@ public class AdminTests extends BaseTest {
 		AddUser addUser = new AddUser();
 		addUser.enterFirstName(firstname);
 		addUser.enterLastName(lastname);
-		addUser.enterPrimaryEmailPrefix(contactemail);
+		addUser.enterPrimaryEmailAddress(contactemail);
 		addUser.enterPassword(password);
 		addUser.enterConfirmPassword(password);
 		addUser.clickCreateUserButton();
-
+		
 		EditUser editUser = new EditUser();
 		editUser.clickAdvancedSettingsButton();
 
@@ -159,6 +159,7 @@ public class AdminTests extends BaseTest {
 		editUser.logout();
 		Assert.assertEquals(groupSetting1, userSetting1);
 		Assert.assertEquals(groupSetting2, userSetting2);
+		
 		new CoreFaxFunctions().deleteAccount(Config.nonsecureAccountNumber_MGMT, Config.nonsecureadministratorName_MGMT, Config.nonsecurepassword_MGMT, contactemail);
 	}
 
@@ -196,9 +197,9 @@ public class AdminTests extends BaseTest {
 	public void testAssignFunctionality() throws Exception {
 
 		String firstname = "QA" + new Faker().address().firstName();
-		String lastname = "QA" + new Faker().address().lastName();
+		String lastname = new Faker().address().lastName() + new Faker().bothify("??????");
 		String primaryemail = firstname + lastname + new Faker().number().digits(3) + "@mailinator.com";
-		String password = new Faker().internet().password(8, 40, true, true, true);
+		String password = "Welcome@123";
 
 		String unassignedFaxNumberCount;
 		int count;
@@ -221,11 +222,12 @@ public class AdminTests extends BaseTest {
 		addUser.clickFaxNumbersTab();
 
 		FaxNumbersPage faxNumbersPage = new FaxNumbersPage();
-		faxNumbersPage.clickUnassignedNumbersTab();
+		faxNumbersPage.gotoUnassignedFaxNumbers();
 		String faxNumber = faxNumbersPage.getFirstFaxNumberFromTheUnassignedTab().getText();
-		faxNumbersPage.getAllTab().click();
+		faxNumbersPage.gotoAllFaxNumbersTab();
 		faxNumbersPage.searchByFaxNumber(faxNumber);
 		faxNumbersPage.selectFirstFaxNumberFromTheAllTab();
+		
 		faxNumbersPage.clickMoveOption();
 		faxNumbersPage.clickFirstGroupFromMoveFaxNumberPopup();
 		faxNumbersPage.clickMoveButtonFromMoveFaxNumberPopup();
@@ -235,22 +237,21 @@ public class AdminTests extends BaseTest {
 		homepage.clickFaxNumbersTab();
 		homepage.refresh();
 
-		faxNumbersPage.getAllTab().click();
+		faxNumbersPage.gotoAllFaxNumbersTab();
 		faxNumbersPage.searchByFaxNumber(faxNumber);
 		faxNumbersPage.selectFirstFaxNumberFromTheAllTab();
 		faxNumbersPage.clickAssignOption();
 		faxNumbersPage.enterUserSearchTerm(lastname);
 		faxNumbersPage.clickAssignFaxNumbersButton();
-
+		
 		String expectedResult_1 = "All selected fax numbers were successfully assigned!";
 		String actualResult_1 = faxNumbersPage.getSucceededPopup().getText();
-
 		Assert.assertEquals(actualResult_1, expectedResult_1);
-
 		faxNumbersPage.clickCloseButtonFromSucceededPopup();
 		unassignedFaxNumberCount = faxNumbersPage.totalUnassignedFaxNumbers();
 		count = Integer.parseInt(unassignedFaxNumberCount);
-
+		faxNumbersPage.logout();
+		
 		Assert.assertEquals(count, 0);
 		new CoreFaxFunctions().deleteAccount(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT, primaryemail);
 	}

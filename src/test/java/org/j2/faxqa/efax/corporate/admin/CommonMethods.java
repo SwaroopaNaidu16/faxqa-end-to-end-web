@@ -80,6 +80,7 @@ public class CommonMethods {
 
 	public void refresh() {
 		driver.navigate().refresh();
+		
 	}
 
 	public void keyBoardClickInteraction(int keyCode) throws Exception {

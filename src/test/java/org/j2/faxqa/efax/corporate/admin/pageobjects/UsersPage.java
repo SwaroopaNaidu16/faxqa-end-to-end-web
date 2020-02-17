@@ -277,7 +277,6 @@ public class UsersPage extends NavigationBar {
 	public void confirmDelete() {
 		wait.until(ExpectedConditions.elementToBeClickable(confirmDeleteWebElement));
 		confirmDeleteWebElement.click();
-		logger.info("User account deleted.");
 	}
 	
 	

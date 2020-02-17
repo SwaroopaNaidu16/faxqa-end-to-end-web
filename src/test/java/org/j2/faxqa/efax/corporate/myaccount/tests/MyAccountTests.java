@@ -29,15 +29,13 @@ public class MyAccountTests  extends BaseTest {
 
 	@TestRail(id = "C8149")
 	@Test(enabled = true, priority = 1, description = "Verify that admin user should be able to create new MyAccount user")
-	public void shouldBeAbleToCreateNewMyAccountUser(ITestResult result) throws Exception {
-		System.out.print(1/0);
-		new CoreFaxFunctions().createNewMyAccountUser();
-		
+	public void shouldBeAbleToCreateNewMyAccountUser() throws Exception {
+		new CoreFaxFunctions().createNewMyAccountUser();	
 	}
 
 	@TestRail(id = "C8150")
 	@Test(enabled = true, priority = 1, description = "Verify that Send outbound fax and Receive inbound fax functionality is working as expected")
-	public void verifySendOutboundReceiveInboundFaxFunctionality(ITestContext context) throws Exception {
+	public void verifySendOutboundReceiveInboundFaxFunctionality() throws Exception {
 
 		String[] credentials = new CoreFaxFunctions().createNewMyAccountUser().split(";");
 		LoginPageMyAccount loginPageMyAccount = new LoginPageMyAccount();
@@ -51,7 +49,7 @@ public class MyAccountTests  extends BaseTest {
 
 	@TestRail(id = "C8151")
 	@Test(enabled = true, priority = 1, expectedExceptions = {Exception.class}, description = "Verify that user should be able to send faxes, receive and view them in 'View faxes' page")
-	public void ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT(ITestContext context) throws Exception {
+	public void ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT() throws Exception {
 
 		String[] credentials = new CoreFaxFunctions().createNewMyAccountUser().split(";");
 		LoginPageMyAccount loginPageMyAccount = new LoginPageMyAccount();
@@ -77,17 +75,18 @@ public class MyAccountTests  extends BaseTest {
 		aacdetailspage.clickReportsTab();
 		aacdetailspage.clickSendTab();
 		aacdetailspage.clickSendGo();
-		boolean flag = aacdetailspage.isSendActivityLogFound(uniqueid, 60);
+		boolean flag = aacdetailspage.isSendActivityLogFound(uniqueid, 120);
 		// Assert.assertTrue(response);
 
 		aacdetailspage.clickReceiveTab();
 		aacdetailspage.clickReceiveGo();
-		flag = aacdetailspage.isReceiveActivityLogFound(uniqueid, 60);
+		flag = aacdetailspage.isReceiveActivityLogFound(uniqueid, 120);
 		// Assert.assertTrue(response);
 
 		aacdetailspage.clickViewFaxesTab();
 		ViewFaxesModalMyAccount viewfaxespage = new ViewFaxesModalMyAccount();
-		flag = viewfaxespage.isFaxReceived(uniqueid, 60);
+		viewfaxespage.clickViewFaxesTab();
+		flag = viewfaxespage.isFaxReceived(uniqueid, 120);
 		Assert.assertTrue(flag);
 
 	}

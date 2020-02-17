@@ -19,7 +19,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ViewFaxesModalMyAccount extends CommonMethods {
+public class ViewFaxesModalMyAccount extends NavigationBarMyAccount {
 
 	private WebDriver driver;
 	private Logger logger;
@@ -540,6 +540,7 @@ public class ViewFaxesModalMyAccount extends CommonMethods {
 	}
 	
 	private WebElement getreceivedfax(String from) {	
+		wait.until(ExpectedConditions.elementToBeClickable(inbox));
 		wait.until(ExpectedConditions.invisibilityOf(TLDriverFactory.getTLDriver().findElement(By.xpath("//div[text()='Loading...']"))));
 		for (WebElement e : inboxfaxes)
 		{

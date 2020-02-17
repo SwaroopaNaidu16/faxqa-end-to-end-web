@@ -77,7 +77,7 @@ public class LoginPageMyAccount extends CommonMethods {
 	public void login(String AccountNumber, String password) {
 		this.enterFaxNumber(AccountNumber);
 		this.enterPassword(password);
-		this.cookie_understandWebElement.click();
+		if (cookie_understandWebElement.isDisplayed()) this.cookie_understandWebElement.click();
 		this.clickLoginButton();
 	}
 

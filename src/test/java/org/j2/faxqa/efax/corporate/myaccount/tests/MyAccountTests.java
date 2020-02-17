@@ -36,7 +36,7 @@ public class MyAccountTests  extends BaseTest {
 	}
 
 	@TestRail(id = "C8150")
-	@Test(enabled = true, expectedExceptions = {Exception.class}, description = "Verify that Send outbound fax and Receive inbound fax functionality is working as expected")
+	@Test(enabled = true, priority = 1, description = "Verify that Send outbound fax and Receive inbound fax functionality is working as expected")
 	public void verifySendOutboundReceiveInboundFaxFunctionality(ITestContext context) throws Exception {
 
 		String[] credentials = new CoreFaxFunctions().createNewMyAccountUser().split(";");

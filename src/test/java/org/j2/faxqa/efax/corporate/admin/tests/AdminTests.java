@@ -31,7 +31,7 @@ public class AdminTests extends BaseTest {
 	public void adminUserShouldBeCreatedSuccessfully() throws Exception {
 		WebDriver driver = null;
 		String primaryemail = null;
-		System.out.print(1/0);
+
 		driver = TLDriverFactory.getTLDriver();
 		String firstname = "QA" + new Faker().address().firstName();
 		String lastname = new Faker().address().lastName();
@@ -70,7 +70,7 @@ public class AdminTests extends BaseTest {
 	}
 
 	@TestRail(id = "C8145")
-	@Test(enabled = false, priority = 1, description = "Verify that new group should be created/added successfully")
+	@Test(enabled = true, priority = 1, description = "Verify that new group should be created/added successfully")
 	public void testAddGroupUsingGroupAdmin() throws Exception {
 		WebDriver driver = TLDriverFactory.getTLDriver();
 		String firstname = "QA" + new Faker().address().firstName();
@@ -122,7 +122,7 @@ public class AdminTests extends BaseTest {
 	}
 
 	@TestRail(id = "C8146")
-	@Test(enabled = false, priority = 1, description = "Verify that new user should be created from the Group Details page and setting of that user should be inherited from the Group")
+	@Test(enabled = true, priority = 1, description = "Verify that new user should be created from the Group Details page and setting of that user should be inherited from the Group")
 	public void newUserShouldBeCreatedAndSettingShouldBeInheritedFromTheGroup() throws Exception {
 		String firstname = "QATest" + new Faker().address().firstName();
 		String lastname = new Faker().address().lastName();
@@ -163,7 +163,7 @@ public class AdminTests extends BaseTest {
 	}
 
 	@TestRail(id = "C8147")
-	@Test(enabled = false, priority = 1, description = "Verify that new Fax Numbers should be added successfully to account using 'Search By - State' option")
+	@Test(enabled = true, priority = 1, description = "Verify that new Fax Numbers should be added successfully to account using 'Search By - State' option")
 	public void addFaxNumberUsingSearchByState() throws Exception {
 		TLDriverFactory.getTLDriver().navigate().to(Config.mgmtBaseUrl);
 		LoginPage loginPage = new LoginPage();
@@ -192,7 +192,7 @@ public class AdminTests extends BaseTest {
 	}
 
 	@TestRail(id = "C8148")
-	@Test(enabled = false, priority = 19, description = "Admin > Test assigning fax numbers functionality to myaccount users")
+	@Test(enabled = true, priority = 1, description = "Admin > Test assigning fax numbers functionality to myaccount users")
 	public void testAssignFunctionality() throws Exception {
 
 		String firstname = "QA" + new Faker().address().firstName();

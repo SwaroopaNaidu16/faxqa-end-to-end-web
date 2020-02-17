@@ -68,6 +68,7 @@ public class NavigationBar extends CommonMethods {
 	private WebElement logoutButtonWebElement;
 
 	public void clickUsersTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(usersTabWebElement));
 		logger.info("Navigating to Users tab");
 		usersTabWebElement.click();
 	}

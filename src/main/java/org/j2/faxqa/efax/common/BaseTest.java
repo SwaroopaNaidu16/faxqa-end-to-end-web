@@ -7,8 +7,6 @@ import org.testng.IHookCallBack;
 import org.testng.IHookable;
 import org.testng.ITestResult;
 
-import jdk.jfr.internal.LogLevel;
-
 public class BaseTest implements IHookable {
 
 	@Override

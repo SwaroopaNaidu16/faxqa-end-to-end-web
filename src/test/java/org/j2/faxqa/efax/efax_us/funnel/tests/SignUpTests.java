@@ -96,9 +96,9 @@ public class SignUpTests extends BaseTest {
 			signup.clickLogin();
 		}
 
-		if (signup.isLoggedIn()) {
-			signup.clickLogin();
-		} else {
+		if (!signup.isLoggedIn()) {
+			//driver.navigate().to(Config.efax_US_funnelBaseUrl);
+			//driver.navigate().refresh();
 			signup.LoginWithCredentials(fax, pin);
 		}
 

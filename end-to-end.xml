@@ -5,10 +5,10 @@
 		<parameter name="testrailprojectid" value="P8" />
 		<parameter name="testrailsuiteid" value="S84" />
 		<classes>
-			<class name="org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests" />
+			<!-- <class name="org.j2.faxqa.efax.efax_us.funnel.tests.SignUpTests" /> -->
 			<class name="org.j2.faxqa.efax.efax_us.myaccount.tests.SendfaxTests" />
-			<class name="org.j2.faxqa.efax.corporate.admin.tests.AdminTests" />
-			<class name="org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests" />
+			<!-- <class name="org.j2.faxqa.efax.corporate.admin.tests.AdminTests" />
+			<class name="org.j2.faxqa.efax.corporate.myaccount.tests.MyAccountTests" /> -->
 		</classes>
 	</test>
 </suite>

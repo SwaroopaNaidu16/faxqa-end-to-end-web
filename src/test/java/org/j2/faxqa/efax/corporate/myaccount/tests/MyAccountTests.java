@@ -10,6 +10,7 @@ import com.github.javafaker.Faker;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -30,32 +31,38 @@ public class MyAccountTests  extends BaseTest {
 	@TestRail(id = "C8149")
 	@Test(enabled = true, priority = 1, description = "Verify that admin user should be able to create new MyAccount user")
 	public void shouldBeAbleToCreateNewMyAccountUser() throws Exception {
-		new CoreFaxFunctions().createNewMyAccountUser();	
+		CoreFaxFunctions coreFunctions = new CoreFaxFunctions();
+		Map<String, String> details = coreFunctions.createNewMyAccountUser();
+		
+		coreFunctions.deleteAccount(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT, details.get("primaryemail"));
 	}
 
 	@TestRail(id = "C8150")
 	@Test(enabled = true, priority = 1, description = "Verify that Send outbound fax and Receive inbound fax functionality is working as expected")
 	public void verifySendOutboundReceiveInboundFaxFunctionality() throws Exception {
-
-		String[] credentials = new CoreFaxFunctions().createNewMyAccountUser().split(";");
+		CoreFaxFunctions coreFunctions = new CoreFaxFunctions();
+		Map<String, String> details = coreFunctions.createNewMyAccountUser();
+		
 		LoginPageMyAccount loginPageMyAccount = new LoginPageMyAccount();
 		loginPageMyAccount.open();
-		loginPageMyAccount.login(credentials[0], credentials[1]);
-
-		boolean response = new CoreFaxFunctions().composeSendFaxTo(credentials[0]);
+		loginPageMyAccount.login(details.get("faxNumber"), details.get("password"));
+		boolean response = new CoreFaxFunctions().composeSendFaxTo(details.get("faxNumber"));
 		Assert.assertEquals(response, true);
-
+		HomePageMyAccount myaccount = new HomePageMyAccount();
+		myaccount.logout();
+		
+		coreFunctions.deleteAccount(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT, details.get("primaryemail"));
 	}
 
 	@TestRail(id = "C8151")
 	@Test(enabled = true, priority = 1, expectedExceptions = {Exception.class}, description = "Verify that user should be able to send faxes, receive and view them in 'View faxes' page")
 	public void ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT() throws Exception {
-
-		String[] credentials = new CoreFaxFunctions().createNewMyAccountUser().split(";");
+		CoreFaxFunctions coreFunctions = new CoreFaxFunctions();
+		Map<String, String> details = coreFunctions.createNewMyAccountUser();
 		LoginPageMyAccount loginPageMyAccount = new LoginPageMyAccount();
 		loginPageMyAccount.open();
-		loginPageMyAccount.login(credentials[0], credentials[1]);
-		String faxNumber = credentials[0];
+		loginPageMyAccount.login(details.get("faxNumber"), details.get("password"));
+		String faxNumber = details.get("faxNumber");
 
 		String uniqueid = UUID.randomUUID().toString().replace("-", "").substring(0, 15);
 		HomePageMyAccount homepage = new HomePageMyAccount();
@@ -65,7 +72,7 @@ public class MyAccountTests  extends BaseTest {
 		acctdetailspage.clickPreferencesTab();
 		acctdetailspage.updatesendCSID(uniqueid);
 
-		boolean response = new CoreFaxFunctions().composeSendFaxTo(credentials[0]);
+		boolean response = new CoreFaxFunctions().composeSendFaxTo(details.get("faxNumber"));
 		Assert.assertTrue(response);
 
 		NavigationBarMyAccount navigationBarMyAccount = new NavigationBarMyAccount();
@@ -89,5 +96,6 @@ public class MyAccountTests  extends BaseTest {
 		flag = viewfaxespage.isFaxReceived(uniqueid, 120);
 		Assert.assertTrue(flag);
 
+		coreFunctions.deleteAccount(Config.AccountNumberMGMT, Config.AdministratorNameMGMT, Config.PasswordMGMT, details.get("primaryemail"));
 	}
 }

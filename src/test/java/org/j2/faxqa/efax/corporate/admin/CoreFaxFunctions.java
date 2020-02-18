@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -52,7 +53,7 @@ import com.github.javafaker.service.RandomService;
 
 public class CoreFaxFunctions {
 
-	public String createNewMyAccountUser() throws Exception {
+	public Map<String, String> createNewMyAccountUser() throws Exception {
 		
 		String firstname = "QA" + new Faker().address().firstName();
 		String lastname = new Faker().address().lastName();
@@ -67,8 +68,8 @@ public class CoreFaxFunctions {
 		String referenceId = new Faker().bothify("REF?????###?");
 		String quality = "Standard";
 		String country = "United States";
-		String senderMail;
-		String faxNumber;
+		String senderMail = null;
+		String faxNumber = null;
 
 	
 			TLDriverFactory.getTLDriver().navigate().to(Config.mgmtBaseUrl);
@@ -124,7 +125,24 @@ public class CoreFaxFunctions {
 			if (homePageMyAccount.isUserLoggedIn())
 				homePageMyAccount.logout();
 			
-			return faxNumber+";"+ password;
+			Map<String, String> map = new HashMap<>();
+			map.put("firstname", firstname);
+			map.put("lastname", lastname);
+			map.put("primaryemail", primaryemail);
+			map.put("password", password);
+			map.put("companyName", companyName);
+			map.put("accountId", accountId);
+			map.put("clientName", clientName);
+			map.put("matter", matter);
+			map.put("subject", subject);
+			map.put("messageBody", messageBody);
+			map.put("referenceId", referenceId);
+			map.put("quality", quality);
+			map.put("country", country);
+			map.put("senderMail", senderMail);
+			map.put("faxNumber", faxNumber);
+			
+			return map;
 
 	}
 	
@@ -161,6 +179,7 @@ public class CoreFaxFunctions {
 	}
 
 	public void deleteAccount(String account, String admin, String password, String email) {
+		
 		WebDriver driver = TLDriverFactory.getTLDriver();
 		driver.navigate().to(Config.mgmtBaseUrl);
 		LoginPage loginPage = new LoginPage();

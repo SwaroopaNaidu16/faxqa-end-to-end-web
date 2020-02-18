@@ -36,7 +36,7 @@ public class CommonMethods {
 	public static String zipFile = null;
 	public static String folderName = null;
 	public static String folderPath = null;
-
+	
 	public void waitForElementToBeVisible(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(this.driver, 20); // 20 seconds
 		wait.until(ExpectedConditions.visibilityOf(element));

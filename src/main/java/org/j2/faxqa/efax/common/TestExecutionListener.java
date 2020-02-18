@@ -73,7 +73,7 @@ public class TestExecutionListener
 		if (!testResult.isSuccess()) captureScreen(testResult);
 			
 		if (TLDriverFactory.getTLDriver() != null) {
-			TLDriverFactory.getTLDriver().quit();
+			//TLDriverFactory.getTLDriver().quit();
 			logger.info("Quitting WebDriver...");
 		}
 		

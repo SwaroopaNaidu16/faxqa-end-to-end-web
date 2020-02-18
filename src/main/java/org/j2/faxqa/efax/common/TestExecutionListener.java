@@ -43,6 +43,7 @@ public class TestExecutionListener
 	public void onStart(ISuite suite) {
 		logger.info("Initializing...."); 
 		EnvironmentSetup.setupEnvironment();
+		//EnvironmentSetup.setupDNSEntries();
 	}
 
 	@Override

@@ -29,7 +29,7 @@ import org.j2.faxqa.efax.efax_us.myaccount.pageobjects.HomePage;
 public class MyAccountTests  extends BaseTest {
 
 	@TestRail(id = "C8149")
-	@Test(enabled = true, priority = 1, description = "Verify that admin user should be able to create new MyAccount user")
+	@Test(enabled = true, priority = 1, groups = {"smoke", "regression" }, description = "Verify that admin user should be able to create new MyAccount user")
 	public void shouldBeAbleToCreateNewMyAccountUser() throws Exception {
 		CoreFaxFunctions coreFunctions = new CoreFaxFunctions();
 		Map<String, String> details = coreFunctions.createNewMyAccountUser();
@@ -38,7 +38,7 @@ public class MyAccountTests  extends BaseTest {
 	}
 
 	@TestRail(id = "C8150")
-	@Test(enabled = true, priority = 1, description = "Verify that Send outbound fax and Receive inbound fax functionality is working as expected")
+	@Test(enabled = true, priority = 1, groups = {"smoke", "regression" }, description = "Verify that Send outbound fax and Receive inbound fax functionality is working as expected")
 	public void verifySendOutboundReceiveInboundFaxFunctionality() throws Exception {
 		CoreFaxFunctions coreFunctions = new CoreFaxFunctions();
 		Map<String, String> details = coreFunctions.createNewMyAccountUser();
@@ -55,7 +55,7 @@ public class MyAccountTests  extends BaseTest {
 	}
 
 	@TestRail(id = "C8151")
-	@Test(enabled = true, priority = 1, expectedExceptions = {Exception.class}, description = "Verify that user should be able to send faxes, receive and view them in 'View faxes' page")
+	@Test(enabled = true, priority = 1, groups = {"smoke", "regression" }, expectedExceptions = {Exception.class}, description = "Verify that user should be able to send faxes, receive and view them in 'View faxes' page")
 	public void ableToReceiveAndViewFaxWhenStorageEnabledONFromMGMT() throws Exception {
 		CoreFaxFunctions coreFunctions = new CoreFaxFunctions();
 		Map<String, String> details = coreFunctions.createNewMyAccountUser();

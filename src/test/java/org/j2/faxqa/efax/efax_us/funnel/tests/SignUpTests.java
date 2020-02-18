@@ -26,8 +26,7 @@ public class SignUpTests extends BaseTest {
 	// https://testrail.test.j2noc.com/
 
 	@TestRail(id = "C7862")
-	@Test(enabled = true, groups = { "smoke",
-			"regression" }, priority = 1, description = "US > SignUp for a new user account")
+	@Test(enabled = true, groups = { "smoke", "regression" }, priority = 1, description = "Sing up Funnel > Validate successful end to end registration")
 	public void verifyNewUserSignUpLogin(ITestContext context) throws Exception {
 		WebDriver driver = null;
 

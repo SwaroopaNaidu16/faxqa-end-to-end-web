@@ -42,8 +42,13 @@ public class TestExecutionListener
 	@Override
 	public void onStart(ISuite suite) {
 		logger.info("Initializing...."); 
-		EnvironmentSetup.setupEnvironment();
-		//EnvironmentSetup.setupDNSEntries();
+		try {
+			EnvironmentSetup.setupEnvironment();
+			//EnvironmentSetup.setupDNSEntries();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override

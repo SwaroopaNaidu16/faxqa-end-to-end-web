@@ -25,7 +25,11 @@ import org.xbill.DNS.Type;
 public class EnvironmentSetup extends org.testng.Reporter {
 	protected static final Logger logger = LogManager.getLogger();
 
-	public static void setupEnvironment() {
+	public static void setupEnvironment() throws UnknownHostException {
+		
+		System.setProperty("jdk.net.hosts.file", System.getProperty("user.dir") + "\\src\\main\\resources\\hosts");
+		System.out.println("jdk.net.hosts.file=" + System.getProperty("jdk.net.hosts.file"));
+
 		Properties prop = new Properties();
 		String file = "/environment." + System.getProperty("environment") + ".properties";
 		InputStream inputstream = EnvironmentSetup.class.getResourceAsStream(file);

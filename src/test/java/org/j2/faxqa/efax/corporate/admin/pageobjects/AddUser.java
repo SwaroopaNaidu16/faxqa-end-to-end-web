@@ -30,7 +30,7 @@ public class AddUser extends NavigationBar {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 15);
+		wait = new WebDriverWait(driver, 30);
 		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 

@@ -361,6 +361,7 @@ public class SignUpPage {
 	}
 
 	public void clickLogin() {
+		wait.until(ExpectedConditions.elementToBeClickable(BtnLogin));
 		logger.info("Attempting Auto log-in.");
 		BtnLogin.click();
 	}

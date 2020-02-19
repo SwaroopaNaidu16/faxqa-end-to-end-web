@@ -60,30 +60,37 @@ public class NavigationBarMyAccount extends CommonMethods {
 	
 
 	public void clickSendFaxesTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(sendfaxestabElement));
 		sendfaxestabElement.click();
 	}
 
 	public void clickAccountDetailsTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(updateaccttabElement));
 		updateaccttabElement.click();
 	}
 
 	public void clickViewFaxesTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(viewfaxestabElement));
 		viewfaxestabElement.click();
 	}
 
 	public void clickReportsTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(reportstabElement));
 		reportstabElement.click();
 	}
 
 	public void clickFileshareTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(filesharetabElement));
 		filesharetabElement.click();
 	}
 	
 	public void clickHelpTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(helptabElement));
 		helptabElement.click();
 	}
 	
 	public void logout() {
+		wait.until(ExpectedConditions.elementToBeClickable(helptabElement));
 		helptabElement.click();
 	}
 	

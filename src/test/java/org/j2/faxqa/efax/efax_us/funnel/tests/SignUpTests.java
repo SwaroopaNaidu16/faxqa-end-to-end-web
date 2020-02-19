@@ -92,6 +92,7 @@ public class SignUpTests extends BaseTest {
 		String pin = login[1];
 
 		if (signup.isLoginBtnAvailable()) {
+			
 			signup.clickLogin();
 		}
 

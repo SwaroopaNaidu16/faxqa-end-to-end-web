@@ -43,18 +43,22 @@ public class NavigationBar {
 	private WebElement ReportsTabWebElement;
 
 	public void clickSendFaxesTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(sendFaxesTabWebElement));
 		sendFaxesTabWebElement.click();
 	}
 
 	public void clickAccountDetailsTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(accountDetailsTabWebElement));
 		accountDetailsTabWebElement.click();
 	}
 
 	public void clickViewFaxesTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(viewFaxesTabWebElement));
 		viewFaxesTabWebElement.click();
 	}
 
 	public void clickReportsTab() {
+		wait.until(ExpectedConditions.elementToBeClickable(ReportsTabWebElement));
 		ReportsTabWebElement.click();
 	}
 

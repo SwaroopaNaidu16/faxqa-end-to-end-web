@@ -28,7 +28,7 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 		this.driver = TLDriverFactory.getTLDriver();
 		this.logger = LogManager.getLogger();
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, 30);
+		wait = new WebDriverWait(driver, 45);
 		logger.info(driver.getTitle() + " - [" + driver.getCurrentUrl() + "]");
 	}
 
@@ -110,7 +110,7 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 	private WebElement quantityErrorValidationMessageWebElement;
 
 	public void enterFaxCount(int count) throws Exception {
-		
+		wait.until(ExpectedConditions.elementToBeClickable(quantityOfFaxNumbersToAddTextboxWebElement));
 		quantityOfFaxNumbersToAddTextboxWebElement.click();
 		quantityOfFaxNumbersToAddTextboxWebElement.clear();
 		quantityOfFaxNumbersToAddTextboxWebElement.sendKeys(Integer.toString(count));
@@ -155,6 +155,7 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 	}
 
 	public void selectAStateFromDropdown() throws Exception {
+		wait.until(ExpectedConditions.elementToBeClickable(selectAStateDropdownWebElement));
 		selectAStateDropdownWebElement.click();
 		List<String> states = driver.findElements(By.xpath("//select[@id='addNumbersRegion']/option")).stream().map(e->e.getAttribute("innerText")).collect(Collectors.toList());
 		String state = states.get((new Faker()).number().numberBetween(1,states.size()));
@@ -163,6 +164,7 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 	}
 
 	public void chooseACityFromDropdown() throws Exception {
+		wait.until(ExpectedConditions.elementToBeClickable(selectACityDropdownWebElement));
 		selectACityDropdownWebElement.click();
 		List<String> cities = driver.findElements(By.xpath("//select[@id='addNumbersCity']/option")).stream().map(e->e.getAttribute("innerText")).collect(Collectors.toList());
 		String city = cities.get((new Faker()).number().numberBetween(1,cities.size()));
@@ -171,6 +173,7 @@ public class AddFaxNumbersOverlay extends CommonMethods {
 	}
 
 	public void searchByState(int faxCount) throws Exception {
+		wait.until(ExpectedConditions.elementToBeClickable(stateRadioButtonWebElement));
 		stateRadioButtonWebElement.click();
 		selectAStateFromDropdown();
 		chooseACityFromDropdown();

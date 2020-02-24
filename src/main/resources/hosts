@@ -1,7 +1,101 @@
-64.125.38.77 qa.efaxcorporate.com
-10.160.90.170 test.efaxcorporate.com
-10.160.110.75 mfdev1.efaxcorporate.com
-10.160.110.74 sbdev.efaxcorporate.com
-10.128.90.18 offline.efaxcorporate.com
-10.160.110.75 myfx1.efaxcorporate.com
+#Separate entries by a single space
+
+63.251.192.17 api.efax.com
+10.176.110.83 magneto
+10.160.110.81 mystique
+10.160.110.82 phoenix
+10.176.110.81 pyro
+10.176.110.82 toad
+
+10.160.90.84 qa.efax.ca
+10.160.90.70 qa.efax.co.jp
+10.160.90.57 qa.efax.co.uk
 10.160.90.149 qa.efax.com
+10.160.90.58 qa.efax.com.au
+10.160.90.61 qa.efax.de
+10.160.90.62 qa.efax.es
+10.160.90.60 qa.efax.fr
+10.160.90.63 qa.efax.nl
+10.160.90.71 qa.en.efax.com
+10.160.90.69 qa.it.efax.com
+10.160.90.73 qa.mbox.com.au
+10.160.90.73 qa.faxmate.com.au
+10.160.90.73 qa.portal.mbox.com.au
+10.160.90.86 qa.microsites.efax.com
+10.255.1.27 repository.j2.com
+
+10.160.110.53 sb1.efax.com sb1.www2.efax.com devwww2.efax.com
+10.160.110.63 sb1.be.efax.com
+10.160.110.63 sb1.efax.at
+10.160.110.63 sb1.efax.ca
+10.160.110.63 sb1.efax.ch
+10.160.110.63 sb1.efax.co.jp
+10.160.110.63 sb1.efax.co.nz
+10.160.110.63 sb1.efax.co.uk
+10.160.110.63 sb1.efax.com.au
+10.160.110.63 sb1.efax.com.nz
+10.160.110.63 sb1.efax.com.sg
+10.160.110.63 sb1.efax.de
+10.160.110.63 sb1.efax.es
+10.160.110.63 sb1.efax.fr
+10.160.110.63 sb1.efax.nl
+10.160.110.63 sb1.efax.pl
+10.160.110.63 sb1.efax.pt
+10.160.110.63 sb1.en.efax.com
+10.160.110.63 sb1.etelsupport.com
+10.160.110.63 sb1.fi.efax.com
+10.160.110.63 sb1.hu.efax.com
+10.160.110.63 sb1.it.efax.com
+10.160.110.63 sb1.kiwifax.co.nz
+10.160.110.63 sb1.kiwifax.com
+10.160.110.63 sb1.kiwifax.net
+10.160.110.63 sb1.mbox.com.au
+10.160.110.78 sb1.myfax.com
+10.160.110.63 sb1.no.efax.com
+10.160.110.63 sb1.ozefax.com
+10.160.110.63 sb1.ozefax.com.au
+10.160.110.63 sb1.ozefax.net
+10.160.110.63 sb1.ozefax.net.au
+10.160.110.63 sb1.faxmate.com.au
+10.160.110.74 sb1.efaxcorporate.com sbdev.efaxcorporate.com
+10.160.110.75 mfdev1.efaxcorporate.com
+10.160.110.89 sb1.metrofax.com sb1.myaccount.metrofax.com
+10.160.110.78 devcentral.myfax.com
+10.160.110.107 sb1.jfax.com
+ 
+10.160.110.57 sb2.efax.com sb2.www2.efax.com
+10.160.110.87 sb2.efax.ca
+10.160.110.87 sb2.efax.co.jp
+10.160.110.87 sb2.efax.co.nz
+10.160.110.87 sb2.efax.co.uk
+10.160.110.87 sb2.efax.com.au
+10.160.110.87 sb2.efax.de
+10.160.110.87 sb2.efax.es
+10.160.110.87 sb2.efax.fr
+10.160.110.87 sb2.efax.nl
+10.160.110.87 sb2.en.efax.com
+10.160.110.87 sb2.it.efax.com
+10.160.110.87 sb2.mbox.com.au
+10.160.110.87 sb2.faxmate.com.au
+ 
+# Sitefinity servers
+10.192.1.157 devenefax.com sfefaxi1.dev.j2noc.com
+10.192.1.165 en.efax.com.staging.j2noc.com
+10.192.1.166 dev.efax.de sitefinity.efax.de
+10.192.1.165 qasf.efax.co.uk
+10.180.176.150 qasf.efax.com.au
+ 
+# QA servers
+10.160.90.51 qamyaccount.metrofax.com qa.metrofax.com
+204.11.170.55 qawww.metrofax.com
+204.11.170.57 qa.portal.efax.co.uk
+10.160.90.73 qa.efax.com.au qa.mbox.com.au qa.portal.mbox.com.au
+10.160.90.129 qa.ldi.com livedrive.test.j2.com test.tollfreenumbering.com
+ 
+#
+# This one works, but is apparently unnecessary; DNS has qa.efaxcorporate.com
+# as 204.11.170.77, and it points to the same place as 10.160.90.170
+#
+# 10.160.90.170 qa.efaxcorporate.com
+ 
+10.128.90.18 offline.efaxcorporate.com

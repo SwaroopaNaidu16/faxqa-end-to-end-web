@@ -16,6 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xbill.DNS.ARecord;
 import org.xbill.DNS.Credibility;
+import org.xbill.DNS.DClass;
 import org.xbill.DNS.Lookup;
 import org.xbill.DNS.Name;
 import org.xbill.DNS.Record;
@@ -25,10 +26,7 @@ import org.xbill.DNS.Type;
 public class EnvironmentSetup extends org.testng.Reporter {
 	protected static final Logger logger = LogManager.getLogger();
 
-	public static void setupEnvironment() throws UnknownHostException {
-		
-		System.setProperty("jdk.net.hosts.file", System.getProperty("user.dir") + "\\src\\main\\resources\\hosts");
-		System.out.println("jdk.net.hosts.file=" + System.getProperty("jdk.net.hosts.file"));
+	public static void setupEnvironment() {
 
 		Properties prop = new Properties();
 		String file = "/environment." + System.getProperty("environment") + ".properties";
@@ -67,51 +65,6 @@ public class EnvironmentSetup extends org.testng.Reporter {
 		Config.nonsecureadministratorName_MGMT = prop.getProperty("nonSecureAccount_MGMT_AdministratorName");
 		Config.nonsecurepassword_MGMT = prop.getProperty("nonSecureAccount_MGMT_Password");
 
-	}
-
-	public static void setupDNSEntries() {
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(EnvironmentSetup.class.getResourceAsStream("/hosts")))) {
-			LogManager.getLogger().info("Adding DNS look-up entries to default cache.");
-	        while (reader.ready()) {
-	        	String[] line = reader.readLine().split(" ");
-	        	String ipaddress = line[0].trim();
-	        	String hostname = line[1].trim();
-	        	addHostToCacheAs(hostname, ipaddress);
-	        	LogManager.getLogger().info(ipaddress + " " + hostname);
-	        }
-	    }catch (FileNotFoundException e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    } catch (IOException e) {
-	        // TODO Auto-generated catch block
-	        e.printStackTrace();
-	    }
-	}
-
-	public static void addHostToCacheAs(String hostname, String ipAddress) throws UnknownHostException, TextParseException {
-		// add an ending period assuming the hostname is truly an absolute hostname
-		Name host = new Name(hostname + ".");
-		// putting in a good long TTL, and using an A record, but AAAA might be desired
-		// as well for IPv6
-		Record aRec = new ARecord(host, Type.A, 9999999, InetAddress.getByName(ipAddress));
-		Lookup.getDefaultCache(Type.A).addRecord(aRec, Credibility.NORMAL, "QA");
-	}
-
-	public static InetAddress getInetAddressFromString(String ip) throws UnknownHostException {
-		// Assume we are using IPv4
-		byte[] bytes = new byte[4];
-		String[] ipParts = ip.split("\\.");
-		InetAddress ipaddress = null;
-		// if we only have one part, it must actually be a hostname, rather than a real IP
-		if (ipParts.length <= 1) {
-			ipaddress = InetAddress.getByName(ip);
-		} else {
-			for (int i = 0; i < ipParts.length; i++) {
-				bytes[i] = Byte.parseByte(ipParts[i], 2);
-			}
-			ipaddress = InetAddress.getByAddress(bytes);
-		}
-		return ipaddress;
 	}
 
 }

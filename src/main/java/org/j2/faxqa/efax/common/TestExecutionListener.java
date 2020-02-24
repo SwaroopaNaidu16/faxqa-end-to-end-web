@@ -35,20 +35,15 @@ public class TestExecutionListener
 		implements IInvokedMethodListener, ISuiteListener, ITestListener, IConfigurationListener {
 	protected static final Logger logger = LogManager.getLogger();
 	private List<Map<String, Object>> results = Collections.synchronizedList(new ArrayList<Map<String, Object>>());
-	public String newtestrunid = null;
+	public String testRunId = null;
 	public APIClient tr_client;
 	protected WebDriver driver;
 
 	@Override
 	public void onStart(ISuite suite) {
-		logger.info("Initializing...."); 
-		try {
-			EnvironmentSetup.setupEnvironment();
-			//EnvironmentSetup.setupDNSEntries();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
+		testRunId = System.getProperty("testRunId");
+		logger.info("Initializing....");
+		EnvironmentSetup.setupEnvironment();
 	}
 
 	@Override
@@ -76,15 +71,16 @@ public class TestExecutionListener
 	public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
 		Reporter.setCurrentTestResult(testResult);
 
-		if (!testResult.isSuccess()) captureScreen(testResult);
-			
+		if (!testResult.isSuccess())
+			captureScreen(testResult);
+
 		if (TLDriverFactory.getTLDriver() != null) {
 			TLDriverFactory.getTLDriver().quit();
 			logger.info("Quitting WebDriver...");
 		}
-		
+
 		TestRail testrail = method.getTestMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
-		
+
 		if (testrail != null) {
 			String testrail_caseid = testrail.id().substring(1);
 			updateResult(testResult, testrail_caseid, testResult.getStatus() == ITestResult.SUCCESS);
@@ -171,8 +167,8 @@ public class TestExecutionListener
 			e.printStackTrace();
 			return;
 		}
-		newtestrunid = result.get("id").toString();
-		logger.info("***  TestRun [" + suite_name + "] created with id [" + newtestrunid + "] with testcases : "
+		testRunId = result.get("id").toString();
+		logger.info("***  TestRun [" + suite_name + "] created with id [" + testRunId + "] with testcases : "
 				+ testids + "  ***");
 
 	}
@@ -184,7 +180,7 @@ public class TestExecutionListener
 		try {
 			Map<String, List<Map<String, Object>>> objresults = new HashMap<String, List<Map<String, Object>>>();
 			objresults.put("results", results);
-			result = (JSONArray) tr_client.sendPost(String.format("add_results_for_cases/%s", newtestrunid),
+			result = (JSONArray) tr_client.sendPost(String.format("add_results_for_cases/%s", testRunId),
 					objresults);
 			logger.info(new GsonBuilder().setPrettyPrinting().create().toJson(result));
 		} catch (Exception e) {

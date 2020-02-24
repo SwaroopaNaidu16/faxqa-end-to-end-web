@@ -15,7 +15,8 @@
 		<testrailBaseUrl>https://testrail.j2noc.com</testrailBaseUrl>
 		<testrailUser>jagadeesh.medabalimi@j2.com</testrailUser>
 		<testrailpassword>testrail</testrailpassword>
-		<uploadresults>false</uploadresults>
+		<uploadResults>false</uploadResults>
+		<testRunId>false</testRunId>
 		<webbrowser>chrome</webbrowser>
 	</properties>
 
@@ -105,10 +106,11 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.5</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/dnsjava/dnsjava -->
 		<dependency>
-			<groupId>com.spotify</groupId>
-			<artifactId>dns</artifactId>
-			<version>3.1.5</version>
+			<groupId>dnsjava</groupId>
+			<artifactId>dnsjava</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 	</dependencies>
 	<repositories>
@@ -214,7 +216,8 @@
 						<testrailBaseUrl>${testrailBaseUrl}</testrailBaseUrl>
 						<testrailUser>${testrailUser}</testrailUser>
 						<testrailpassword>${testrailpassword}</testrailpassword>
-						<uploadresults>${uploadresults}</uploadresults>
+						<uploadResults>${uploadResults}</uploadResults>
+						<testRunId>${testRunId}</testRunId>
 						<webbrowser>${webbrowser}</webbrowser>
 					</systemPropertyVariables>
 					<reuseForks>true</reuseForks>

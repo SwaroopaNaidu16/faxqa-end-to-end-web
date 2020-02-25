@@ -10,6 +10,45 @@ public class Config {
 	public static String PIN_US;
 	public static String creditCard_US;
 	 
+	/* efax UK related config*/ 
+	public static String efax_UK_myaccountBaseUrl;
+	public static String efax_UK_funnelBaseUrl;
+	public static String efax_UK_landingpageBaseUrl;
+	public static String DID_UK;
+	public static String PIN_UK;
+	public static String creditCard_UK;
+	
+	/* efax JP related config*/ 
+	public static String efax_JP_myaccountBaseUrl;
+	public static String efax_JP_funnelBaseUrl;
+	public static String efax_JP_landingpageBaseUrl;
+	public static String DID_JP;
+	public static String PIN_JP;
+	public static String creditCard_JP;
+	
+	/* efax myfax related config*/ 
+	public static String myfax_myaccountBaseUrl;
+	public static String myfax_funnelBaseUrl;
+	public static String myfax_landingpageBaseUrl;
+	public static String myfax_DID;
+	public static String myfax_PIN;
+	public static String myfax_creditCard;
+	
+	/* efax metrofax related config*/ 
+	public static String metrofax_myaccountBaseUrl;
+	public static String metrofax_funnelBaseUrl;
+	public static String metrofax_landingpageBaseUrl;
+	public static String metrofax_DID;
+	public static String metrofax_PIN;
+	public static String metrofax_creditCard;
+	
+	/* efax microsites related config*/ 
+	public static String microsites_myaccountBaseUrl;
+	public static String microsites_funnelBaseUrl;
+	public static String microsites_landingpageBaseUrl;
+	public static String microsites_DID;
+	public static String microsites_PIN;
+	public static String microsites_creditCard;
 	
 	/*
 	 * Add following entries to your host file

@@ -43,6 +43,8 @@ public class EnvironmentSetup extends org.testng.Reporter {
 			return;
 		}
 
+		//********************** Consumer **************************************//
+		
 		Config.efax_US_myaccountBaseUrl = prop.getProperty("efax_US_myaccountBaseUrl");
 		Config.efax_US_funnelBaseUrl = prop.getProperty("efax_US_funnelBaseUrl");
 		Config.efax_US_landingpageBaseUrl = prop.getProperty("efax_US_landingpagelBaseUrl");
@@ -50,6 +52,45 @@ public class EnvironmentSetup extends org.testng.Reporter {
 		Config.PIN_US = prop.getProperty("PIN_US");
 		Config.creditCard_US = prop.getProperty("CreditCard_US");
 
+		Config.efax_UK_myaccountBaseUrl = prop.getProperty("efax_UK_myaccountBaseUrl");
+		Config.efax_UK_funnelBaseUrl = prop.getProperty("efax_UK_funnelBaseUrl");
+		Config.efax_UK_landingpageBaseUrl = prop.getProperty("efax_UK_landingpagelBaseUrl");
+		Config.DID_UK = prop.getProperty("DID_UK");
+		Config.PIN_UK = prop.getProperty("PIN_UK");
+		Config.creditCard_UK = prop.getProperty("CreditCard_UK");
+		
+		Config.efax_JP_myaccountBaseUrl = prop.getProperty("efax_JP_myaccountBaseUrl");
+		Config.efax_JP_funnelBaseUrl = prop.getProperty("efax_JP_funnelBaseUrl");
+		Config.efax_JP_landingpageBaseUrl = prop.getProperty("efax_JP_landingpagelBaseUrl");
+		Config.DID_JP = prop.getProperty("DID_JP");
+		Config.PIN_JP = prop.getProperty("PIN_JP");
+		Config.creditCard_JP = prop.getProperty("CreditCard_JP");
+		
+		Config.myfax_myaccountBaseUrl = prop.getProperty("myfax_myaccountBaseUrl");
+		Config.myfax_funnelBaseUrl = prop.getProperty("myfax_funnelBaseUrl");
+		Config.myfax_landingpageBaseUrl = prop.getProperty("myfax_landingpagelBaseUrl");
+		Config.myfax_DID = prop.getProperty("myfax_DID");
+		Config.myfax_PIN = prop.getProperty("myfax_PIN");
+		Config.myfax_creditCard = prop.getProperty("myfax_CreditCard");
+		
+		Config.metrofax_myaccountBaseUrl = prop.getProperty("metrofax_myaccountBaseUrl");
+		Config.metrofax_funnelBaseUrl = prop.getProperty("metrofax_funnelBaseUrl");
+		Config.metrofax_landingpageBaseUrl = prop.getProperty("metrofax_landingpagelBaseUrl");
+		Config.metrofax_DID = prop.getProperty("DID");
+		Config.metrofax_PIN = prop.getProperty("PIN");
+		Config.metrofax_creditCard = prop.getProperty("CreditCard");
+		
+		Config.microsites_myaccountBaseUrl = prop.getProperty("microsites_myaccountBaseUrl");
+		Config.microsites_funnelBaseUrl = prop.getProperty("microsites_funnelBaseUrl");
+		Config.microsites_landingpageBaseUrl = prop.getProperty("microsites_landingpagelBaseUrl");
+		Config.microsites_DID = prop.getProperty("microsites_DID");
+		Config.microsites_PIN = prop.getProperty("microsites_PIN");
+		Config.microsites_creditCard = prop.getProperty("microsites_CreditCard");
+		
+		
+		//********************** Corporate **************************************//
+		
+		
 		Config.mgmtBaseUrl = prop.getProperty("baseUrl_MGMT");
 		Config.myAccountBaseUrl = prop.getProperty("baseUrl_MyAccount");
 		Config.dbConnectionUrl = prop.getProperty("dbConnectionUrl");

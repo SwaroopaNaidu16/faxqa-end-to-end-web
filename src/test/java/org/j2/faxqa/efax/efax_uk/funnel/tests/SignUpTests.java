@@ -12,6 +12,7 @@ import org.j2.faxqa.efax.common.TLDriverFactory;
 import org.j2.faxqa.efax.common.TestRail;
 import org.j2.faxqa.efax.corporate.myaccount.CommonMethods;
 import org.j2.faxqa.efax.efax_uk.funnel.pageobjects.SignUpPage;
+import org.j2.faxqa.efax.efax_uk.myaccount.pageobjects.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -99,9 +100,15 @@ public class SignUpTests extends BaseTest {
 		match2=Pattern.compile("(PIN: )(\\d+)").matcher(content);
 				
 		if (match1.find()) faxNumber = match1.group(1);
-		if (match2.find()) password = match2.group(1);
+		if (match2.find()) password = match2.group(2);
 		
 		logger.info(faxNumber + " & " + password);
-		logger.info("");
+
+		driver.get(Config.efax_UK_myaccountBaseUrl);
+		LoginPage login = new LoginPage();
+		login.login(faxNumber, password);
+		
+		Assert.assertTrue(login.isLoggedIn());
+		
 	}
 }

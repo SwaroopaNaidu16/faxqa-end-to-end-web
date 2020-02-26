@@ -346,17 +346,14 @@ public class ViewFaxesModalMyAccount extends NavigationBarMyAccount {
 	}
 
 	public void clickYesButtonInDeleteFolderPopup() {
-		this.closeGDPRbanner();
 		yesButtonInDeleteFolderPopUpWebElement.click();
 	}
 
 	public void clickNoButtonInDeleteFolderPopup() {
-		this.closeGDPRbanner();
 		noButtonInDeleteFolderPopUpWebElement.click();
 	}
 
 	public void clickDeleteFolderButton() {
-		this.closeGDPRbanner();
 		deleteFolderButtonWebElement.click();
 	}
 
@@ -365,7 +362,6 @@ public class ViewFaxesModalMyAccount extends NavigationBarMyAccount {
 		+ "') and contains( @class,'Subject')]";
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
-				this.closeGDPRbanner();
 			element.click();
 		} catch (Exception e) {
 				@SuppressWarnings("unused")
@@ -374,7 +370,6 @@ public class ViewFaxesModalMyAccount extends NavigationBarMyAccount {
 	}
 
 	public void clickOnDefaultFirstFaxFromMessageCenter() {
-		this.closeGDPRbanner();
 		defaultFirstFaxMessageCenterWebElement.click();
 	}
 
@@ -382,7 +377,6 @@ public class ViewFaxesModalMyAccount extends NavigationBarMyAccount {
 		String locator = ".//a[text()='" + folderName + "']";
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
-				this.closeGDPRbanner();
 			element.click();
 		} catch (Exception e) {
 				@SuppressWarnings("unused")
@@ -423,17 +417,14 @@ public class ViewFaxesModalMyAccount extends NavigationBarMyAccount {
 	}
 
 	public void clickViewFaxLinkInPreviewPane() {
-		this.closeGDPRbanner();
 		viewFaxLinkInPreviewPaneWebElement.click();
 	}
 
 	public void clickContactsTab() {
-		this.closeGDPRbanner();
 		contactsTabWebElement.click();
 	}
 
 	public void clickSelectAllCheckboxOfContactsTab() {
-		this.closeGDPRbanner();
 		selectAllCheckboxOfContactsTabWebElement.click();
 	}
 
@@ -445,22 +436,18 @@ public class ViewFaxesModalMyAccount extends NavigationBarMyAccount {
 	}
 
 	public void clickDeleteContactsButton() {
-		this.closeGDPRbanner();
 		deleteContactsButtonWebElement.click();
 	}
 
 	public void clickYesButtonFromTheConfirmDeleteContactsDialog() {
-		this.closeGDPRbanner();
 		yesButtonFromTheConfirmDeleteContactsDialogWebElement.click();
 	}
 
 	public void clickOkButtonFromTheDeleteContactsDialog() {
-		this.closeGDPRbanner();
 		okButtonFromTheDeleteContactsDialogWebElement.click();
 	}
 
 	public void clickImportButton() {
-		this.closeGDPRbanner();
 		importButtonWebElement.click();
 	}
 

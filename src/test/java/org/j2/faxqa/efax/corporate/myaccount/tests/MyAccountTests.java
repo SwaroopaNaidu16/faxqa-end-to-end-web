@@ -44,7 +44,6 @@ public class MyAccountTests  extends BaseTest {
 		Map<String, String> details = coreFunctions.createNewMyAccountUser();
 		
 		LoginPageMyAccount loginPageMyAccount = new LoginPageMyAccount();
-		loginPageMyAccount.open();
 		loginPageMyAccount.login(details.get("faxNumber"), details.get("password"));
 		boolean response = new CoreFaxFunctions().composeSendFaxTo(details.get("faxNumber"));
 		Assert.assertEquals(response, true);
@@ -60,7 +59,6 @@ public class MyAccountTests  extends BaseTest {
 		CoreFaxFunctions coreFunctions = new CoreFaxFunctions();
 		Map<String, String> details = coreFunctions.createNewMyAccountUser();
 		LoginPageMyAccount loginPageMyAccount = new LoginPageMyAccount();
-		loginPageMyAccount.open();
 		loginPageMyAccount.login(details.get("faxNumber"), details.get("password"));
 		String faxNumber = details.get("faxNumber");
 

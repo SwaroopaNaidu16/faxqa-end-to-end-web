@@ -112,7 +112,6 @@ public class CoreFaxFunctions {
 			TLDriverFactory.getTLDriver().navigate().to(Config.myAccountBaseUrl);
 
 			LoginPageMyAccount loginPageMA = new LoginPageMyAccount();
-			loginPageMA.open();
 			loginPageMA.login(faxNumber, password);
 
 			HomePageMyAccount homePageMyAccount = new HomePageMyAccount();

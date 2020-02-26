@@ -16,7 +16,7 @@
 		<testrailUser>jagadeesh.medabalimi@j2.com</testrailUser>
 		<testrailpassword>testrail</testrailpassword>
 		<uploadResults>false</uploadResults>
-		<testRunId>false</testRunId>
+		<testRunId></testRunId>
 		<webbrowser>chrome</webbrowser>
 	</properties>
 

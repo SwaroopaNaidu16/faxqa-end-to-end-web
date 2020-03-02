@@ -85,17 +85,13 @@ public class SignUpPage {
 
 	@FindBy(id = "btnAbandonedUser")
 	private WebElement btnAbandonedUser;
-
 	
-
 	@FindBy(id = "txtPhoneNumber")
 	private WebElement txtPhoneNumber;
 
-	
 	@FindBy(id = "rad_VISA")
 	private WebElement rad_VISA;
 
-	
 	@FindBy(id = "lbleFaxNumberTitle")
 	private WebElement lbleFaxNumberTitle;
 
@@ -108,28 +104,31 @@ public class SignUpPage {
 	@FindBy(id = "hypMyFaxLogin")
 	private WebElement MyFaxLogin;
 	
-	@FindBy(xpath="//div[@class='sales-funnel']/select[@id='ddlMyFaxChooseNumberOldState']")
+	@FindBy(id="ddlMyFaxChooseNumberOldState")
 	private WebElement ChooseState;
 	
 	@FindBy(xpath="//div[@class='sales-funnel']/select[@id='ddlMyFaxChooseNumberOldCity']")
 	private WebElement ChooseCity;
 	
-	@FindBy(id="hyplinkMyFaxChooseNumberNext")
+	@FindBy(id="btnMyFaxChooseNumberOldNextStep")
 	private WebElement Nextbutton;
 	
 	@FindBy(id="spanMyFaxChooseNumberOldUSMap")
 	private WebElement country;
 	
+	@FindBy(xpath="//div[@class='map active']")
+	private WebElement mapactive;
+	
 	@FindBy(id = "ddlMyFaxChooseNumberSelectCountry")
 	private WebElement ddlMyFaxChooseNumberSelectCountry;
 	
-	@FindBy(xpath="//input[@class='ccjs-number-formatted checkedBillingInfo form-control']")
+	@FindBy(id="txtBillingInfoCreditCardNumber")
 	private WebElement CreditCardNumber;
 	
-	@FindBy(id="ddlBillingInfoMonth")
+	@FindBy(id="ddlBillingExpMonthFull")
 	private WebElement ddlBillingInfoMonth;
 	
-	@FindBy(id="ddlBillingInfoYear")
+	@FindBy(id="ddlBillingExpYearFull")
 	private WebElement ddlBillingInfoYear;
 	
 	@FindBy(id="txtBillingInfoCVV")
@@ -172,25 +171,19 @@ public class SignUpPage {
 		CreditCardNumber.sendKeys(text);
 		logger.info("CreditCardNumber set to - " + text);
 	}
-	public void selectCountry(String text) {
-		wait.until(ExpectedConditions.elementToBeClickable(ddlMyFaxChooseNumberSelectCountry));
-		Select selection = new Select(ddlMyFaxChooseNumberSelectCountry);
-		selection.selectByVisibleText(text);
-		logger.info("Setting faxnumber country to - " + text);
-	}
+	
 	public void selectstate() {
 		//Select the state
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ChooseState));
 		Select drpstate = new Select(ChooseState);
 		drpstate.selectByIndex(ThreadLocalRandom.current().nextInt(1, drpstate.getOptions().size()));
 		logger.info("Setting state");
 	}
-	public void selectState() {
-		wait.until(ExpectedConditions.elementToBeClickable(radioState));
-		logger.info("Chosing to look for faxnumbers by State");
-		radioState.click();
-	}
+	
 	public void selectCity() {
 		//Select the city
+		wait.until(ExpectedConditions.elementToBeClickable(ChooseCity));
 		Select drpcity = new Select(ChooseCity);
 		drpcity.selectByIndex(ThreadLocalRandom.current().nextInt(1, drpcity.getOptions().size()));
 		logger.info("Setting City");
@@ -231,11 +224,6 @@ public class SignUpPage {
 	public void setBillingAddress(String text) {
 		txtBillingInfoAddress.clear();
 		txtBillingInfoAddress.sendKeys(text);
-		logger.info("Setting CardCVV to  - " + text);
-	}
-	public void setBillingAddress2(String text) {
-		txtBillingInfoAddress2.clear();
-		txtBillingInfoAddress2.sendKeys(text);
 		logger.info("Setting CardCVV to  - " + text);
 	}
 	
@@ -323,23 +311,37 @@ public class SignUpPage {
 		logger.info("Continuing further with Account & Billing Info");
 	}
 	
-	public void SelectCountry() {
-		wait.until(ExpectedConditions.elementToBeClickable(country));
-		String Country = country.getText();
-		country.click();
-		logger.info("Select Country"+Country);
+	public void  SelectCountry(String text) {
+		try {
+			if (driver.findElement(By.xpath("//div[@class='map active']")).isDisplayed())
+			{
+				wait.until(ExpectedConditions.elementToBeClickable(country));
+				
+			}
+			else {
+				driver.navigate().refresh();
+				wait.until(ExpectedConditions.elementToBeClickable(country));
+			}
+		
+		Thread.sleep(1000);
+		//wait.until(ExpectedConditions.visibilityOf(country));
+		//wait.until(ExpectedConditions.elementToBeClickable(country));
+		Select selection = new Select(country);
+		selection.selectByVisibleText(text);
+		logger.info("Setting faxnumber country to - " + text);
+		}
+		catch(Exception ex){
+			
+			logger.info("Setting faxnumber country to is not navigating - " + text);
+		}
 	}
 
-	public void setFirstName(String text) {
+	public void setFirstName(String text,String text1) {
 		txtFirstName.clear();
-		txtFirstName.sendKeys(text);
-		logger.info("FirstName set to - " + text);
+		txtFirstName.sendKeys(text+ " "+text1);
+		logger.info("FirstName set to - " + text+ " "+text1);
 	}
-	public void setLastName(String text) {
-		txtLastName.clear();
-		txtLastName.sendKeys(text);
-		logger.info("LastName set to - " + text);
-	}
+	
 	public void setEmail(String text) {
 		txtEmailAddress.clear();
 		txtEmailAddress.sendKeys(text);
@@ -429,9 +431,9 @@ public class SignUpPage {
 	}
 
 	public boolean logout() {
-		if (driver.findElement(By.xpath("//li[@id='myAccount_topNav_home']//a[@id='logout']")).isDisplayed()) {
+		if (driver.findElement(By.xpath("//a[@id='logout']")).isDisplayed()) {
 			logger.info("Attempting log-out.");
-			driver.findElement(By.xpath("//li[@id='myAccount_topNav_home']//a[@id='logout']")).click();
+			driver.findElement(By.xpath("//a[@id='logout']")).click();
 			return true;
 		} else {
 			logger.info("Sign-out unsuccessful.");

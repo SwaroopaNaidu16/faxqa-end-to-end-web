@@ -55,26 +55,19 @@ public class SignUpTests extends BaseTest {
 		String creditcardcvv = "321";
 		String company = "Vensiti";
 
+		
+		
 		SignUpPage signup = new SignUpPage();
-		signup.selectCountry(country);
-		// signup.selectAreaCode();
+		signup.SelectCountry(country);
 		// signup.enterAreaCode("212");
-		signup.selectState();
-		state = signup.setState();
-		city = signup.setCity();
-		while (signup.noInventory()) {
-			logger.info("No fax numbers found for the selected region, retrying...");
-			state = signup.setState();
-			city = signup.setCity();
-		}
+		signup.selectstate();
+		signup.selectCity();
 		signup.Nextbutton();
-		signup.setFirstName(firstname);
-		signup.setLastName(lastname);
+		signup.setFirstName(firstname,lastname);
 		signup.setEmail(email);
 		signup.proceedToOrderConfirmation();
 		signup.setBillingCountry(country);
 		signup.setBillingAddress(address1);
-		signup.setBillingAddress2(address2);
 		signup.setBillingCity(city);
 		signup.setBillingState(state);
 		signup.setBillingPostalCode(pcode);

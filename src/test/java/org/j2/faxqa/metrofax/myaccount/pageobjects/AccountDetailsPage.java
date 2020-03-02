@@ -19,7 +19,10 @@ import java.io.FileFilter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collector;
@@ -92,6 +95,9 @@ public class AccountDetailsPage extends CommonMethods {
 
 	@FindBy(id = "btn_sendLog")
 	private WebElement btn_sendLog;
+	
+	@FindBy(id="date_sendToDate")
+	private WebElement sendlogToDate;
 
 	public void updatesendCSID(String sender) {
 		wait.until(ExpectedConditions.elementToBeClickable(sendfaxoptionsedit));
@@ -118,6 +124,14 @@ public class AccountDetailsPage extends CommonMethods {
 		Select receipt = new Select(defaultEmailAddress);
 		// receipt.selectByVisibleText(text);
 		receipt.selectByIndex(1);
+	}
+	
+	public void SendLogsToDate() {
+		sendlogToDate.click();
+		sendlogToDate.clear();
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		String formattedDate = df.format(new Date());
+		sendlogToDate.sendKeys(formattedDate);
 	}
 
 	public void clickUsageTab() {
@@ -160,6 +174,8 @@ public class AccountDetailsPage extends CommonMethods {
 	}
 
 	public boolean isReceiveActivityLogFound(String senderid, int timeout) throws InterruptedException {
+		
+		SendLogsToDate();
 		clickReceiveGo();
 
 		wait.until(ExpectedConditions
@@ -213,6 +229,7 @@ public class AccountDetailsPage extends CommonMethods {
 	public boolean isSendActivityLogFound(String senderid, int timeout) throws InterruptedException {
 		clickUsageTab();
 		clickSendActivityDetails();
+		SendLogsToDate();
 		clickSendGo();
 		wait.until(ExpectedConditions
 				.invisibilityOfElementLocated(By.xpath("//div[@id='load_send_usageGrid' and text()='Loading...']")));
@@ -225,7 +242,7 @@ public class AccountDetailsPage extends CommonMethods {
 			clickSendGo();
 			log = getExpectedSendRecordLog(senderid);
 		}
-
+ 
 		if (log != null) {
 			printSendActivityLog1(log);
 			return true;

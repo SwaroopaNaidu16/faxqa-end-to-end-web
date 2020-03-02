@@ -32,8 +32,8 @@ public class SignUpTests extends BaseTest {
 		WebDriver driver = null;
 
 		driver = TLDriverFactory.getTLDriver();
-		logger.info("Navigating to - " + Config.efax_US_funnelBaseUrl);
-		driver.navigate().to(Config.efax_US_funnelBaseUrl);
+		logger.info("Navigating to - " + Config.metrofax_funnelBaseUrl);
+		driver.navigate().to(Config.metrofax_funnelBaseUrl);
 
 		String random = UUID.randomUUID().toString().replace("-", "").substring(0, 12);
 		String firstname = "QATest";
@@ -54,8 +54,6 @@ public class SignUpTests extends BaseTest {
 
 		SignUpPage signup = new SignUpPage();
 		signup.selectCountry(country);
-		// signup.selectAreaCode();
-		// signup.enterAreaCode("212");
 		signup.selectState();
 		state = signup.setState();
 		city = signup.setCity();

@@ -76,8 +76,8 @@ public class EnvironmentSetup extends org.testng.Reporter {
 		Config.metrofax_myaccountBaseUrl = prop.getProperty("metrofax_myaccountBaseUrl");
 		Config.metrofax_funnelBaseUrl = prop.getProperty("metrofax_funnelBaseUrl");
 		Config.metrofax_landingpageBaseUrl = prop.getProperty("metrofax_landingpagelBaseUrl");
-		Config.metrofax_DID = prop.getProperty("DID");
-		Config.metrofax_PIN = prop.getProperty("PIN");
+		Config.metrofax_DID = prop.getProperty("metrofax_DID");
+		Config.metrofax_PIN = prop.getProperty("metrofax_PIN");
 		Config.metrofax_creditCard = prop.getProperty("CreditCard");
 		
 		Config.microsites_myaccountBaseUrl = prop.getProperty("microsites_myaccountBaseUrl");

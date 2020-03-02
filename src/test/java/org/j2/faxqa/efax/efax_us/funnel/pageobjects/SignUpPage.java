@@ -176,7 +176,7 @@ public class SignUpPage {
 		logger.info("Chosing to look for faxnumbers by State");
 		radioState.click();
 	}
-
+	
 	public void selectCountry(String text) {
 		wait.until(ExpectedConditions.elementToBeClickable(ddlChooseNumberCountryRed));
 		Select selection = new Select(ddlChooseNumberCountryRed);

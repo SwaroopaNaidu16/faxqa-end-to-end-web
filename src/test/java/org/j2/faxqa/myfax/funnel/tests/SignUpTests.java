@@ -9,7 +9,7 @@ import org.j2.faxqa.efax.common.BaseTest;
 import org.j2.faxqa.efax.common.Config;
 import org.j2.faxqa.efax.common.TLDriverFactory;
 import org.j2.faxqa.efax.common.TestRail;
-import org.j2.faxqa.efax.efax_us.funnel.pageobjects.SignUpPage;
+import org.j2.faxqa.myfax.funnel.pageobjects.SignUpPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.ITestContext;
@@ -32,8 +32,10 @@ public class SignUpTests extends BaseTest {
 		WebDriver driver = null;
 
 		driver = TLDriverFactory.getTLDriver();
-		logger.info("Navigating to - " + Config.efax_US_funnelBaseUrl);
-		driver.navigate().to(Config.efax_US_funnelBaseUrl);
+		logger.info("Navigating to - " + Config.myfax_funnelBaseUrl+"/");
+		driver.navigate().to(Config.myfax_funnelBaseUrl);
+		
+		
 
 		String random = UUID.randomUUID().toString().replace("-", "").substring(0, 12);
 		String firstname = "QATest";
@@ -43,14 +45,15 @@ public class SignUpTests extends BaseTest {
 				ThreadLocalRandom.current().nextInt(10000, 99999));
 		String address1 = new Faker().address().streetAddress();
 		String address2 = new Faker().address().zipCode();
-		String city = "";
+		String city = new Faker().address().city();
 		String pcode = String.format("%s", ThreadLocalRandom.current().nextInt(10000, 99999));
-		String state = "";
+		String state = "California";
 		String country = "United States";
 		String creditcardnumber = "4133738662043055"; // "4872906545490653"; // "441506691331";
 		String creditcardmonth = "DEC";
 		String creditcardyear = "2025";
 		String creditcardcvv = "321";
+		String company = "Vensiti";
 
 		SignUpPage signup = new SignUpPage();
 		signup.selectCountry(country);
@@ -64,26 +67,25 @@ public class SignUpTests extends BaseTest {
 			state = signup.setState();
 			city = signup.setCity();
 		}
-		signup.proceedNext();
+		signup.Nextbutton();
 		signup.setFirstName(firstname);
 		signup.setLastName(lastname);
 		signup.setEmail(email);
-		signup.proceedToBilling();
-		signup.setBillingCardName(firstname + " " + lastname);
-		signup.setBillingPhoneNumber(phone);
-		signup.setBillingAddress1(address1);
-		signup.setBillingAddress2(address2);
+		signup.proceedToOrderConfirmation();
 		signup.setBillingCountry(country);
-		signup.setBillingState(state);
+		signup.setBillingAddress(address1);
+		signup.setBillingAddress2(address2);
 		signup.setBillingCity(city);
+		signup.setBillingState(state);
 		signup.setBillingPostalCode(pcode);
-		signup.setBillingCardTypeVisa();
+		signup.setBillingPhoneNumber(phone);
 		signup.setBillingCreditCardNumber(creditcardnumber);
+		signup.setBillingCreditCardCVV(creditcardcvv);
 		signup.setBillingCreditCardMonth(creditcardmonth);
 		signup.setBillingCreditCardYear(creditcardyear);
-		signup.setBillingCreditCardCVV(creditcardcvv);
+		//signup.setBillingCompany(company);
 		signup.agreeToTermsConditions();
-		signup.activateAccount();
+		signup.ActivateAccount();
 
 		boolean flag = signup.isSignUpSuccess();
 		Assert.assertTrue(flag);
@@ -94,15 +96,17 @@ public class SignUpTests extends BaseTest {
 
 		if (signup.isLoginBtnAvailable()) {
 			signup.clickLogin();
-		}
-
-		if (signup.isLoggedIn()) {
-			signup.clickLogin();
-		} else {
+		}else {
 			signup.LoginWithCredentials(fax, pin);
 		}
 
-		Assert.assertTrue(flag);
+		//if (signup.isLoggedIn()) {
+			//signup.clickLogin();
+		//} else {
+			//signup.LoginWithCredentials(fax, pin);
+		//}
+
+		//Assert.assertTrue(flag);
 
 		flag = signup.logout();
 		Assert.assertTrue(flag);

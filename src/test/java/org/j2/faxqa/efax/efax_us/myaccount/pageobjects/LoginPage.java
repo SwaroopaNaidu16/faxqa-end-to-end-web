@@ -36,7 +36,7 @@ public class LoginPage {
 	@FindBy(id = "pin")
 	private WebElement passwordpin;
 
-	@FindBy(id = "loginSubmitBtn")
+	@FindBy(id = "submitButton")
 	private WebElement loginSubmitBtn;
 
 	@FindBy(id = "cookie-understand")

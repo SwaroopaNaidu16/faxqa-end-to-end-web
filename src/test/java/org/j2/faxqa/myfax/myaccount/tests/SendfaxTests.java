@@ -16,12 +16,12 @@ import org.j2.faxqa.efax.common.TLDriverFactory;
 import org.j2.faxqa.efax.common.TestExecutionListener;
 import org.j2.faxqa.efax.common.TestNGReportListener;
 import org.j2.faxqa.efax.common.TestRail;
-import org.j2.faxqa.efax.efax_us.myaccount.pageobjects.AccountDetailsPage;
-import org.j2.faxqa.efax.efax_us.myaccount.pageobjects.HomePage;
-import org.j2.faxqa.efax.efax_us.myaccount.pageobjects.LoginPage;
-import org.j2.faxqa.efax.efax_us.myaccount.pageobjects.NavigationBar;
-import org.j2.faxqa.efax.efax_us.myaccount.pageobjects.SendFaxesPage;
-import org.j2.faxqa.efax.efax_us.myaccount.pageobjects.ViewFaxesPage;
+import org.j2.faxqa.myfax.myaccount.pageobjects.AccountDetailsPage;
+import org.j2.faxqa.myfax.myaccount.pageobjects.HomePage;
+import org.j2.faxqa.myfax.myaccount.pageobjects.LoginPage;
+import org.j2.faxqa.myfax.myaccount.pageobjects.NavigationBar;
+import org.j2.faxqa.myfax.myaccount.pageobjects.SendFaxesPage;
+import org.j2.faxqa.myfax.myaccount.pageobjects.ViewFaxesPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -42,9 +42,9 @@ public class SendfaxTests extends BaseTest {
 			"regression" }, priority = 1, description = "US > Send a fax to self and verify the received fax")
 	public void testcase1(ITestContext context) throws Exception {
 		WebDriver driver = TLDriverFactory.getTLDriver();
-		driver.navigate().to(Config.efax_US_myaccountBaseUrl);
+		driver.navigate().to(Config.myfax_myaccountBaseUrl);
 		LoginPage loginpage = new LoginPage();
-		loginpage.login();
+		loginpage.login(Config.myfax_DID,Config.myfax_PIN);
 
 		if (driver.findElements(By.id("viewfaxesdash")).size() > 0) {
 			logger.info("Default home-page is 'My eFax Home Page'");

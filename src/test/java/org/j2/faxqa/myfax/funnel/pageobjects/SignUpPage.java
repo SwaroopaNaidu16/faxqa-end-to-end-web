@@ -337,9 +337,6 @@ public class SignUpPage {
             	   
                }
 			}
-	
-		
-		
 		
 	}
 

@@ -93,14 +93,6 @@ public class SignUpTests extends BaseTest {
 			signup.LoginWithCredentials(fax, pin);
 		}
 
-		//if (signup.isLoggedIn()) {
-			//signup.clickLogin();
-		//} else {
-			//signup.LoginWithCredentials(fax, pin);
-		//}
-
-		//Assert.assertTrue(flag);
-
 		flag = signup.logout();
 		Assert.assertTrue(flag);
 	}

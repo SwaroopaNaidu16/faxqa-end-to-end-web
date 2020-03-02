@@ -312,28 +312,35 @@ public class SignUpPage {
 	}
 	
 	public void  SelectCountry(String text) {
-		try {
-			if (driver.findElement(By.xpath("//div[@class='map active']")).isDisplayed())
+		
+			WebElement countrymap= driver.findElement(By.xpath("//div[@id='divMyFaxChooseNumberOldUSMap']"));
+			 String CountryValue = countrymap.getAttribute("class");
+			if(CountryValue == "map")
 			{
-				wait.until(ExpectedConditions.elementToBeClickable(country));
-				
+				driver.navigate().refresh();
+				Select selection = new Select(country);
+				selection.selectByVisibleText(text);
+				logger.info("Setting faxnumber country to - " + text);
 			}
 			else {
-				driver.navigate().refresh();
-				wait.until(ExpectedConditions.elementToBeClickable(country));
+				
+               try {
+                Select selection = new Select(country);
+                Thread.sleep(1000);
+        		selection.selectByVisibleText(text);
+        		logger.info("Setting faxnumber country to - " + text);
+               }
+               
+               catch(Exception ex)
+               {
+            	   logger.info("unable to redirect- " + text);
+            	   
+               }
 			}
+	
 		
-		Thread.sleep(1000);
-		//wait.until(ExpectedConditions.visibilityOf(country));
-		//wait.until(ExpectedConditions.elementToBeClickable(country));
-		Select selection = new Select(country);
-		selection.selectByVisibleText(text);
-		logger.info("Setting faxnumber country to - " + text);
-		}
-		catch(Exception ex){
-			
-			logger.info("Setting faxnumber country to is not navigating - " + text);
-		}
+		
+		
 	}
 
 	public void setFirstName(String text,String text1) {
